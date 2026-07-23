@@ -1,0 +1,111 @@
+.testimonials.layout-01 .mod-heading-wrapper {
+}
+
+.testimonials.layout-01 .mod-sub-heading {
+}
+
+.testimonials.layout-01 .mod-heading {
+}
+
+.testimonials.layout-01 .mod-lead {
+}
+
+/* Global style */
+.testimonials.layout-01 {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+.testimonials.layout-01 .testimonial-wrapper {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .testimonials.layout-01 .testimonial-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 476px) {
+  .testimonials.layout-01 .testimonial-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.testimonials.layout-01 .testimonial-item .testimonial-item-inner {
+  height: 100%;
+  transition: all 0.25s ease-in-out;
+}
+
+.testimonials.layout-01 .testimonial-item .testimonial-item-inner:hover {
+  border-color: var(--gk-primary) !important;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.testimonials.layout-01 .customer-image {
+  border-radius: .5rem;
+  overflow: hidden;
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+  max-width: 4rem;
+}
+
+.testimonials.layout-01 .customer-testimonial {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.testimonials.layout-01 .customer-testimonial::before {
+  content: '"';
+  display: inline-block;
+}
+
+.testimonials.layout-01 .customer-testimonial::after {
+  content: '"';
+  display: inline-block;
+}
+
+.testimonials.layout-01 .customer-info h4 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.testimonials.layout-01 .customer-info .customer-position {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  font-size: .9375rem;
+  opacity: .8;
+  margin-top: .25rem;
+}
+
+.testimonials.layout-01 .customer-info .customer-position a i {
+  font-size: .75rem;
+}
+
+.testimonials.layout-01 .customer-rating {
+  position: relative;
+  margin-top: .25rem;
+}
+
+.testimonials.layout-01 .customer-rating i {
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.testimonials.layout-01 .customer-rating .star-rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.testimonials.layout-01 .customer-rating .star-rating i {
+  color: #f59e0b;
+}

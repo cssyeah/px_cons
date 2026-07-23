@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Clients 01</title>
+  <categories>
+    <value>Clients</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+
+    <fieldset name="icon_style" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+      <field name="clients_per_row" type="list" default="6" label="Client(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+      </field>
+      <field name="image_max_height" type="number" default="32" label="Image Max Height" description="" />
+      <field name="image_opacity" type="list" default="1" label="Image Opacity" description="">
+        <option value="0.1">10%</option>
+        <option value="0.2">20%</option>
+        <option value="0.3">30%</option>
+        <option value="0.4">40%</option>
+        <option value="0.5">50%</option>
+        <option value="0.6">60%</option>
+        <option value="0.7">70%</option>
+        <option value="0.8">80%</option>
+        <option value="0.9">90%</option>
+        <option value="1">100%</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="clients" label="" description="">
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="MOD_FLEX_LAYOUT_ITEM_SETTINGS" />
+      <field name="client_items" type="subform" label="Client Item" description="" multiple="true" min="1" max="10">
+        <form>          
+          <field name="client_image" type="media" label="Client Image" description="" />
+          <field name="client_name" type="text" default="Client Name" label="Client Name" description="" />
+          <field name="client_link_url" type="text" default="#" label="Client Link" description="" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

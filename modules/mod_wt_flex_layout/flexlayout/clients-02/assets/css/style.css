@@ -1,0 +1,84 @@
+.clients.layout-02 .clients-heading-wrapper {
+}
+
+.clients.layout-02 .clients-sub-heading {
+}
+
+.clients.layout-02 .clients-heading {
+}
+
+.clients.layout-02 .clients-lead {
+}
+
+/* Global style */
+.clients.layout-02 ul {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 992px) {
+  .clients.layout-02 ul {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients.layout-02 ul {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.clients.layout-02 ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.clients.layout-02 ul li img {
+  opacity: .7;
+  max-width: 100%;
+  transition: all 0.25s ease-in-out;
+  max-height: 2.25rem;
+}
+
+.clients.layout-02 ul li:hover img {
+  opacity: 1;
+}
+
+.clients.layout-02 ul li p {
+  opacity: .8;
+}
+
+.clients.layout-02 ul li span {
+  border-bottom: 1px solid transparent;
+  color: var(--gk-primary);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+}
+
+.clients.layout-02 ul li:hover span {
+  border-bottom: 1px solid;
+}
+
+.clients.layout-02 ul li .link-mask {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.clients.layout-02 ul li .link-mask:hover,
+.clients.layout-02 ul li .link-mask:focus,
+.clients.layout-02 ul li .link-mask:active {
+  text-decoration: none;
+}

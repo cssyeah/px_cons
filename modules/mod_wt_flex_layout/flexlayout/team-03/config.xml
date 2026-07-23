@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Team 03</title>
+  <categories>
+    <value>Team</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+
+    <fieldset name="global_configurations" label="" description="">
+      <field name="mod_sub_heading" type="text" label="Sub Title" description="" filter="safehtml" />
+      <field name="mod_heading" type="text" label="Section Title" description="" filter="safehtml" />
+      <field name="mod_desc" type="textarea" label="Section Description" description="" cols="40" rows="6" filter="safehtml" />
+      <field name="mod_heading_alignment" type="list" default="left" label="Module Heading Aligment" description="">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </field>      
+
+      <field name="enable_container" type="list" default="1" label="Enable Container" description="">
+        <option value="0">Full Width</option>
+        <option value="1">Contained</option>
+      </field>
+
+      <field name="members_per_row" type="list" default="3" label="Member(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+      </field>
+
+      <field name="member_text_alignment" type="list" default="left" label="Member Text Alignment" description="">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </field>
+
+      <field name="member_bg_color" type="color" default="rgba(255,255,255,0)" label="Item Background Color" description="" />
+      <field name="member_text_color" type="color" default="#374151" label="Text Color" description="" />
+      <field name="member_border_width" type="number" default="0" label="Border Width" description="" min="0" max="5" />
+      <field name="member_border_color" type="color" default="#374151" label="Border Color" description="" showon="member_border_width:1,2,3,4,5" />
+      <field name="member_border_radius" type="list" default="0" label="Rounded Corners" description="">
+        <option value="0">Rounded 0 (0px)</option>
+        <option value="4">Rounded xs (4px)</option>
+        <option value="8">Rounded sm (8px)</option>
+        <option value="12">Rounded md (12px)</option>
+        <option value="16">Rounded lg (16px)</option>
+        <option value="24">Rounded xl (24px)</option>
+        <option value="32">Rounded xxl (32px)</option>
+      </field>
+      <field name="member_padding" type="list" default="0" label="Inner Spacing" description="">
+        <option value="0">0</option>
+        <option value="4">4px</option>
+        <option value="8">8px</option>
+        <option value="12">12px</option>
+        <option value="16">16px</option>
+        <option value="24">24px</option>
+        <option value="32">32px</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="team_configurations" label="" description="">
+      <field name="team_items" type="subform" label="Team Member" description="" multiple="true" min="1" max="10">
+        <form>          
+          <field name="member_image" type="media" label="Image" description="" />
+          <field name="member_name" type="text" label="Name" description="" />
+          <field name="member_position" type="text" label="Position" description="" />
+          <field name="member_intro" type="textarea" label="Introduction" description="" cols="40" rows="6" filter="safehtml" />
+          <field name="member_website_name" type="text" label="Website Name" description="" />
+          <field name="member_website_url" type="text" label="Website Url" description="" />
+          <field name="member_social_links" type="textarea" label="Social Links" description="" cols="40" rows="6" filter="safehtml" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

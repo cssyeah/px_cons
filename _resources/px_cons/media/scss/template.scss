@@ -1,0 +1,73 @@
+/**
+ * $JA#COPYRIGHT$
+ */
+
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/mixins/banner";
+@include bsBanner("");    
+
+// scss-docs-start import-stack
+// Configuration
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/functions";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/variables";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/variables-dark";
+@import "../../../../plugins/system/pixel/media/scss/variables";
+@import "variables";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/maps";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/mixins";
+@import "../../../../plugins/system/pixel/media/scss/mixins";
+@import "mixins"; 
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/utilities";
+
+// Layout & components
+@import "../../../../plugins/system/pixel/media/scss/root";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/reboot";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/type";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/images";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/containers";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/grid";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/tables";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/forms";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/buttons";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/transitions";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/dropdown";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/button-group";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/nav";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/navbar";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/card";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/accordion";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/breadcrumb";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/pagination";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/badge";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/alert";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/progress";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/list-group";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/close";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/toasts";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/modal";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/tooltip";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/popover";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/carousel";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/spinners";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/offcanvas";
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/helpers";
+
+// Utilities
+@import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack 
+
+// Base
+@import "../../../../plugins/system/pixel/media/scss/modal"; 
+@import "../../../../plugins/system/pixel/media/scss/layout";
+@import "../../../../plugins/system/pixel/media/scss/typography";
+@import "../../../../plugins/system/pixel/media/scss/menu";
+@import "../../../../plugins/system/pixel/media/scss/offcanvas";
+@import "../../../../plugins/system/pixel/media/scss/forms";
+@import "../../../../plugins/system/pixel/media/scss/modules";
+@import "../../../../plugins/system/pixel/media/scss/joomla";
+@import "../../../../plugins/system/pixel/media/scss/styles"; 
+
+// Template
+@import "px_blank";

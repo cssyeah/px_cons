@@ -1,0 +1,123 @@
+.features.layout-06 .mod-heading-wrapper {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  .features.layout-06 .mod-heading-wrapper {
+  }
+}
+
+.features.layout-06 .mod-sub-heading {
+}
+
+@media (min-width: 992px) {
+  .features.layout-06 .mod-heading {
+    font-size: 3rem;
+  }
+}
+
+.features.layout-06 .mod-lead {
+}
+
+/* Global style */
+.features.layout-06 .features-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.features.layout-06 .feature-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.features.layout-06 .feature-media {
+  background: rgba(0,0,0,0.08);
+  border-radius: .5rem;
+  display: inline-flex;
+  padding: 1rem;
+}
+
+.features.layout-06 .feature-media img {
+  max-width: 100%;
+  max-height: 48px;
+}
+
+.features.layout-06 .feature-media svg {
+  height: 48px;
+}
+
+.features.layout-06 .feature-ct {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: .5rem;
+}
+
+.features.layout-06 .feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.features.layout-06 .feature-desc {
+  opacity: .8;
+}
+
+.features.layout-06 .feature-action {
+  margin-top: auto;
+}
+
+.features.layout-06 .feature-action a.btn-link {
+  border-radius: 0;
+  padding: 0 0 .25rem;
+  position: relative;
+  text-decoration: none;
+}
+
+.features.layout-06 .feature-action a.btn-link::before {
+  background: rgba(0,0,0,0.15);
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
+}
+
+.features.layout-06 .feature-action a.btn-link::after {
+  background: currentColor;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+}
+
+.features.layout-06 .feature-action a.btn-link:hover,
+.features.layout-06 .feature-action a.btn-link:focus,
+.features.layout-06 .feature-action a.btn-link:active {
+}
+
+.features.layout-06 .feature-action a.btn-link:hover::before,
+.features.layout-06 .feature-action a.btn-link:focus::before,
+.features.layout-06 .feature-action a.btn-link:active::before {
+  opacity: 1;
+}
+
+.features.layout-06 .feature-action a.btn-link:hover::after,
+.features.layout-06 .feature-action a.btn-link:focus::after,
+.features.layout-06 .feature-action a.btn-link:active::after {
+  left: 0;
+  width: 100%;
+}

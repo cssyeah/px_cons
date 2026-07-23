@@ -1,0 +1,116 @@
+.hero.layout-02 .mod-heading-wrapper {
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.hero.layout-02 .mod-sub-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 .25rem 0;
+}
+
+.hero.layout-02 .mod-heading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+@media (min-width: 992px) {
+  .hero.layout-02 .mod-heading {
+    font-size: 3rem;
+  }
+}
+
+.hero.layout-02 .mod-lead {
+  font-size: 1.125rem;
+  opacity: .8;
+}
+
+@media (min-width: 992px) {
+  .hero.layout-02 .mod-lead {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+}
+
+/* Global style */
+@media (min-width: 992px) {
+  .hero.layout-02 .row .hero-content-wrapper {
+    padding-right: 2rem;
+  }
+
+  .hero.layout-02 .row.flex-row-reverse .hero-content-wrapper {
+    padding-left: 2rem;
+  }
+}
+
+/* Media layout */
+.hero.layout-02 .hero-media {
+  position: relative;
+  padding: 3rem 4rem;
+}
+
+.hero.layout-02 .hero-thumb-main {
+  box-shadow: 0 7px 7px rgba(0,0,0,0.2);
+  border-radius: .75rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 30;
+}
+
+.hero.layout-02 .hero-thumb-1,
+.hero.layout-02 .hero-thumb-2,
+.hero.layout-02 .hero-thumb-3,
+.hero.layout-02 .hero-thumb-4 {
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  border-radius: .5rem;
+  overflow: hidden;
+  position: absolute;
+  max-width: 16rem;
+}
+
+.hero.layout-02 .hero-thumb-1 {
+  top: 1rem;
+  left: 0;
+}
+
+.hero.layout-02 .hero-thumb-2 {
+  top: 0;
+  right: 0;
+}
+
+.hero.layout-02 .hero-thumb-3 {
+  bottom: 1rem;
+  left: 1rem;
+  opacity: .8;
+  max-width: 14rem;
+}
+
+.hero.layout-02 .hero-thumb-4 {
+  bottom: 0;
+  right: 1rem;
+}
+
+.hero.layout-02 .hero-small-text {
+  font-size: .875rem;
+  margin-top: .5rem;
+}
+
+.hero.layout-02 .hero-small-text a {
+  border-bottom: 1px dotted;
+}
+
+.hero.layout-02 .hero-small-text a:hover,
+.hero.layout-02 .hero-small-text a:focus,
+.hero.layout-02 .hero-small-text a:active {
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+
+.hero.layout-02 .hero-actions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}

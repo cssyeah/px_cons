@@ -120,6 +120,7 @@ return [
 	'Joomla\\Module\\User\\Administrator\\' => [JPATH_ADMINISTRATOR . '/modules/mod_user/src'],
 	'Joomla\\Module\\UsersLatest\\Site\\' => [JPATH_SITE . '/modules/mod_users_latest/src'],
 	'Joomla\\Module\\Version\\Administrator\\' => [JPATH_ADMINISTRATOR . '/modules/mod_version/src'],
+	'Joomla\\Module\\WTFlexLayout\\Site\\' => [JPATH_SITE . '/modules/mod_wt_flex_layout/src'],
 	'Joomla\\Module\\Whosonline\\Site\\' => [JPATH_SITE . '/modules/mod_whosonline/src'],
 	'Joomla\\Module\\Wrapper\\Site\\' => [JPATH_SITE . '/modules/mod_wrapper/src'],
 	'Joomla\\Plugin\\Actionlog\\Joomla\\' => [JPATH_PLUGINS . '\actionlog/joomla/src'],

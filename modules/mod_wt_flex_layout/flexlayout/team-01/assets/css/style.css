@@ -1,0 +1,109 @@
+.team.layout-01 .mod-heading-wrapper {
+}
+
+.team.layout-01 .mod-sub-heading {
+}
+
+.team.layout-01 .mod-heading {
+}
+
+.team.layout-01 .mod-lead {
+}
+
+/* Global style */
+.team.layout-01 .team-wrapper {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .team.layout-01 .team-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 476px) {
+  .team.layout-01 .team-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.team.layout-01 .team-item {
+  border-radius: .5rem;
+}
+
+.team.layout-01 .team-item .team-item-inner {
+  height: 100%;
+}
+
+.team.layout-01 .member-image {
+  overflow: hidden;
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.team.layout-01 .team-wrapper .member-name-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.team.layout-01 .team-wrapper h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.team.layout-01 .team-wrapper .member-meta {
+  display: flex;
+  gap: .5rem;
+  font-size: 1rem;
+}
+
+.team.layout-01 .team-wrapper .member-meta a {
+  display: inline-block;
+  border-bottom: 1px dotted;
+}
+
+.team.layout-01 .team-wrapper .member-meta a:hover,
+.team.layout-01 .team-wrapper .member-meta a:focus,
+.team.layout-01 .team-wrapper .member-meta a:active {
+  text-decoration: none;
+}
+
+.team.layout-01 .team-wrapper .member-position {
+  font-weight: 600;
+  opacity: .9;
+}
+
+.team.layout-01 .team-wrapper .member-desc {
+  opacity: .9;
+  margin-top: 1.125rem;
+}
+
+.team.layout-01 .team-wrapper .member-social-links ul {
+  display: flex;
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team.layout-01 .team-wrapper .member-social-links a {
+  color: #9ca3af;
+}
+
+.team.layout-01 .team-wrapper .member-social-links a:hover,
+.team.layout-01 .team-wrapper .member-social-links a:focus,
+.team.layout-01 .team-wrapper .member-social-links a:active {
+  color: #1d4ed8;
+}
+
+.team.layout-01 .team-wrapper .member-social-links ul i {
+  font-size: 18px;
+}

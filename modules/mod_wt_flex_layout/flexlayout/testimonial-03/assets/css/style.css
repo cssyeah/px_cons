@@ -1,0 +1,122 @@
+.testimonial-heading-wrapper {
+}
+
+.testimonials.layout-03 .mod-sub-heading {
+}
+
+.testimonials.layout-03 .mod-heading {
+}
+
+.testimonials.layout-03 .mod-lead {
+}
+
+/* Global style */
+.testimonials.layout-03 .testimonial-wrapper {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .testimonials.layout-03 .testimonial-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 476px) {
+  .testimonials.layout-03 .testimonial-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.testimonials.layout-03 .testimonial-item {
+  border-radius: .5rem;
+  margin-top: 4rem;
+}
+
+.testimonials.layout-03 .testimonial-item-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  padding-top: 6rem !important;
+}
+
+.testimonials.layout-03 .testimonial-item-inner:hover {
+  border-color: var(--gk-primary) !important;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.testimonials.layout-03 .customer-testimonial {
+  font-size: 1.25rem;
+  line-height: 1.375;
+  position: relative;
+  text-align: center;
+}
+
+.testimonials.layout-03 .customer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials.layout-03 .customer-image {
+  background: #fff;
+  border-radius: 50%;
+  max-width: 8rem;
+  overflow: hidden;
+  margin: 0;
+  padding: .25rem;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.testimonials.layout-03 .customer-image img {
+  border-radius: 50%;
+}
+
+.testimonials.layout-03 h4 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.testimonials.layout-03 .customer-position {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9375rem;
+  opacity: .8;
+  margin-top: .25rem;
+}
+
+.testimonials.layout-03 .customer-position i {
+  font-size: .75rem;
+}
+
+.testimonials.layout-03 .customer-rating {
+  position: relative;
+  line-height: 1;
+}
+
+.testimonials.layout-03 .customer-rating i {
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+.testimonials.layout-03 .customer-rating .star-rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.testimonials.layout-03 .customer-rating .star-rating i {
+  color: #f59e0b;
+}

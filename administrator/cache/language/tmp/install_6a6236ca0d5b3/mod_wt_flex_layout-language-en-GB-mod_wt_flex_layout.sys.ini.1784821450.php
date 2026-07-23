@@ -1,0 +1,6 @@
+<?php
+defined('_JEXEC') or die;
+return array (
+  'MOD_WT_FLEX_LAYOUT' => 'WT Flex Layout',
+  'MOD_WT_FLEX_LAYOUT_DESCRIPTION' => 'WT Flex Layout is a Joomla module that helps you quickly create landing pages or add eye-catching sections to your website. Choose from over 100 block layouts, including Hero, Feature, CTA, Team, and Testimonial. Just pick a layout, fill in your content, and make your website look great in minutes.',
+);

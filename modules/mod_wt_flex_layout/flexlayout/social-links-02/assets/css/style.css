@@ -1,0 +1,50 @@
+/* Global style */
+.social-links.layout-02 p {
+  margin-bottom: .5rem;
+}
+
+.social-links.layout-02 ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links.layout-02.icon-size-lg ul {
+  gap: .875rem;
+}
+
+.social-links.layout-02 ul a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+  padding: .5rem;
+  transition: all 0.35s ease-in-out;
+}
+
+
+/* Icon sizes */
+.social-icon-size-sm i { font-size: 16px; }
+.social-icon-size-sm img { width: 16px; }
+
+.social-icon-size-md i { font-size: 24px; }
+.social-icon-size-md img { width: 24px; }
+
+.social-icon-size-lg i { font-size: 36px; }
+.social-icon-size-lg img { width: 36px; }
+
+/* Icon style */
+.social-icon-style-square a { border-radius: 0; }
+.social-icon-style-rounded-sm a { border-radius: 4px; }
+.social-icon-style-rounded a { border-radius: 8px; }
+.social-icon-style-rounded-lg a { border-radius: 12px; }
+.rounded-full a { border-radius: 50%; }
+
+
+/* Social Links 02 Style */
+.social-links.layout-02 {
+}

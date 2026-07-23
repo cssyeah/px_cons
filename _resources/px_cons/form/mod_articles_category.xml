@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="gk_fields" label="GK Fields">
+            <field
+                name="sub_heading"
+                type="text"
+                label="Sub Heading"
+            />
+            <field
+                name="desc"
+                type="textarea"
+                label="Mod Description"
+            />
+        </fieldset>
+    </fields>
+</form>

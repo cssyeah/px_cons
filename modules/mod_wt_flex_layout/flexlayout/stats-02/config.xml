@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Stats 02</title>
+  <categories>
+    <value>Stats</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+      <field name="stats_per_row" type="list" default="3" label="Item(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+      </field>
+
+      <field name="stats_item_gap" type="list" default="0" label="Item Gap" description="">
+        <option value="0px">0</option>
+        <option value="4px">4px</option>
+        <option value="8px">8px</option>
+        <option value="12px">12px</option>
+        <option value="16px">16px</option>
+        <option value="24px">24px</option>
+        <option value="32px">32px</option>
+        <option value="48px">48px</option>
+        <option value="64px">64px</option>
+      </field>
+
+      <field name="stats_text_alignment" type="list" default="left" label="Item Text Alignment" description="">
+        <option value="left">Align Left</option>
+        <option value="center">Align Center</option>
+        <option value="right">Align Right</option>
+      </field>
+      <field name="stats_bg_color" type="color" default="" label="Item Background Color" description="" />
+      <field name="stats_border_width" type="number" default="0" label="Item Border Width" description="" min="0" max="4" />
+      <field name="stats_border_color" type="color" default="#374151" label="Image Border Color" description="" showon="stats_border_width:1,2,3,4" />
+      <field name="stats_text_color" type="color" default="" label="Text Color" description="" />
+      <field name="stats_border_radius" type="list" default="0px" label="Item Rounded Corners" description="">
+        <option value="0px">Rounded 0 (0px)</option>
+        <option value="4px">Rounded xs (4px)</option>
+        <option value="8px">Rounded sm (8px)</option>
+        <option value="12px">Rounded md (12px)</option>
+        <option value="16px">Rounded lg (16px)</option>
+        <option value="24px">Rounded xl (24px)</option>
+        <option value="32px">Rounded xxl (32px)</option>
+      </field>
+      <field name="stats_padding" type="list" default="0" label="Item Inner Spacing" description="">
+        <option value="0">0</option>
+        <option value="4px">4px</option>
+        <option value="8px">8px</option>
+        <option value="12px">12px</option>
+        <option value="16px">16px</option>
+        <option value="24px">24px</option>
+        <option value="32px">32px</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="stats_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="MOD_FLEX_LAYOUT_ITEM_SETTINGS" />
+      <field name="stats_items" type="subform" label="Feature Item" description="" multiple="true" min="1" max="10">
+        <form>
+          <field name="stats_number" type="text" label="Number" description="" filter="safehtml" />
+          <field name="stats_title" type="text" label="Title" description="" />
+          <field name="stats_desc" type="textarea" label="Description" description="" cols="40" rows="6" filter="safehtml" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

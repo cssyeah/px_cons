@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Testimonial 03</title>
+  <categories>
+    <value>Testimonial</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+      <field name="testimonials_per_row" type="list" default="3" label="Testimonial(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+      </field>
+
+      <field name="testimonial_bg_color" type="color" default="#ffffff" label="Item Background Color" description="" />
+      <field name="testimonial_text_color" type="color" default="#374151" label="Text Color" description="" />
+      <field name="testimonial_border_width" type="number" default="0" label="Border Width" description="" min="0" max="5" />
+      <field name="testimonial_border_color" type="color" default="#374151" label="Border Color" description="" showon="testimonial_border_width:1,2,3,4,5" />
+      <field name="testimonial_border_radius" type="list" default="0" label="Rounded Corners" description="">
+        <option value="0">Rounded 0 (0px)</option>
+        <option value="4">Rounded xs (4px)</option>
+        <option value="8">Rounded sm (8px)</option>
+        <option value="12">Rounded md (12px)</option>
+        <option value="16">Rounded lg (16px)</option>
+        <option value="24">Rounded xl (24px)</option>
+        <option value="32">Rounded xxl (32px)</option>
+      </field>
+      <field name="testimonial_padding" type="list" default="0" label="Inner Spacing" description="">
+        <option value="0">0</option>
+        <option value="4">4px</option>
+        <option value="8">8px</option>
+        <option value="12">12px</option>
+        <option value="16">16px</option>
+        <option value="24">24px</option>
+        <option value="32">32px</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="testimonial_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="MOD_FLEX_LAYOUT_ITEM_SETTINGS" />
+      <field name="testimonial_items" type="subform" label="Customer" description="" multiple="true" min="1" max="10">
+        <form>          
+          <field name="customer_image" type="media" label="Image" description="" />
+          <field name="customer_name" type="text" label="Name" description="" />
+          <field name="customer_position" type="text" label="Position" description="" />
+          <field name="customer_testimonial" type="textarea" label="Introduction" description="" cols="40" rows="6" filter="safehtml" />
+          <field name="customer_website_name" type="text" label="Website Name" description="" />
+          <field name="customer_website_url" type="text" label="Website Url" description="" />
+          <field name="customer_rating" type="list" default="4" label="Rating" description="">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </field>
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

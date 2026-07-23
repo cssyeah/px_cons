@@ -1,0 +1,41 @@
+/* Global style */
+.social-links.layout-01 p {
+  margin-bottom: .5rem;
+}
+
+.social-links.layout-01 ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links.layout-01.icon-size-lg ul {
+  gap: .875rem;
+}
+
+.social-links.layout-01 ul a {
+  display: inline-flex;  
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.35s ease-in-out;
+}
+
+/* Icon sizes */
+.social-icon-size-sm i { font-size: 16px; }
+.social-icon-size-sm img { width: 16px; }
+
+.social-icon-size-md i { font-size: 24px; }
+.social-icon-size-md img { width: 24px; }
+
+.social-icon-size-lg i { font-size: 36px; }
+.social-icon-size-lg img { width: 36px; }
+
+
+/* Social Links 01 Style */
+.social-links.layout-01 {
+}

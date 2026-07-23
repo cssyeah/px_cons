@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="template" client="site" method="upgrade">
+    <name>px_cons</name>
+    <creationDate>Jul 17rd, 2026</creationDate>
+    <author>Nice Theme Store</author>
+    <authorEmail>9themestore@gmail.com</authorEmail>
+    <authorUrl>www.9themestore.com</authorUrl>
+    <copyright>Copyright (C) 2007 - 2026 Pixel Framework. All rights reserved.</copyright>
+    <license></license>
+    <version>1.0.0</version>
+    <pixel>1</pixel>
+    <inheritable>1</inheritable>
+    <description>
+        <![CDATA[
+               <div id="wrap1">
+               <h1>Pixel Cons</h1>
+               <p>Pixel Cons is not just a template; it's the blank canvas upon which you paint your digital masterpiece. Crafted to be versatile and user-friendly, it's your starting point for web projects limited only by your imagination. With its clean design and robust features, Pixel Blank offers you the freedom to create unique websites that leave a lasting impression. Get ready to bring your vision to life, effortlessly and brilliantly, with Pixel Blank.</p>
+               
+               <p class="actions-wrap"><a class="btn btn-success" href="#" target="_blank">Try the live demo</a><a class="btn btn-secondary" href="#" target="_blank">Documentation</a></p>
+               <p><small class="px-version-check" style="display:none;">Checking new version...</small></p>
+               
+               </div>
+               
+               <span class='tooltip-content'>Joomla! template</span>
+
+               <style type="text/css" media="all">
+               <!--
+               #wrap1 {padding:0px 0px 4px 0px; font-weight: 400; text-align: justify; color: #4d4d4d; line-height: 24px; max-width: 680px; }
+               #wrap1 p { padding: 0; }
+               #wrap1 h1 {clear:both; font-size: 32px;margin: 0 0 8px; padding: 0;color:#333;font-weight: 600;}
+               #wrap1 h4 { border: none;  font-weight: 300; margin: 0 20px 40px; font-size: 20px; line-height: 32px;color: #333; text-align: left }
+               #wrap1 sup { font-style: italic; font-size: }
+               #wrap1 .btn { margin-bottom:50px}
+               
+               .actions-wrap {display: flex; align-items: center; gap: 8px; margin-top: 24px; }
+
+               .actions-wrap a { display: flex; gap: 8px;}
+               span.tooltip-content { display: none; }
+               .tip-text span.readonly { display: none; }
+               .tip-text span.tooltip-content { display: block; }
+               .tip-text #wrap1 { display: none; }
+               -->
+
+               .control-group.field-spacer .control-label { color: var(--template-link-color); padding: 0; width: 100%; }
+               .control-group.field-spacer .control-label .spacer { display: flex; align-items: center; gap: 6px; font-size: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+               .control-group.field-spacer .control-label .before { background: #f1f5f9; width: 234px; height: 6px;}
+               .control-group.field-spacer .control-label .after { background: #f1f5f9; flex: 1; height: 6px; }
+               .control-group.field-spacer .controls { display: none; }
+</style>
+          ]]>
+    </description>
+    <media destination="templates/site/px_cons" folder="media">
+        <file>images/template_preview.png</file>
+        <file>images/template_thumbnail.png</file>
+    </media>
+    <files>
+        <folder>html</folder>
+        <folder>layouts</folder>
+        <folder>media</folder>
+        <folder>form</folder>
+        <folder>language</folder>
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>favicon.ico</filename>
+        <filename>index.html</filename>
+        <filename>index.php</filename>
+        <filename>offline.php</filename>
+        <filename>templateDetails.xml</filename>
+    </files>
+    <positions>
+        <!-- Template specific Module Positions -->
+        <position>breadcrumb</position>
+        <position>copyright</position>
+        <position>footer_nav_1</position>
+        <position>footer_nav_2</position>
+        <position>footer_nav_3</position>
+        <position>footer_nav_4</position>
+        <position>footer_nav_5</position>
+        <position>footer_nav_6</position>
+        <position>header</position>
+        <position>mainbody</position>
+        <position>mainbody_top</position>
+        <position>mainbody_bottom</position>
+        <position>mainmenu</position>
+        <position>megamenu</position>
+        <position>offcanvas</position>
+        <position>topbar</position>
+        <position>search</position>
+        <position>sidebar-l</position>
+        <position>sidebar-r</position>
+        <position>masthead</position>
+    </positions>
+    <languages folder="language">
+        <language tag="en-GB">en-GB.tpl_px_cons.ini</language>
+        <language tag="en-GB">en-GB.tpl_px_cons.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic-settings" label="COM_TEMPLATES_BASIC_SETTINGS_FIELDSET_LABEL">
+                <field type="spacer" name="myspacer" class="px-spacer" label="TPL_PX_LOGO_SETTINGS" />
+                <field type="list" name="logo_type" label="TPL_PX_LOGO_TYPE" description="TPL_PX_LOGO_TYPE_DESC">
+                    <option value="text">Text</option>
+                    <option value="image">Image</option>
+                    <option value="none">None</option>
+                </field>
+                <field name="logo_image" type="media" default="" label="TPL_PX_LOGO_IMAGE" description="TPL_PX_LOGO_IMAGE_DESC" showon="logo_type:image" />
+                <field name="logo_text" type="text" default="" label="TPL_PX_LOGO_TEXT" description="TPL_PX_LOGO_TEXT_DESC" showon="logo_type:text" />
+                <field name="logo_slogan" type="text" default="" label="TPL_PX_LOGO_SLOGAN" description="TPL_PX_LOGO_SLOGAN_DESC" showon="logo_type:text" />
+                <field name="favicon_image" type="media" default="" label="TPL_PX_FAVICON_IMAGE" description="" />
+                <field name="touch_image" type="media" default="" label="TPL_PX_TOUCH_IMAGE" description="" />
+
+                <field type="spacer" name="other-settings" class="px-spacer" label="Other settings" />
+                <field name="show_back_to_top" type="radio" default="1" label="PIXEL_SHOW_BACK_TO_TOP" description="" class="btn-group btn-group-yesno">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+            </fieldset>
+            <fieldset name="fonts" label="COM_TEMPLATES_FONT_SETTINGS_FIELDSET_LABEL">
+                <field type="spacer" name="body-font-spacer" class="px-spacer" label="TPL_PX_BODY_FONT" />
+                <field name="body_font" type="PixelGoogleFont" default="" variable="--px-body-font-family" label="TPL_PX_BODY_FONT" />
+
+                <field type="spacer" name="heading-font-spacer" class="px-spacer" label="TPL_PX_HEADING_FONT" />
+                <field name="heading_font" type="PixelGoogleFont" default="" variable="--px-heading-font-family" label="TPL_PX_HEADING_FONT" />
+
+                <field type="spacer" name="custom-font-spacer" class="px-spacer" label="TPL_PX_CUSTOM_ELEMENTS_FONT" />
+                <field name="custom_font" type="PixelGoogleFont" default="" variable="--px-custom-font-family" label="TPL_PX_CUSTOM_FONT" />
+            </fieldset>
+            <fieldset name="template_color" label="COM_TEMPLATES_LAYOUT_SETTINGS_FIELDSET_LABEL" addfieldprefix="Joomla\Plugin\System\Pixel\Field">
+                <field name="color_preset" type="PixelColorPreset" default_preset="light">
+                    <preset name="light">
+                        <variable name="--px-primary" group="TPL_PX_BRAND_COLORS">#d05d5d</variable>
+                        <variable name="--px-secondary" group="TPL_PX_BRAND_COLORS">#4f84b8</variable>
+                        <variable name="--px-success" group="TPL_PX_BRAND_COLORS">#198754</variable>
+                        <variable name="--px-danger" group="TPL_PX_BRAND_COLORS">#dc3545</variable>
+                        <variable name="--px-warning" group="TPL_PX_BRAND_COLORS">#ffc107</variable>
+                        <variable name="--px-info" group="TPL_PX_BRAND_COLORS">#0dcaf0</variable>
+                        <variable name="--px-body-bg" group="TPL_PX_PAGE_COLORS">#ffffff</variable>
+                        <variable name="--px-body-color" group="TPL_PX_PAGE_COLORS">#212529</variable>
+                        <variable name="--px-emphasis-color" group="TPL_PX_PAGE_COLORS">#000000</variable>
+                        <variable name="--px-link-color" group="TPL_PX_PAGE_COLORS">#456496</variable>
+                        <variable name="--px-link-hover-color" group="TPL_PX_PAGE_COLORS">#3b5580</variable>
+                        <variable name="--px-border-color" group="TPL_PX_PAGE_COLORS">#dee2e6</variable>
+                        <variable name="--px-logo-color" group="TPL_PX_PAGE_COLORS">#212529</variable>
+                        <variable name="--px-mega-bg" group="TPL_PX_PAGE_COLORS">#ffffff</variable>
+                    </preset>
+                    <preset name="dark">
+                        <variable name="--px-primary" group="TPL_PX_BRAND_COLORS">#f9a813</variable>
+                        <variable name="--px-secondary" group="TPL_PX_BRAND_COLORS">#4f84b8</variable>
+                        <variable name="--px-success" group="TPL_PX_BRAND_COLORS">#198754</variable>
+                        <variable name="--px-danger" group="TPL_PX_BRAND_COLORS">#dc3545</variable>
+                        <variable name="--px-warning" group="TPL_PX_BRAND_COLORS">#ffc107</variable>
+                        <variable name="--px-info" group="TPL_PX_BRAND_COLORS">#0dcaf0</variable>
+                        <variable name="--px-body-bg" group="TPL_PX_PAGE_COLORS">#111111</variable>
+                        <variable name="--px-body-color" group="TPL_PX_PAGE_COLORS">#a5a5a5</variable>
+                        <variable name="--px-emphasis-color" group="TPL_PX_PAGE_COLORS">#ffffff</variable>
+                        <variable name="--px-link-color" group="TPL_PX_PAGE_COLORS">#f9a813</variable>
+                        <variable name="--px-link-hover-color" group="TPL_PX_PAGE_COLORS">#fccb70</variable>
+                        <variable name="--px-border-color" group="TPL_PX_PAGE_COLORS">#373737</variable>
+                        <variable name="--px-logo-color" group="TPL_PX_PAGE_COLORS">#ffffff</variable>
+                        <variable name="--px-mega-bg" group="TPL_PX_PAGE_COLORS">#000000</variable>
+                    </preset>
+                </field>
+            </fieldset>
+            <fieldset name="layout" label="COM_TEMPLATES_LAYOUT_SETTINGS_FIELDSET_LABEL" addfieldprefix="Joomla\Plugin\System\Pixel\Field">
+                <field name="template_layout" type="PixelLayout" default="" label="TPL_PX_TEMPLATE_LAYOUT" description="" />
+                <field name="sublayout" type="PixelSublayout" default="" label="TPL_PX_SUBLAYOUT_CONFIG" />
+            </fieldset>
+            <fieldset name="menu" label="TPL_PX_MENU" addfieldprefix="Joomla\Plugin\System\Pixel\Field">
+                <field name="offcanvas" type="radio" default="0" label="TPL_PX_OFFCANVAS" description=""
+                    class="btn-group btn-group-yesno">
+                    <option value="1">Enable</option>
+                    <option value="0">Disable</option>
+                </field>
+                <field name="mobile_menu_breakpoint" label="TPL_PX_MOBILE_MENU_BREAKPOINT" type="number" class="breakpoint-width" default="768" />
+                <field name="megamenu" type="PixelMegamenu" label="TPL_PX_MEGAMENU" />
+                <field name="pixeladminassets" type="PixelAdminassets" label="Pixel Admin Assets" />
+            </fieldset>
+            <fieldset name="global" label="TPL_PX_ADVANCED_SETTINGS">
+                <field type="spacer" name="css_js_optimize" class="px-spacer" label="TPL_PX_CSS_JS_OPTIMIZE" />
+                <field name="optimize_js" type="radio" default="0" label="TPL_PX_OPTIMIZE_JS" description="" class="btn-group btn-group-yesno">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="js_excluded" type="textarea" default="tinymce" rows="3" cols="30" label="TPL_PX_EXCLUDED_JS_FILE" description="" showon="minify_js:1" />
+                <field name="optimize_css" type="radio" default="0" label="TPL_PX_OPTIMIZE_CSS" description="" class="btn-group btn-group-yesno">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="css_excluded" type="textarea" default="tinymce" rows="3" cols="30" label="TPL_PX_EXCLUDED_CSS_FILE" description="" showon="minify_css:1" />
+
+                <field type="spacer" name="custom_codee" class="px-spacer" label="Custom code" />
+                <field name="custom_code_after_head" type="textarea" filter="raw" label="TPL_PX_AFTER_HEAD" />
+                <field name="custom_code_before_head" type="textarea" filter="raw" label="TPL_PX_BEFORE_HEAD" />
+                <field name="custom_code_after_body" type="textarea" filter="raw" label="TPL_PX_AFTER_BODY" />
+                <field name="custom_code_before_body" type="textarea" filter="raw" label="TPL_PX_BEFORE_BODY" />
+            </fieldset>
+        </fields>
+    </config>
+
+
+</extension>

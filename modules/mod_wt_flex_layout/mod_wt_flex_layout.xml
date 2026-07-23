@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>MOD_WT_FLEX_LAYOUT</name>
+	<author>WaveTheme</author>
+	<creationDate>2024-05-15</creationDate>
+	<copyright>(C) 2006 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>9themestore@gmail.com</authorEmail>
+	<authorUrl>www.wavetheme.com</authorUrl>
+	<version>1.0.1</version>
+	<description>MOD_WT_FLEX_LAYOUT_DESCRIPTION</description>
+	<namespace path="src">Joomla\Module\WTFlexLayout</namespace>
+	<files>
+		<folder module="mod_wt_flex_layout">services</folder>
+		<folder>flexlayout</folder>
+		<folder>language</folder>
+		<folder>media</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_wt_flex_layout.ini</language>
+		<language tag="en-GB">language/en-GB/mod_wt_flex_layout.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldprefix="Joomla\Module\WTFlexLayout\Site\Field">
+				<field
+					name="flexstyle"
+					type="Style"
+					label="MOD_WT_FLEX_LAYOUT_SELECT_LAYOUT"
+				/>
+				<field
+					name="styleconfig"
+					type="StyleConfig"
+					label="Style Config"
+					filter="safehtml"
+				/>
+			</fieldset>
+			<fieldset name="fl-extra">
+				<field type="spacer" name="fl-extra-1" class="fl-sep" label="Module Heading" />
+				<field name="mod_sub_heading" type="text" label="Sub Title" description="" filter="safehtml" />
+				<field name="mod_heading" type="text" label="Section Title" description="" filter="safehtml" />
+				<field name="mod_desc" type="textarea" label="Section Description" description="" cols="40" rows="6" filter="safehtml" />
+				<field name="mod_heading_alignment" type="list" default="left" label="Module Heading Aligment" description="">
+					<option value="start">Left</option>
+					<option value="center">Center</option>
+					<option value="end">Right</option>
+				</field>      
+
+				<field type="spacer" name="fl-extra-2" class="fl-sep" label="Module Configure" />
+				<field name="mod_bg_image" type="media" label="Module Background Image" description="" />
+				<field name="mod_bg_color" type="color" default="" label="Module Background Color" description="" />
+				<field name="mod_text_color" type="color" default="" label="Module Text Color" description="" />
+				<field name="mod_link_color" type="color" default="" label="Module Link Color" description="" />
+				<field name="mod_link_hover_color" type="color" default="" label="Module Link Hover Color" description="" />
+				<field name="enable_container" type="list" default="1" label="Enable Container" description="">
+					<option value="0">Full Width</option>
+					<option value="1">Contained</option>
+				</field>
+
+      <field name="mod_spacing_top" type="list" default="default" label="Spacing Top" description="">
+        <option value="no-spacing">No Space</option>
+        <option value="pt-sm">Small</option>
+        <option value="pt-md">Medium</option>
+        <option value="pt-lg">Larger</option>
+        <option value="pt-xl">Extra Large</option>
+      </field>
+
+      <field name="mod_spacing_bot" type="list" default="default" label="Spacing Bottom" description="">
+        <option value="no-spacing">No Space</option>
+        <option value="pb-sm">Small</option>
+        <option value="pb-md">Medium</option>
+        <option value="pb-lg">Larger</option>
+        <option value="pb-xl">Extra Large</option>
+      </field>
+
+				<field type="spacer" name="fl-extra-3" class="fl-sep" label="More Button" />
+				<field name="mod_btn_label" type="text" label="Button Label" description="" filter="safehtml" />
+				<field name="mod_btn_url" type="text" label="Button Url" description="" />
+				<field name="mod_btn_type" type="list" default="btn-secondary" label="Button Type" description="">
+					<option value="btn-secondary">Secondary</option>
+					<option value="btn-primary">Primary</option>
+					<option value="btn-success">Success</option>
+					<option value="btn-info">Info</option>
+					<option value="btn-warning">Warning</option>
+					<option value="btn-danger">Danger</option>
+					<option value="btn-outline-secondary">Outline Secondary</option>
+					<option value="btn-outline-primary">Outline Primary</option>
+					<option value="btn-outline-success">Outline Success</option>
+					<option value="btn-outline-info">Outline Info</option>
+					<option value="btn-outline-warning">Outline Warning</option>
+					<option value="btn-outline-danger">Outline Danger</option>
+					<option value="btn-link">Link</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+					validate="CssIdentifier"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

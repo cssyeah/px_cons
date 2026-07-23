@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Hero 01</title>
+  <categories>
+    <value>Hero</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+
+      <field name="hero_content_width" type="list" default="6" label="Content Width" description="">
+        <option value="3">25%</option>
+        <option value="6">50%</option>
+        <option value="8">75%</option>
+      </field>
+
+      <field name="hero_content_position" type="list" default="" label="Content Position" description="">
+        <option value="">Left</option>
+        <option value="flex-row-reverse">Right</option>
+      </field>
+
+      <field name="hero_content_vertical_alignment" type="list" default="align-items-start" label="Content Vertical Alignment" description="">
+        <option value="align-items-start">Top</option>
+        <option value="align-items-center">Middle</option>
+        <option value="align-items-end">Bottom</option>
+      </field>
+
+      <field name="hero_image" type="media" label="Image" description="" />
+
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="Button Configurations" />
+      <field name="btn_1_title" type="text" label="Button 1 Title" description="" filter="safehtml" />
+      <field name="btn_1_url" type="text" default="#" label="Button 1 Link Url" description="" />
+      <field name="btn_1_type" type="list" default="btn-secondary" label="Button 1 Type" description="">
+        <option value="btn-secondary">Secondary</option>
+        <option value="btn-primary">Primary</option>
+        <option value="btn-success">Success</option>
+        <option value="btn-info">Info</option>
+        <option value="btn-warning">Warning</option>
+        <option value="btn-danger">Danger</option>
+        <option value="btn-outline-secondary">Outline Secondary</option>
+        <option value="btn-outline-primary">Outline Primary</option>
+        <option value="btn-outline-success">Outline Success</option>
+        <option value="btn-outline-info">Outline Info</option>
+        <option value="btn-outline-warning">Outline Warning</option>
+        <option value="btn-outline-danger">Outline Danger</option>
+        <option value="btn-link">Link</option>
+      </field>
+
+      <field name="btn_2_title" type="text" label="Button 2 Title" description="" filter="safehtml" />
+      <field name="btn_2_url" type="text" default="#" label="Button 2 Link Url" description="" />
+      <field name="btn_2_type" type="list" default="btn-secondary" label="Button 2 Type" description="">
+        <option value="btn-secondary">Secondary</option>
+        <option value="btn-primary">Primary</option>
+        <option value="btn-success">Success</option>
+        <option value="btn-info">Info</option>
+        <option value="btn-warning">Warning</option>
+        <option value="btn-danger">Danger</option>
+        <option value="btn-outline-secondary">Outline Secondary</option>
+        <option value="btn-outline-primary">Outline Primary</option>
+        <option value="btn-outline-success">Outline Success</option>
+        <option value="btn-outline-info">Outline Info</option>
+        <option value="btn-outline-warning">Outline Warning</option>
+        <option value="btn-outline-danger">Outline Danger</option>
+        <option value="btn-link">Link</option>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Hero 04</title>
+  <categories>
+    <value>Hero</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field name="hero_content_width" type="list" default="6" label="Content Width" description="">
+        <option value="3">25%</option>
+        <option value="6">50%</option>
+        <option value="8">75%</option>
+      </field>
+
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="Button Settings" />
+      <field name="hero_btn_title" type="text" label="Button Title" description="" filter="safehtml" />
+      <field name="hero_btn_url" type="text" default="#" label="Button Link Url" description="" />
+      <field name="hero_btn_type" type="list" default="btn-secondary" label="Button Type" description="">
+        <option value="btn-secondary">Secondary</option>
+        <option value="btn-primary">Primary</option>
+        <option value="btn-success">Success</option>
+        <option value="btn-info">Info</option>
+        <option value="btn-warning">Warning</option>
+        <option value="btn-danger">Danger</option>
+        <option value="btn-outline-secondary">Outline Secondary</option>
+        <option value="btn-outline-primary">Outline Primary</option>
+        <option value="btn-outline-success">Outline Success</option>
+        <option value="btn-outline-info">Outline Info</option>
+        <option value="btn-outline-warning">Outline Warning</option>
+        <option value="btn-outline-danger">Outline Danger</option>
+        <option value="btn-link">Link</option>
+      </field>
+
+
+      <field type="spacer" name="fl-spacer-3" class="fl-sep" label="Decor Images" />
+      <field name="hero_desktop_screen" type="media" label="Desktop Screen" description="" />
+      <field name="hero_mobile_screen" type="media" label="Mobile Screen" description="" />
+    </fieldset>
+
+  </fields>
+</form>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Social Links 04</title>
+  <categories>
+    <value>Social Links</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+
+    <fieldset name="icon_style" label="" description="">
+      <field name="custom_text" type="text" label="Custom Text" description="" filter="safehtml" />
+      <field name="social_icon_size" type="list" default="sm" label="Icon Size" description="">
+        <option value="sm">SM (16 x 16)</option>
+        <option value="md">MD (24 x 24)</option>
+        <option value="lg">LG (36 x 36)</option>
+      </field>
+      <field name="social_icon_style" type="list" default="square" label="Icon Style" description="">
+        <option value="square">Square</option>
+        <option value="rounded-sm">Rounded SM (.25rem)</option>
+        <option value="rounded">Rounded MD (.5rem)</option>
+        <option value="rounded-lg">Rounded LG (.75rem)</option>
+        <option value="rounded-xl">Rounded XL (1.5rem)</option>
+      </field>
+      <field name="social_item_per_row" type="list" default="2" label="Item(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </field>
+      <field name="link_color" type="color" default="#374151" label="Link Color" description="" />
+      <field name="link_bg_color" type="color" default="#e5e7eb" label="Link Background" description="" />
+      <field name="link_hover_color" type="color" default="#ffffff" label="Link Hover Color" description="" />
+      <field name="link_bg_hover_color" type="color" default="#15803d" label="Link Background Hover" description="" />
+      <field name="social_link_target" type="list" default="_blank" label="Link Target" description="">
+        <option value="_blank">Blank</option>
+        <option value="_self">Self</option>
+        <option value="_parent">Parent</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="social-links" label="" description="">
+      <field name="social_item" type="subform" label="Social Item" description="" multiple="true" min="1" max="10">
+        <form>          
+          <field name="item_title" type="text" label="Social Title" description="" />
+          <field name="item_icon" type="textarea" label="Social Icon" description="" cols="40" rows="6" filter="safehtml" />
+          <field name="item_media" type="media" label="Social Media" description="" />
+          <field name="item_link" type="text" label="Social Link" description="" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Clients 03</title>
+  <categories>
+    <value>Clients</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+
+    <fieldset name="icon_style" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="Global Settings" />
+      <field name="clients_per_row" type="list" default="6" label="Client(s) per Row" description="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </field>
+
+      <field name="client_bg_color" type="color" default="#ffffff" label="Item Background Color" description="" />
+      <field name="client_text_color" type="color" default="#374151" label="Text Color" description="" />
+      <field name="client_border_width" type="number" default="0" label="Border Width" description="" min="0" max="5" />
+      <field name="client_border_color" type="color" default="#374151" label="Border Color" description="" showon="client_border_width:1,2,3,4,5" />
+      <field name="client_border_radius" type="list" default="0" label="Rounded Corners" description="">
+        <option value="0">Rounded 0 (0px)</option>
+        <option value="4">Rounded xs (4px)</option>
+        <option value="8">Rounded sm (8px)</option>
+        <option value="12">Rounded md (12px)</option>
+        <option value="16">Rounded lg (16px)</option>
+        <option value="24">Rounded xl (24px)</option>
+        <option value="32">Rounded xxl (32px)</option>
+      </field>
+      <field name="client_padding" type="list" default="0" label="Inner Spacing" description="">
+        <option value="0">0</option>
+        <option value="4">4px</option>
+        <option value="8">8px</option>
+        <option value="12">12px</option>
+        <option value="16">16px</option>
+        <option value="24">24px</option>
+        <option value="32">32px</option>
+      </field>
+    </fieldset>
+
+    <fieldset name="clients" label="" description="">
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="Item Settings" />
+      <field name="client_items" type="subform" label="Client Item" description="" multiple="true" min="1" max="10">
+        <form>          
+          <field name="client_image" type="media" label="Client Image" description="" />
+          <field name="client_name" type="text" default="" label="Client Name" description="" />
+          <field name="client_link_url" type="text" default="#" label="Client Link" description="" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>
