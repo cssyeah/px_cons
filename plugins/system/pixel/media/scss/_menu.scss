@@ -1,0 +1,117 @@
+/**
+ * @package     Pixel Framework
+ *
+ * @copyright   (C) 2023 Pixel Framework. <https://www.pixel.com>
+ * @license     GNU General Public License version 2 or later;
+ */
+
+// Main Menu
+// -----------------
+.px-navbar {
+	.nav {
+		> li {
+			display: inline-block;
+
+			> a {
+				padding: var(--px-navbar-padding-y) var(--px-navbar-padding-x);
+				color: var(--px-navbar-color);
+				text-decoration: none;
+				transition: $nav-link-transition;
+				font-size: $nav-link-font-size;
+				font-weight: $nav-link-font-weight;
+
+				&:hover, &:focus, &:active {
+					color: rgba(var(--px-emphasis-color-rgb), 0.8);
+				}
+			}
+
+			&.active > a {
+				color: rgba(var(--px-emphasis-color-rgb), 1);
+			}
+		}
+
+		> .deeper {
+			position: relative;
+
+			ul {
+				position: absolute;
+				background-color: var(--px-white);
+				border: $border-width $border-style var(--px-border-color);
+				display: none;
+			}
+		}
+	}
+
+	.navbar-collapse {
+		justify-content: center;
+	}
+
+	.navbar {
+		padding: 0; 
+	}
+}
+
+.px-fixed-top {
+	position: sticky;
+	top: 0;
+	z-index: $zindex-sticky;
+}
+
+
+// Megamenu
+// ----------------
+.px-menu-wrapper {
+	@include media-breakpoint-down(md) {
+		width: 100%;
+	}
+}
+
+// Sub menu
+.px-menu-sub {
+	.nav,
+	.px-mega-menuitem-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			> a,
+			> span {
+				color: var(--px-navbar-color);
+				text-decoration: none;
+				display: block;
+				padding-top: 0.25rem;
+				padding-bottom: 0.25rem;
+
+				&:hover, &:focus, &:active {
+					color: rgba(var(--px-emphasis-color-rgb), 0.8);
+				}
+			}
+
+			.px-menu-heading {
+				color: var(--px-heading-color);
+				font-size: 1.125rem;
+				font-weight: 600;
+				font-family: var(--px-heading-font-family);
+				line-height: 1.2;			
+				margin-bottom: 1rem;
+
+				&:hover, &:focus, &:active {
+					color: var(--px-heading-color);
+				}
+			}
+		}
+	}
+}
+
+// Sidebar Menu
+// ---------------
+.px-module {
+	.mod-menu {
+		display: block;
+
+		ul {
+			margin-left: calc($spacer/2);
+		}
+	}
+}

@@ -1,0 +1,107 @@
+/**
+ * @package     Pixel Framework
+ *
+ * @copyright   (C) 2023 Pixel Framework. <https://www.pixel.com>
+ * @license     GNU General Public License version 2 or later;
+ */
+
+// Page Header
+// --------------
+.page-header > h1,
+.content-category > h1,
+.categories-list > h1,
+.newsfeed-category > h1,
+.tag-category > h1 {
+  margin-bottom: $spacer*2;
+}
+
+img, svg {
+	max-width: 100%;
+}
+
+// Badge
+// -------------
+.badge {
+  
+}
+
+// Pagination
+// --------------
+.pagination {
+  --px-pagination-active-bg: var(--px-primary);
+  --px-pagination-active-border-color: var(--px-primary);
+}
+
+.page-item {
+  &.active .page-link {
+    color: #fff;
+  }
+}
+
+// Star
+// ---------------
+.rating-star {
+  --percent: calc( ( var(--rating) / var(--rating-max) + var(--rating-decimal) * var(--font-size) / (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))) * 100%);
+  --color-foreground: 170,170,170;
+  --color-icon: var(--px-yellow);
+  letter-spacing: calc(var(--letter-spacing) * 1rem);
+  font-size: calc(var(--font-size) * 1rem);
+  line-height: 1;
+  display: inline-block;
+  font-family: Times;
+  margin: 0;
+}
+
+.rating-star::before {
+  content: "\2605\2605\2605\2605\2605";
+  background: linear-gradient(90deg,var(--color-icon) var(--percent),rgba(var(--color-foreground),1) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+}
+
+// Message
+// -----------------
+#system-message {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Typography Page
+// ---------------
+.px-typo-example {
+  border-bottom: var(--px-border-width) var(--px-border-style) var(--px-border-color);
+  padding-bottom: 3rem;
+  margin-right: 0;
+  margin-left: 0;
+
+  & + .px-typo-example {
+    margin-top: 3rem;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  // Lead
+  .lead {
+    @include media-breakpoint-up(md) {
+      margin: 0 0 1rem;
+    }
+  }
+}
+
+.bd-example {
+  .btn {
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.text-white .card-title {
+  @extend .text-white;
+}

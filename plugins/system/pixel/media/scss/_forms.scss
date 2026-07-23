@@ -1,0 +1,286 @@
+/**
+ * @package     Pixel Framework
+ *
+ * @copyright   (C) 2023 Pixel Framework. <https://www.pixel.com>
+ * @license     GNU General Public License version 2 or later;
+ */
+
+@import "system/searchtools";
+
+// Buttons
+// ------------------
+.btn-primary {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-primary);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-primary);
+  --px-btn-disabled-border-color: var(--px-primary);
+}
+
+.btn-success {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-success);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-success);
+  --px-btn-disabled-border-color: var(--px-success);
+}
+
+.btn-danger {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-danger);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-danger);
+  --px-btn-disabled-border-color: var(--px-danger);
+}
+
+.btn-secondary {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-secondary);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-secondary);
+  --px-btn-disabled-border-color: var(--px-secondary);
+}
+
+.btn-warning {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-warning);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-warning);
+  --px-btn-disabled-border-color: var(--px-warning);
+}
+
+.btn-info {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-info);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-info);
+  --px-btn-disabled-border-color: var(--px-info);
+}
+
+.btn-light {
+  --px-btn-color: var(--px-gray-800);
+  --px-btn-bg: var(--px-light);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: var(--px-gray-800);
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: var(--px-gray-800);
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-light);
+  --px-btn-disabled-border-color: var(--px-light);
+}
+
+.btn-dark {
+  --px-btn-color: #fff;
+  --px-btn-bg: var(--px-dark);
+  --px-btn-border-color: color-mix(in srgb,var(--px-btn-bg),#000 10%);
+  --px-btn-hover-color: #fff;
+  --px-btn-hover-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-hover-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-focus-shadow-rgb: 49, 132, 253;
+  --px-btn-active-color: #fff;
+  --px-btn-active-bg: color-mix(in srgb,var(--px-btn-bg),#000 15%);
+  --px-btn-active-border-color: color-mix(in srgb,var(--px-btn-bg),#000 20%);
+  --px-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --px-btn-disabled-color: #fff;
+  --px-btn-disabled-bg: var(--px-dark);
+  --px-btn-disabled-border-color: var(--px-dark);
+}
+
+
+// Button Group
+// -------------------
+.btn-group {
+  margin-bottom: 1rem;
+
+  .inputbox {
+    border-radius: var(--px-border-radius) 0 0 var(--px-border-radius);
+  }
+
+  &.float-end {
+    @include media-breakpoint-down(sm) {
+      float: none !important;
+    }
+  }
+}
+
+// Form Horizontal
+// -------------------
+.form-horizontal {
+  .control-group {
+    margin-bottom: 1rem;
+  }
+
+  .control-label {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Form Vertical
+// -------------------
+.form-vertical {
+  .control-group {
+    margin-bottom: 1rem;
+  }
+
+  .control-label {
+    margin-bottom: $spacer;
+  }
+}
+
+.inputbox {
+  @extend .form-control;
+}
+
+// Legend
+legend {
+  font-size: 1.5rem;
+}
+
+// Validation
+.invalid {
+  color: $danger;
+  border-color: $danger;
+}
+
+.valid {
+  border-color: $success;
+}
+
+.form-control-feedback {
+}
+
+// set up hidden tooltip
+[role="tooltip"]:not(.show) {
+  right: 1rem;
+  top: auto;
+  z-index: $zindex-tooltip;
+  display: none;
+  max-width: 100%;
+  padding: .5em;
+  margin: .5em;
+  color: $black;
+  text-align: start;
+  background: var(--px-white);
+  border: 1px solid $gray-600;
+  border-radius: var(--px-border-radius);
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, .8);
+
+  &[id^=editarticle-] {
+    right: auto;
+    margin-inline-start: -10em;
+  }
+
+  &[id^=editcontact-] {
+    right: auto;
+    margin-inline-start: -10em;
+  }
+
+  &[id^=id-skip-] {
+    right: auto;
+  }
+
+  &[id^=cbunpublish] {
+    right: auto;
+  }
+}
+
+// reveal associated tooltip on focus
+:focus + [role="tooltip"],
+:hover + [role="tooltip"] {
+  position: absolute;
+  display: block;
+}
+
+// Com Media
+// --------------
+#com-media {
+  --hue: 214;
+  --template-bg-light: #f0f4fb;
+  --template-text-dark: #495057;
+  --template-text-light: #ffffff;
+  --template-link-color: #2a69b8;
+  --template-special-color: #001B4C;
+  --template-bg-dark: hsl(var(--hue),40%,20%);
+  --template-bg-dark-3: hsl(var(--hue),40%,97%);
+  --template-bg-dark-5: hsl(var(--hue),40%,95%);
+  --template-bg-dark-7: hsl(var(--hue),40%,93%);
+  --template-bg-dark-10: hsl(var(--hue),40%,90%);
+  --template-bg-dark-15: hsl(var(--hue),40%,85%);
+  --template-bg-dark-20: hsl(var(--hue),40%,80%);
+  --template-bg-dark-30: hsl(var(--hue),40%,70%);
+  --template-bg-dark-40: hsl(var(--hue),40%,60%);
+  --template-bg-dark-50: hsl(var(--hue),40%,50%);
+  --template-bg-dark-60: hsl(var(--hue),40%,40%);
+  --template-bg-dark-65: hsl(var(--hue),40%,35%);
+  --template-bg-dark-70: hsl(var(--hue),40%,30%);
+  --template-bg-dark-75: hsl(var(--hue),40%,25%);
+  --template-bg-dark-80: hsl(var(--hue),40%,20%);
+  --template-bg-dark-90: hsl(var(--hue),40%,10%);
+
+  .media-container {
+    .media-main + input {
+      width: 100%;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+}

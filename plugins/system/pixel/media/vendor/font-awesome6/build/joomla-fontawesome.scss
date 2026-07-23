@@ -1,0 +1,14 @@
+// Override the font path
+$fa-font-path: "../../../gavick/media/vendor/font-awesome6/webfonts" !default;
+$fa-font-display: block !default;
+
+// Font Awesome 6 Free
+@import "../../../vendor/font-awesome6/scss/fontawesome";
+@import "../../../vendor/font-awesome6/scss/regular";
+@import "../../../vendor/font-awesome6/scss/solid";
+
+// Brands must be imported last
+@import "../../../vendor/font-awesome6/scss/brands";
+
+// B/C for Icomoon
+@import "../../../../../../../media/system/scss/icomoon";

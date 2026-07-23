@@ -1,0 +1,121 @@
+/**
+ * @package     Pixel Framework
+ *
+ * @copyright   (C) 2023 Pixel Framework. <https://www.pixel.com>
+ * @license     GNU General Public License version 2 or later;
+ */
+
+#px-offcanvas {
+	--px-offcanvas-width: 360px;
+
+	.offcanvas-header {
+		--px-offcanvas-padding-y: 0.5rem;
+
+		background: var(--px-gray-100);
+		border-bottom: 1px solid var(--px-border-color);
+
+		h5 {
+			font-weight: 600;
+		}
+	}
+
+	[data-px-theme="dark"] & .offcanvas-header {
+		background: var(--px-gray-800);
+	}
+
+	.nav {
+		--px-offcanvas-color: rgba(var(--px-emphasis-color-rgb), 0.65);
+		--px-offcanvas-hover-color: rgba(var(--px-emphasis-color-rgb), 0.8);
+		--px-offcanvas-disabled-color: rgba(var(--px-emphasis-color-rgb), 0.3);
+		--px-offcanvas-active-color: rgba(var(--px-emphasis-color-rgb), 1);
+
+		@extend .nav-pills;
+		@extend .flex-column;
+
+		li {
+			padding: 0.5rem 0;
+
+			a,
+			span {
+				color: var(--px-offcanvas-color);
+				text-decoration: none;
+				transition: $nav-link-transition;
+				font-size: $nav-link-font-size;
+				font-weight: $nav-link-font-weight;
+				padding: 0;
+				display: block;
+				position: relative;
+
+				&:hover, &:focus, &:active {
+					color: var(--px-offcanvas-hover-color);
+				}
+			}
+
+			&.active > a,
+			&.active > span {
+				color: var(--px-offcanvas-active-color);
+			}
+
+			&.deeper,
+			&.deeper {
+				> a,
+				> span {
+					&:after {
+						content: "";
+						position: absolute;
+						border-top: 5px solid var(--px-body-color);
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						display: inline-block;
+						height: 0;
+						margin-top: .75rem;
+						margin-left: .5rem;
+						opacity: .8;
+						cursor: pointer;
+					}
+				}
+
+				&.open {
+					> a,
+					> span {
+						&:after {
+							border-top: 0;
+							border-left: 5px solid transparent;
+							border-right: 5px solid transparent;
+							border-bottom: 5px solid var(--px-body-color);
+						}
+					}
+				}
+			}
+		}
+
+		ul {
+			padding: 0.5rem 1rem 0;
+			position: relative;
+			border: 0;
+			background: none;
+
+			li {
+				&:last-child {
+					padding-bottom: 0;
+				}
+
+				&.deeper > a,
+				&.deeper > span {
+					&:after {
+						margin-top: .5rem;
+					}
+				}
+
+				&.active > a,
+				&.active > span {
+					color: var(--px-offcanvas-active-color);
+				}
+			}
+		}
+	}
+}
+
+.px-offcanvas-header {
+	border-bottom: $border-width $border-style var(--px-border-color);
+}

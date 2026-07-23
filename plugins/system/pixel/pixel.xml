@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_PIXEL</name>
+    <author>Pixel Framework</author>
+    <creationDate>May 3rd, 2024</creationDate>
+    <copyright>All Rights Reserved.</copyright>
+    <license>license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorUrl></authorUrl>
+    <version>1.1.4</version>
+    <description>PLG_SYSTEM_PIXEL_DESC</description>
+    <namespace path="src">Joomla\Plugin\System\Pixel</namespace>
+    <files>
+        <folder plugin="pixel">services</folder>
+        <folder>language</folder>
+        <folder>layouts</folder>
+        <folder>lib</folder>
+        <folder>media</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_pixel.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_pixel.sys.ini</language>
+    </languages>
+    <updateservers>
+        <server type="extension"></server>
+    </updateservers>
+</extension>
