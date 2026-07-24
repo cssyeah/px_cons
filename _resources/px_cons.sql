@@ -17,36 +17,85 @@
 -- Dumping structure for table px_cons.cons_action_logs
 CREATE TABLE IF NOT EXISTS `cons_action_logs` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `message_language_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message_language_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `log_date` datetime NOT NULL,
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_id` int NOT NULL DEFAULT '0',
   `item_id` int NOT NULL DEFAULT '0',
-  `ip_address` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0.0.0.0',
+  `ip_address` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0.0.0.0',
   PRIMARY KEY (`id`),
   KEY `idx_user_id` (`user_id`),
   KEY `idx_user_id_logdate` (`user_id`,`log_date`),
   KEY `idx_user_id_extension` (`user_id`,`extension`),
   KEY `idx_extension_item_id` (`extension`,`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_action_logs: ~4 rows (approximately)
+-- Dumping data for table px_cons.cons_action_logs: ~48 rows (approximately)
+DELETE FROM `cons_action_logs`;
 INSERT INTO `cons_action_logs` (`id`, `message_language_key`, `message`, `log_date`, `extension`, `user_id`, `item_id`, `ip_address`) VALUES
 	(1, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_ADMINISTRATOR"}', '2026-07-23 06:25:53', 'com_users', 42, 0, 'COM_ACTIONLOGS_DISABLED'),
 	(2, 'PLG_ACTIONLOG_JOOMLA_GUIDEDTOURS_TOURSKIPPED', '{"id":12,"title":"Welcome to Joomla!","state":"skipped","step":1,"userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 06:25:55', 'com_guidedtours.state', 42, 12, 'COM_ACTIONLOGS_DISABLED'),
 	(3, 'PLG_ACTIONLOG_JOOMLA_PLUGIN_INSTALLED', '{"action":"install","type":"PLG_ACTIONLOG_JOOMLA_TYPE_PLUGIN","id":252,"name":"PLG_SYSTEM_PIXEL","extension_name":"PLG_SYSTEM_PIXEL","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 06:27:32', 'com_installer', 42, 252, 'COM_ACTIONLOGS_DISABLED'),
 	(4, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__extensions"}', '2026-07-23 06:27:47', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
-	(5, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_PUBLISHED', '{"action":"publish","type":"PLG_ACTIONLOG_JOOMLA_TYPE_PLUGIN","id":252,"title":"PLG_SYSTEM_PIXEL","itemlink":"index.php?option=com_plugins&task=plugin.edit&extension_id=252","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 06:27:47', 'com_plugins.plugin', 42, 252, 'COM_ACTIONLOGS_DISABLED');
+	(5, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_PUBLISHED', '{"action":"publish","type":"PLG_ACTIONLOG_JOOMLA_TYPE_PLUGIN","id":252,"title":"PLG_SYSTEM_PIXEL","itemlink":"index.php?option=com_plugins&task=plugin.edit&extension_id=252","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 06:27:47', 'com_plugins.plugin', 42, 252, 'COM_ACTIONLOGS_DISABLED'),
+	(6, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_ADMINISTRATOR"}', '2026-07-23 14:47:34', 'com_users', 42, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(7, 'PLG_ACTIONLOG_JOOMLA_APPLICATION_CONFIG_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_APPLICATION_CONFIG","extension_name":"com_config.application","itemlink":"index.php?option=com_config","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 14:55:33', 'com_config.application', 42, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(8, 'PLG_ACTIONLOG_JOOMLA_EXTENSION_INSTALLED', '{"action":"install","type":"PLG_ACTIONLOG_JOOMLA_TYPE_TEMPLATE","id":253,"name":"px_cons","extension_name":"px_cons","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 14:57:56', 'com_installer', 42, 253, 'COM_ACTIONLOGS_DISABLED'),
+	(9, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":"1","title":"Main Menu","extension_name":"Main Menu","itemlink":"index.php?option=com_modules&task=module.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:10:41', 'com_modules.module', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(10, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":1,"title":"Main Menu","extension_name":"Main Menu","itemlink":"index.php?option=com_modules&task=module.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:10:41', 'com_modules.module', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(11, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:10:41', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(12, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":"1","title":"Main Menu","extension_name":"Main Menu","itemlink":"index.php?option=com_modules&task=module.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:11:10', 'com_modules.module', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(13, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":1,"title":"Main Menu","extension_name":"Main Menu","itemlink":"index.php?option=com_modules&task=module.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:11:10', 'com_modules.module', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(14, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:11:10', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(15, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:12:06', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(16, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_CATEGORY","id":8,"title":"Pages","itemlink":"index.php?option=com_categories&task=category.edit&id=8","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:12:21', 'com_categories.category', 42, 8, 'COM_ACTIONLOGS_DISABLED'),
+	(17, 'PLG_ACTIONLOG_JOOMLA_APPLICATION_CONFIG_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_APPLICATION_CONFIG","extension_name":"com_config.application","itemlink":"index.php?option=com_config","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:12:35', 'com_config.application', 42, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(18, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_CATEGORY","id":9,"title":"News","itemlink":"index.php?option=com_categories&task=category.edit&id=9","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:13:02', 'com_categories.category', 42, 9, 'COM_ACTIONLOGS_DISABLED'),
+	(19, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_ARTICLE","id":1,"title":"Typography","itemlink":"index.php?option=com_content&task=article.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:13:48', 'com_content.article', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(20, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_ARTICLE","id":2,"title":"About us","itemlink":"index.php?option=com_content&task=article.edit&id=2","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:14:09', 'com_content.article', 42, 2, 'COM_ACTIONLOGS_DISABLED'),
+	(21, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_CATEGORY","id":10,"title":"Projects","itemlink":"index.php?option=com_categories&task=category.edit&id=10","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:15:45', 'com_categories.category', 42, 10, 'COM_ACTIONLOGS_DISABLED'),
+	(22, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MENU_ITEM","id":102,"title":"About us","itemlink":"index.php?option=com_menus&task=item.edit&id=102","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:16:10', 'com_menus.item', 42, 102, 'COM_ACTIONLOGS_DISABLED'),
+	(23, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MENU_ITEM","id":103,"title":"Projects","itemlink":"index.php?option=com_menus&task=item.edit&id=103","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:16:53', 'com_menus.item', 42, 103, 'COM_ACTIONLOGS_DISABLED'),
+	(24, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MENU_ITEM","id":104,"title":"News","itemlink":"index.php?option=com_menus&task=item.edit&id=104","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:17:12', 'com_menus.item', 42, 104, 'COM_ACTIONLOGS_DISABLED'),
+	(25, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_CONTACT","id":1,"title":"Cons contact","itemlink":"index.php?option=com_contact&task=contact.edit&id=1","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:17:41', 'com_contact.contact', 42, 1, 'COM_ACTIONLOGS_DISABLED'),
+	(26, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MENU_ITEM","id":105,"title":"Contact us","itemlink":"index.php?option=com_menus&task=item.edit&id=105","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:18:09', 'com_menus.item', 42, 105, 'COM_ACTIONLOGS_DISABLED'),
+	(27, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"13","title":"px_cons - Default","extension_name":"px_cons - Default","itemlink":"index.php?option=com_templates&task=style.edit&id=13","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:19:05', 'com_templates.style', 42, 13, 'COM_ACTIONLOGS_DISABLED'),
+	(28, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"13","title":"px_cons - Default","extension_name":"px_cons - Default","itemlink":"index.php?option=com_templates&task=style.edit&id=13","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:24:28', 'com_templates.style', 42, 13, 'COM_ACTIONLOGS_DISABLED'),
+	(29, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_CATEGORY","id":11,"title":"Services","itemlink":"index.php?option=com_categories&task=category.edit&id=11","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:24:57', 'com_categories.category', 42, 11, 'COM_ACTIONLOGS_DISABLED'),
+	(30, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MENU_ITEM","id":106,"title":"Services","itemlink":"index.php?option=com_menus&task=item.edit&id=106","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:25:28', 'com_menus.item', 42, 106, 'COM_ACTIONLOGS_DISABLED'),
+	(31, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"13","title":"px_cons - Default","extension_name":"px_cons - Default","itemlink":"index.php?option=com_templates&task=style.edit&id=13","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:26:51', 'com_templates.style', 42, 13, 'COM_ACTIONLOGS_DISABLED'),
+	(32, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"13","title":"px_cons - Default","extension_name":"px_cons - Default","itemlink":"index.php?option=com_templates&task=style.edit&id=13","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:31:52', 'com_templates.style', 42, 13, 'COM_ACTIONLOGS_DISABLED'),
+	(33, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"13","title":"px_cons - Default","extension_name":"px_cons - Default","itemlink":"index.php?option=com_templates&task=style.edit&id=13","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:44:02', 'com_templates.style', 42, 13, 'COM_ACTIONLOGS_DISABLED'),
+	(34, 'PLG_ACTIONLOG_JOOMLA_EXTENSION_INSTALLED', '{"action":"install","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":254,"name":"MOD_WT_FLEX_LAYOUT","extension_name":"MOD_WT_FLEX_LAYOUT","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:44:10', 'com_installer', 42, 254, 'COM_ACTIONLOGS_DISABLED'),
+	(35, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:44:22', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(36, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_PUBLISHED', '{"action":"publish","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":110,"title":"WT Flex Layout","itemlink":"index.php?option=com_modules&task=module.edit&id=110","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:44:22', 'com_modules.module', 42, 110, 'COM_ACTIONLOGS_DISABLED'),
+	(37, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":"110","title":"WT Flex Layout","extension_name":"WT Flex Layout","itemlink":"index.php?option=com_modules&task=module.edit&id=110","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:23', 'com_modules.module', 42, 110, 'COM_ACTIONLOGS_DISABLED'),
+	(38, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":110,"title":"WT Flex Layout","extension_name":"WT Flex Layout","itemlink":"index.php?option=com_modules&task=module.edit&id=110","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:23', 'com_modules.module', 42, 110, 'COM_ACTIONLOGS_DISABLED'),
+	(39, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:47:23', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(40, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":14,"title":"px_cons - Default (2)","extension_name":"px_cons - Default (2)","itemlink":"index.php?option=com_templates&task=style.edit&id=14","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:30', 'com_templates.style', 42, 14, 'COM_ACTIONLOGS_DISABLED'),
+	(41, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"14","title":"px_cons - Landing","extension_name":"px_cons - Landing","itemlink":"index.php?option=com_templates&task=style.edit&id=14","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:45', 'com_templates.style', 42, 14, 'COM_ACTIONLOGS_DISABLED'),
+	(42, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"14","title":"px_cons - Landing","extension_name":"px_cons - Landing","itemlink":"index.php?option=com_templates&task=style.edit&id=14","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:49', 'com_templates.style', 42, 14, 'COM_ACTIONLOGS_DISABLED'),
+	(43, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"14","title":"px_cons - Landing","extension_name":"px_cons - Landing","itemlink":"index.php?option=com_templates&task=style.edit&id=14","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:47:56', 'com_templates.style', 42, 14, 'COM_ACTIONLOGS_DISABLED'),
+	(44, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_STYLE","id":"14","title":"px_cons - Landing","extension_name":"px_cons - Landing","itemlink":"index.php?option=com_templates&task=style.edit&id=14","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:48:00', 'com_templates.style', 42, 14, 'COM_ACTIONLOGS_DISABLED'),
+	(45, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":111,"title":"Footer","extension_name":"Footer","itemlink":"index.php?option=com_modules&task=module.edit&id=111","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:49:50', 'com_modules.module', 42, 111, 'COM_ACTIONLOGS_DISABLED'),
+	(46, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":111,"title":"Footer","extension_name":"Footer","itemlink":"index.php?option=com_modules&task=module.edit&id=111","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:49:50', 'com_modules.module', 42, 111, 'COM_ACTIONLOGS_DISABLED'),
+	(47, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":112,"title":"Latest News","extension_name":"Latest News","itemlink":"index.php?option=com_modules&task=module.edit&id=112","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:53:47', 'com_modules.module', 42, 112, 'COM_ACTIONLOGS_DISABLED'),
+	(48, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":112,"title":"Latest News","extension_name":"Latest News","itemlink":"index.php?option=com_modules&task=module.edit&id=112","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:53:47', 'com_modules.module', 42, 112, 'COM_ACTIONLOGS_DISABLED'),
+	(49, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":"112","title":"Latest News","extension_name":"Latest News","itemlink":"index.php?option=com_modules&task=module.edit&id=112","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:54:01', 'com_modules.module', 42, 112, 'COM_ACTIONLOGS_DISABLED'),
+	(50, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_UPDATED', '{"action":"update","type":"PLG_ACTIONLOG_JOOMLA_TYPE_MODULE","id":112,"title":"Latest News","extension_name":"Latest News","itemlink":"index.php?option=com_modules&task=module.edit&id=112","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:54:01', 'com_modules.module', 42, 112, 'COM_ACTIONLOGS_DISABLED'),
+	(51, 'PLG_ACTIONLOG_JOOMLA_USER_CHECKIN', '{"action":"checkin","type":"PLG_ACTIONLOG_JOOMLA_TYPE_USER","id":42,"title":"admin","itemlink":"index.php?option=com_users&task=user.edit&id=42","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42","table":"#__modules"}', '2026-07-23 15:54:01', 'com_checkin', 42, 42, 'COM_ACTIONLOGS_DISABLED'),
+	(52, 'PLG_SYSTEM_ACTIONLOGS_CONTENT_ADDED', '{"action":"add","type":"PLG_ACTIONLOG_JOOMLA_TYPE_ARTICLE","id":3,"title":"First news","itemlink":"index.php?option=com_content&task=article.edit&id=3","userid":42,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=42"}', '2026-07-23 15:54:23', 'com_content.article', 42, 3, 'COM_ACTIONLOGS_DISABLED');
 
 -- Dumping structure for table px_cons.cons_action_logs_extensions
 CREATE TABLE IF NOT EXISTS `cons_action_logs_extensions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `extension` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_action_logs_extensions: ~21 rows (approximately)
+DELETE FROM `cons_action_logs_extensions`;
 INSERT INTO `cons_action_logs_extensions` (`id`, `extension`) VALUES
 	(1, 'com_banners'),
 	(2, 'com_cache'),
@@ -74,26 +123,28 @@ INSERT INTO `cons_action_logs_extensions` (`id`, `extension`) VALUES
 CREATE TABLE IF NOT EXISTS `cons_action_logs_users` (
   `user_id` int unsigned NOT NULL,
   `notify` tinyint unsigned NOT NULL,
-  `extensions` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extensions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`user_id`),
   KEY `idx_notify` (`notify`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_action_logs_users: ~0 rows (approximately)
+DELETE FROM `cons_action_logs_users`;
 
 -- Dumping structure for table px_cons.cons_action_log_config
 CREATE TABLE IF NOT EXISTS `cons_action_log_config` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `id_holder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title_holder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `text_prefix` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id_holder` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_holder` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_prefix` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_action_log_config: ~23 rows (approximately)
+DELETE FROM `cons_action_log_config`;
 INSERT INTO `cons_action_log_config` (`id`, `type_title`, `type_alias`, `id_holder`, `title_holder`, `table_name`, `text_prefix`) VALUES
 	(1, 'article', 'com_content.article', 'id', 'title', '#__content', 'PLG_ACTIONLOG_JOOMLA'),
 	(2, 'article', 'com_content.form', 'id', 'title', '#__content', 'PLG_ACTIONLOG_JOOMLA'),
@@ -126,67 +177,68 @@ CREATE TABLE IF NOT EXISTS `cons_assets` (
   `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
   `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
   `level` int unsigned NOT NULL COMMENT 'The cached level in the nested tree.',
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The unique name for the asset.',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The descriptive title for the asset.',
-  `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The unique name for the asset.',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The descriptive title for the asset.',
+  `rules` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_assets: ~92 rows (approximately)
+-- Dumping data for table px_cons.cons_assets: ~102 rows (approximately)
+DELETE FROM `cons_assets`;
 INSERT INTO `cons_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-	(1, 0, 0, 183, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.api":{"8":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+	(1, 0, 0, 203, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.api":{"8":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 	(2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 	(3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
 	(4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
 	(5, 1, 9, 10, 1, 'com_checkin', 'com_checkin', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
 	(6, 1, 11, 12, 1, 'com_config', 'com_config', '{}'),
 	(7, 1, 13, 16, 1, 'com_contact', 'com_contact', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(8, 1, 17, 38, 1, 'com_content', 'com_content', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.edit":{"4":1},"core.edit.state":{"5":1},"core.execute.transition":{"6":1,"5":1}}'),
-	(9, 1, 39, 40, 1, 'com_cpanel', 'com_cpanel', '{}'),
-	(10, 1, 41, 42, 1, 'com_installer', 'com_installer', '{"core.manage":{"7":0},"core.delete":{"7":0},"core.edit.state":{"7":0}}'),
-	(11, 1, 43, 46, 1, 'com_languages', 'com_languages', '{"core.admin":{"7":1}}'),
-	(12, 11, 44, 45, 2, 'com_languages.language.1', 'English (en-GB)', '{}'),
-	(13, 1, 47, 48, 1, 'com_login', 'com_login', '{}'),
-	(14, 1, 49, 50, 1, 'com_mails', 'com_mails', '{}'),
-	(15, 1, 51, 52, 1, 'com_media', 'com_media', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.delete":{"5":1}}'),
-	(16, 1, 53, 56, 1, 'com_menus', 'com_menus', '{"core.admin":{"7":1}}'),
-	(17, 1, 57, 58, 1, 'com_messages', 'com_messages', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
-	(18, 1, 59, 132, 1, 'com_modules', 'com_modules', '{"core.admin":{"7":1}}'),
-	(19, 1, 133, 136, 1, 'com_newsfeeds', 'com_newsfeeds', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(20, 1, 137, 138, 1, 'com_plugins', 'com_plugins', '{"core.admin":{"7":1}}'),
-	(21, 1, 139, 140, 1, 'com_redirect', 'com_redirect', '{"core.admin":{"7":1}}'),
-	(23, 1, 141, 142, 1, 'com_templates', 'com_templates', '{"core.admin":{"7":1}}'),
-	(24, 1, 147, 150, 1, 'com_users', 'com_users', '{"core.admin":{"7":1}}'),
-	(26, 1, 151, 152, 1, 'com_wrapper', 'com_wrapper', '{}'),
+	(8, 1, 17, 52, 1, 'com_content', 'com_content', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.edit":{"4":1},"core.edit.state":{"5":1},"core.execute.transition":{"6":1,"5":1}}'),
+	(9, 1, 53, 54, 1, 'com_cpanel', 'com_cpanel', '{}'),
+	(10, 1, 55, 56, 1, 'com_installer', 'com_installer', '{"core.manage":{"7":0},"core.delete":{"7":0},"core.edit.state":{"7":0}}'),
+	(11, 1, 57, 60, 1, 'com_languages', 'com_languages', '{"core.admin":{"7":1}}'),
+	(12, 11, 58, 59, 2, 'com_languages.language.1', 'English (en-GB)', '{}'),
+	(13, 1, 61, 62, 1, 'com_login', 'com_login', '{}'),
+	(14, 1, 63, 64, 1, 'com_mails', 'com_mails', '{}'),
+	(15, 1, 65, 66, 1, 'com_media', 'com_media', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.delete":{"5":1}}'),
+	(16, 1, 67, 70, 1, 'com_menus', 'com_menus', '{"core.admin":{"7":1}}'),
+	(17, 1, 71, 72, 1, 'com_messages', 'com_messages', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
+	(18, 1, 73, 152, 1, 'com_modules', 'com_modules', '{"core.admin":{"7":1}}'),
+	(19, 1, 153, 156, 1, 'com_newsfeeds', 'com_newsfeeds', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
+	(20, 1, 157, 158, 1, 'com_plugins', 'com_plugins', '{"core.admin":{"7":1}}'),
+	(21, 1, 159, 160, 1, 'com_redirect', 'com_redirect', '{"core.admin":{"7":1}}'),
+	(23, 1, 161, 162, 1, 'com_templates', 'com_templates', '{"core.admin":{"7":1}}'),
+	(24, 1, 167, 170, 1, 'com_users', 'com_users', '{"core.admin":{"7":1}}'),
+	(26, 1, 171, 172, 1, 'com_wrapper', 'com_wrapper', '{}'),
 	(27, 8, 18, 19, 2, 'com_content.category.2', 'Uncategorised', '{}'),
 	(28, 3, 4, 5, 2, 'com_banners.category.3', 'Uncategorised', '{}'),
 	(29, 7, 14, 15, 2, 'com_contact.category.4', 'Uncategorised', '{}'),
-	(30, 19, 134, 135, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
-	(32, 24, 148, 149, 2, 'com_users.category.7', 'Uncategorised', '{}'),
-	(33, 1, 153, 154, 1, 'com_finder', 'com_finder', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(34, 1, 155, 156, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
-	(35, 1, 157, 158, 1, 'com_tags', 'com_tags', '{}'),
-	(36, 1, 159, 160, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
-	(37, 1, 161, 162, 1, 'com_ajax', 'com_ajax', '{}'),
-	(38, 1, 163, 164, 1, 'com_postinstall', 'com_postinstall', '{}'),
-	(39, 18, 60, 61, 2, 'com_modules.module.1', 'Main Menu', '{}'),
-	(40, 18, 62, 63, 2, 'com_modules.module.2', 'Login', '{}'),
-	(41, 18, 64, 65, 2, 'com_modules.module.3', 'Popular Articles', '{}'),
-	(42, 18, 66, 67, 2, 'com_modules.module.4', 'Recently Added Articles', '{}'),
-	(43, 18, 68, 69, 2, 'com_modules.module.8', 'Toolbar', '{}'),
-	(44, 18, 70, 71, 2, 'com_modules.module.9', 'Notifications', '{}'),
-	(45, 18, 72, 73, 2, 'com_modules.module.10', 'Logged-in Users', '{}'),
-	(46, 18, 74, 75, 2, 'com_modules.module.12', 'Admin Menu', '{}'),
-	(49, 18, 80, 81, 2, 'com_modules.module.15', 'Title', '{}'),
-	(50, 18, 82, 83, 2, 'com_modules.module.16', 'Login Form', '{}'),
-	(51, 18, 84, 85, 2, 'com_modules.module.17', 'Breadcrumbs', '{}'),
-	(52, 18, 86, 87, 2, 'com_modules.module.79', 'Multilanguage status', '{}'),
-	(53, 18, 90, 91, 2, 'com_modules.module.86', 'Joomla Version', '{}'),
-	(54, 16, 54, 55, 2, 'com_menus.menu.1', 'Main Menu', '{}'),
-	(55, 18, 94, 95, 2, 'com_modules.module.87', 'Sample Data', '{}'),
+	(30, 19, 154, 155, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
+	(32, 24, 168, 169, 2, 'com_users.category.7', 'Uncategorised', '{}'),
+	(33, 1, 173, 174, 1, 'com_finder', 'com_finder', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
+	(34, 1, 175, 176, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
+	(35, 1, 177, 178, 1, 'com_tags', 'com_tags', '{}'),
+	(36, 1, 179, 180, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
+	(37, 1, 181, 182, 1, 'com_ajax', 'com_ajax', '{}'),
+	(38, 1, 183, 184, 1, 'com_postinstall', 'com_postinstall', '{}'),
+	(39, 18, 74, 75, 2, 'com_modules.module.1', 'Main Menu', '{}'),
+	(40, 18, 76, 77, 2, 'com_modules.module.2', 'Login', '{}'),
+	(41, 18, 78, 79, 2, 'com_modules.module.3', 'Popular Articles', '{}'),
+	(42, 18, 80, 81, 2, 'com_modules.module.4', 'Recently Added Articles', '{}'),
+	(43, 18, 82, 83, 2, 'com_modules.module.8', 'Toolbar', '{}'),
+	(44, 18, 84, 85, 2, 'com_modules.module.9', 'Notifications', '{}'),
+	(45, 18, 86, 87, 2, 'com_modules.module.10', 'Logged-in Users', '{}'),
+	(46, 18, 88, 89, 2, 'com_modules.module.12', 'Admin Menu', '{}'),
+	(49, 18, 94, 95, 2, 'com_modules.module.15', 'Title', '{}'),
+	(50, 18, 96, 97, 2, 'com_modules.module.16', 'Login Form', '{}'),
+	(51, 18, 98, 99, 2, 'com_modules.module.17', 'Breadcrumbs', '{}'),
+	(52, 18, 100, 101, 2, 'com_modules.module.79', 'Multilanguage status', '{}'),
+	(53, 18, 104, 105, 2, 'com_modules.module.86', 'Joomla Version', '{}'),
+	(54, 16, 68, 69, 2, 'com_menus.menu.1', 'Main Menu', '{}'),
+	(55, 18, 108, 109, 2, 'com_modules.module.87', 'Sample Data', '{}'),
 	(56, 8, 20, 37, 2, 'com_content.workflow.1', 'COM_WORKFLOW_BASIC_WORKFLOW', '{}'),
 	(57, 56, 21, 22, 3, 'com_content.stage.1', 'COM_WORKFLOW_BASIC_STAGE', '{}'),
 	(58, 56, 23, 24, 3, 'com_content.transition.1', 'UNPUBLISH', '{}'),
@@ -196,72 +248,83 @@ INSERT INTO `cons_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(62, 56, 31, 32, 3, 'com_content.transition.5', 'FEATURE', '{}'),
 	(63, 56, 33, 34, 3, 'com_content.transition.6', 'UNFEATURE', '{}'),
 	(64, 56, 35, 36, 3, 'com_content.transition.7', 'PUBLISH_AND_FEATURE', '{}'),
-	(65, 1, 143, 144, 1, 'com_privacy', 'com_privacy', '{}'),
-	(66, 1, 145, 146, 1, 'com_actionlogs', 'com_actionlogs', '{}'),
-	(67, 18, 76, 77, 2, 'com_modules.module.88', 'Latest Actions', '{}'),
-	(68, 18, 78, 79, 2, 'com_modules.module.89', 'Privacy Dashboard', '{}'),
-	(70, 18, 88, 89, 2, 'com_modules.module.103', 'Site', '{}'),
-	(71, 18, 92, 93, 2, 'com_modules.module.104', 'System', '{}'),
-	(72, 18, 96, 97, 2, 'com_modules.module.91', 'System Dashboard', '{}'),
-	(73, 18, 98, 99, 2, 'com_modules.module.92', 'Content Dashboard', '{}'),
-	(74, 18, 100, 101, 2, 'com_modules.module.93', 'Menus Dashboard', '{}'),
-	(75, 18, 102, 103, 2, 'com_modules.module.94', 'Components Dashboard', '{}'),
-	(76, 18, 104, 105, 2, 'com_modules.module.95', 'Users Dashboard', '{}'),
-	(77, 18, 106, 107, 2, 'com_modules.module.99', 'Frontend Link', '{}'),
-	(78, 18, 108, 109, 2, 'com_modules.module.100', 'Messages', '{}'),
-	(79, 18, 110, 111, 2, 'com_modules.module.101', 'Post Install Messages', '{}'),
-	(80, 18, 112, 113, 2, 'com_modules.module.102', 'User Status', '{}'),
-	(82, 18, 114, 115, 2, 'com_modules.module.105', '3rd Party', '{}'),
-	(83, 18, 116, 117, 2, 'com_modules.module.106', 'Help Dashboard', '{}'),
-	(84, 18, 118, 119, 2, 'com_modules.module.107', 'Privacy Requests', '{}'),
-	(85, 18, 120, 121, 2, 'com_modules.module.108', 'Privacy Status', '{}'),
-	(86, 18, 122, 123, 2, 'com_modules.module.96', 'Popular Articles', '{}'),
-	(87, 18, 124, 125, 2, 'com_modules.module.97', 'Recently Added Articles', '{}'),
-	(88, 18, 126, 127, 2, 'com_modules.module.98', 'Logged-in Users', '{}'),
-	(89, 18, 128, 129, 2, 'com_modules.module.90', 'Login Support', '{}'),
-	(90, 1, 165, 172, 1, 'com_scheduler', 'com_scheduler', '{}'),
-	(91, 1, 173, 174, 1, 'com_associations', 'com_associations', '{}'),
-	(92, 1, 175, 176, 1, 'com_categories', 'com_categories', '{}'),
-	(93, 1, 177, 178, 1, 'com_fields', 'com_fields', '{}'),
-	(94, 1, 179, 180, 1, 'com_workflow', 'com_workflow', '{}'),
-	(95, 1, 181, 182, 1, 'com_guidedtours', 'com_guidedtours', '{}'),
-	(96, 18, 130, 131, 2, 'com_modules.module.109', 'Guided Tours', '{}'),
-	(97, 90, 166, 167, 2, 'com_scheduler.task.1', 'Rotate Logs', '{}'),
-	(98, 90, 168, 169, 2, 'com_scheduler.task.2', 'Session GC', '{}'),
-	(99, 90, 170, 171, 2, 'com_scheduler.task.3', 'Update Notification', '{}');
+	(65, 1, 163, 164, 1, 'com_privacy', 'com_privacy', '{}'),
+	(66, 1, 165, 166, 1, 'com_actionlogs', 'com_actionlogs', '{}'),
+	(67, 18, 90, 91, 2, 'com_modules.module.88', 'Latest Actions', '{}'),
+	(68, 18, 92, 93, 2, 'com_modules.module.89', 'Privacy Dashboard', '{}'),
+	(70, 18, 102, 103, 2, 'com_modules.module.103', 'Site', '{}'),
+	(71, 18, 106, 107, 2, 'com_modules.module.104', 'System', '{}'),
+	(72, 18, 110, 111, 2, 'com_modules.module.91', 'System Dashboard', '{}'),
+	(73, 18, 112, 113, 2, 'com_modules.module.92', 'Content Dashboard', '{}'),
+	(74, 18, 114, 115, 2, 'com_modules.module.93', 'Menus Dashboard', '{}'),
+	(75, 18, 116, 117, 2, 'com_modules.module.94', 'Components Dashboard', '{}'),
+	(76, 18, 118, 119, 2, 'com_modules.module.95', 'Users Dashboard', '{}'),
+	(77, 18, 120, 121, 2, 'com_modules.module.99', 'Frontend Link', '{}'),
+	(78, 18, 122, 123, 2, 'com_modules.module.100', 'Messages', '{}'),
+	(79, 18, 124, 125, 2, 'com_modules.module.101', 'Post Install Messages', '{}'),
+	(80, 18, 126, 127, 2, 'com_modules.module.102', 'User Status', '{}'),
+	(82, 18, 128, 129, 2, 'com_modules.module.105', '3rd Party', '{}'),
+	(83, 18, 130, 131, 2, 'com_modules.module.106', 'Help Dashboard', '{}'),
+	(84, 18, 132, 133, 2, 'com_modules.module.107', 'Privacy Requests', '{}'),
+	(85, 18, 134, 135, 2, 'com_modules.module.108', 'Privacy Status', '{}'),
+	(86, 18, 136, 137, 2, 'com_modules.module.96', 'Popular Articles', '{}'),
+	(87, 18, 138, 139, 2, 'com_modules.module.97', 'Recently Added Articles', '{}'),
+	(88, 18, 140, 141, 2, 'com_modules.module.98', 'Logged-in Users', '{}'),
+	(89, 18, 142, 143, 2, 'com_modules.module.90', 'Login Support', '{}'),
+	(90, 1, 185, 192, 1, 'com_scheduler', 'com_scheduler', '{}'),
+	(91, 1, 193, 194, 1, 'com_associations', 'com_associations', '{}'),
+	(92, 1, 195, 196, 1, 'com_categories', 'com_categories', '{}'),
+	(93, 1, 197, 198, 1, 'com_fields', 'com_fields', '{}'),
+	(94, 1, 199, 200, 1, 'com_workflow', 'com_workflow', '{}'),
+	(95, 1, 201, 202, 1, 'com_guidedtours', 'com_guidedtours', '{}'),
+	(96, 18, 144, 145, 2, 'com_modules.module.109', 'Guided Tours', '{}'),
+	(97, 90, 186, 187, 2, 'com_scheduler.task.1', 'Rotate Logs', '{}'),
+	(98, 90, 188, 189, 2, 'com_scheduler.task.2', 'Session GC', '{}'),
+	(99, 90, 190, 191, 2, 'com_scheduler.task.3', 'Update Notification', '{}'),
+	(100, 8, 38, 43, 2, 'com_content.category.8', 'Pages', '{}'),
+	(101, 8, 44, 47, 2, 'com_content.category.9', 'News', '{}'),
+	(102, 100, 39, 40, 3, 'com_content.article.1', 'Typography', '{}'),
+	(103, 100, 41, 42, 3, 'com_content.article.2', 'About us', '{}'),
+	(104, 8, 48, 49, 2, 'com_content.category.10', 'Projects', '{}'),
+	(105, 8, 50, 51, 2, 'com_content.category.11', 'Services', '{}'),
+	(106, 18, 146, 147, 2, 'com_modules.module.110', 'WT Flex Layout', '{}'),
+	(107, 18, 148, 149, 2, 'com_modules.module.111', 'Footer', '{}'),
+	(108, 18, 150, 151, 2, 'com_modules.module.112', 'Latest News', '{}'),
+	(109, 101, 45, 46, 3, 'com_content.article.3', 'First news', '{}');
 
 -- Dumping structure for table px_cons.cons_associations
 CREATE TABLE IF NOT EXISTS `cons_associations` (
   `id` int NOT NULL COMMENT 'A reference to the associated item.',
-  `context` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
-  `key` char(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The key for the association computed from an md5 on associated ids.',
+  `context` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
+  `key` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The key for the association computed from an md5 on associated ids.',
   PRIMARY KEY (`context`,`id`),
   KEY `idx_key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_associations: ~0 rows (approximately)
+DELETE FROM `cons_associations`;
 
 -- Dumping structure for table px_cons.cons_banners
 CREATE TABLE IF NOT EXISTS `cons_banners` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cid` int NOT NULL DEFAULT '0',
   `type` int NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `imptotal` int NOT NULL DEFAULT '0',
   `impmade` int NOT NULL DEFAULT '0',
   `clicks` int NOT NULL DEFAULT '0',
-  `clickurl` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `clickurl` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `state` tinyint NOT NULL DEFAULT '0',
   `catid` int unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `custombannercode` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custombannercode` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `sticky` tinyint unsigned NOT NULL DEFAULT '0',
   `ordering` int NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci,
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `own_prefix` tinyint NOT NULL DEFAULT '0',
-  `metakey_prefix` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `metakey_prefix` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `purchase_type` tinyint NOT NULL DEFAULT '-1',
   `track_clicks` tinyint NOT NULL DEFAULT '-1',
   `track_impressions` tinyint NOT NULL DEFAULT '-1',
@@ -271,9 +334,9 @@ CREATE TABLE IF NOT EXISTS `cons_banners` (
   `publish_down` datetime DEFAULT NULL,
   `reset` datetime DEFAULT NULL,
   `created` datetime NOT NULL,
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_by` int unsigned NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
   `version` int unsigned NOT NULL DEFAULT '1',
@@ -286,20 +349,21 @@ CREATE TABLE IF NOT EXISTS `cons_banners` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_banners: ~0 rows (approximately)
+DELETE FROM `cons_banners`;
 
 -- Dumping structure for table px_cons.cons_banner_clients
 CREATE TABLE IF NOT EXISTS `cons_banner_clients` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `extrainfo` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `contact` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extrainfo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
-  `metakey` text COLLATE utf8mb4_unicode_ci,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `own_prefix` tinyint NOT NULL DEFAULT '0',
-  `metakey_prefix` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `metakey_prefix` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `purchase_type` tinyint NOT NULL DEFAULT '-1',
   `track_clicks` tinyint NOT NULL DEFAULT '-1',
   `track_impressions` tinyint NOT NULL DEFAULT '-1',
@@ -309,6 +373,7 @@ CREATE TABLE IF NOT EXISTS `cons_banner_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_banner_clients: ~0 rows (approximately)
+DELETE FROM `cons_banner_clients`;
 
 -- Dumping structure for table px_cons.cons_banner_tracks
 CREATE TABLE IF NOT EXISTS `cons_banner_tracks` (
@@ -323,6 +388,7 @@ CREATE TABLE IF NOT EXISTS `cons_banner_tracks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_banner_tracks: ~0 rows (approximately)
+DELETE FROM `cons_banner_tracks`;
 
 -- Dumping structure for table px_cons.cons_categories
 CREATE TABLE IF NOT EXISTS `cons_categories` (
@@ -332,26 +398,26 @@ CREATE TABLE IF NOT EXISTS `cons_categories` (
   `lft` int NOT NULL DEFAULT '0',
   `rgt` int NOT NULL DEFAULT '0',
   `level` int unsigned NOT NULL DEFAULT '0',
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8mb4_unicode_ci,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `published` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `access` int unsigned NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci,
-  `metadesc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta description for the page.',
-  `metakey` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The keywords for the page.',
-  `metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `metadesc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta description for the page.',
+  `metakey` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The keywords for the page.',
+  `metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
   `created_user_id` int unsigned NOT NULL DEFAULT '0',
   `created_time` datetime NOT NULL,
   `modified_user_id` int unsigned NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL,
   `hits` int unsigned NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `version` int unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `cat_idx` (`extension`,`published`,`access`),
@@ -361,56 +427,61 @@ CREATE TABLE IF NOT EXISTS `cons_categories` (
   KEY `idx_left_right` (`lft`,`rgt`),
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_categories: ~6 rows (approximately)
+-- Dumping data for table px_cons.cons_categories: ~10 rows (approximately)
+DELETE FROM `cons_categories`;
 INSERT INTO `cons_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
-	(1, 0, 0, 0, 11, 0, '', 'system', 'ROOT', 'root', '', '', 1, NULL, NULL, 1, '{}', '', '', '{}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
+	(1, 0, 0, 0, 19, 0, '', 'system', 'ROOT', 'root', '', '', 1, NULL, NULL, 1, '{}', '', '', '{}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
 	(2, 27, 1, 1, 2, 1, 'uncategorised', 'com_content', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":"","workflow_id":"use_default"}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
 	(3, 28, 1, 3, 4, 1, 'uncategorised', 'com_banners', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
 	(4, 29, 1, 5, 6, 1, 'uncategorised', 'com_contact', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
 	(5, 30, 1, 7, 8, 1, 'uncategorised', 'com_newsfeeds', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
-	(7, 32, 1, 9, 10, 1, 'uncategorised', 'com_users', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1);
+	(7, 32, 1, 9, 10, 1, 'uncategorised', 'com_users', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 0, '*', 1),
+	(8, 100, 1, 11, 12, 1, 'pages', 'com_content', 'Pages', 'pages', '', '<p>Pages</p>', 1, NULL, NULL, 1, '{"category_layout":"","image":"","image_alt":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 15:12:21', 42, '2026-07-23 15:12:21', 0, '*', 1),
+	(9, 101, 1, 13, 14, 1, 'news', 'com_content', 'News', 'news', '', 'News', 1, NULL, NULL, 1, '{"category_layout":"","image":"","image_alt":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 15:13:02', 42, '2026-07-23 15:13:02', 0, '*', 1),
+	(10, 104, 1, 15, 16, 1, 'projects', 'com_content', 'Projects', 'projects', '', 'Projects', 1, NULL, NULL, 1, '{"category_layout":"","image":"","image_alt":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 15:15:45', 42, '2026-07-23 15:15:45', 0, '*', 1),
+	(11, 105, 1, 17, 18, 1, 'services', 'com_content', 'Services', 'services', '', 'Services', 1, NULL, NULL, 1, '{"category_layout":"","image":"","image_alt":""}', '', '', '{"author":"","robots":""}', 42, '2026-07-23 15:24:57', 42, '2026-07-23 15:24:57', 0, '*', 1);
 
 -- Dumping structure for table px_cons.cons_contact_details
 CREATE TABLE IF NOT EXISTS `cons_contact_details` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `con_position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `suburb` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postcode` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fax` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `misc` mediumtext COLLATE utf8mb4_unicode_ci,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email_to` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `con_position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `suburb` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postcode` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `misc` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_to` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `default_con` tinyint unsigned NOT NULL DEFAULT '0',
   `published` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `ordering` int NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int NOT NULL DEFAULT '0',
   `catid` int NOT NULL DEFAULT '0',
   `access` int unsigned NOT NULL DEFAULT '0',
-  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `webpage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `language` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `webpage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname3` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `featured` tinyint unsigned NOT NULL DEFAULT '0' COMMENT 'Set if contact is featured.',
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
@@ -424,42 +495,45 @@ CREATE TABLE IF NOT EXISTS `cons_contact_details` (
   KEY `idx_createdby` (`created_by`),
   KEY `idx_featured_catid` (`featured`,`catid`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_contact_details: ~0 rows (approximately)
+DELETE FROM `cons_contact_details`;
+INSERT INTO `cons_contact_details` (`id`, `name`, `alias`, `con_position`, `address`, `suburb`, `state`, `country`, `postcode`, `telephone`, `fax`, `misc`, `image`, `email_to`, `default_con`, `published`, `checked_out`, `checked_out_time`, `ordering`, `params`, `user_id`, `catid`, `access`, `mobile`, `webpage`, `sortname1`, `sortname2`, `sortname3`, `language`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `metakey`, `metadesc`, `metadata`, `featured`, `publish_up`, `publish_down`, `version`, `hits`) VALUES
+	(1, 'Cons contact', 'cons-contact', '', '', '', '', '', '', '', '', '', '', '', 0, 1, NULL, NULL, 1, '{"show_contact_category":"","show_contact_list":"","show_tags":"","show_info":"","show_name":"","show_position":"","show_email":"","add_mailto_link":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_image":"","show_misc":"","allow_vcard":"","show_articles":"","articles_display_num":"","show_profile":"","contact_layout":"","show_links":"","linka_name":"","linka":"","linkb_name":"","linkb":"","linkc_name":"","linkc":"","linkd_name":"","linkd":"","linke_name":"","linke":"","show_email_form":"","show_email_copy":"","validate_session":"","custom_reply":"","redirect":""}', 0, 4, 1, '', '', '', '', '', '*', '2026-07-23 15:17:41', 42, '', '2026-07-23 15:17:41', 42, '', '', '{"robots":"","rights":""}', 0, NULL, NULL, 1, 1);
 
 -- Dumping structure for table px_cons.cons_content
 CREATE TABLE IF NOT EXISTS `cons_content` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `introtext` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fulltext` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `introtext` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fulltext` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `catid` int unsigned NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urls` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attribs` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attribs` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `version` int unsigned NOT NULL DEFAULT '1',
   `ordering` int NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `access` int unsigned NOT NULL DEFAULT '0',
   `hits` int unsigned NOT NULL DEFAULT '0',
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `featured` tinyint unsigned NOT NULL DEFAULT '0' COMMENT 'Set if article is featured.',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The language code for the article.',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The language code for the article.',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `idx_access` (`access`),
   KEY `idx_checkout` (`checked_out`),
@@ -469,13 +543,18 @@ CREATE TABLE IF NOT EXISTS `cons_content` (
   KEY `idx_featured_catid` (`featured`,`catid`),
   KEY `idx_language` (`language`),
   KEY `idx_alias` (`alias`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_content: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_content: ~3 rows (approximately)
+DELETE FROM `cons_content`;
+INSERT INTO `cons_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `note`) VALUES
+	(1, 102, 'Typography', 'typography', 'Typography', '', 1, 8, '2026-07-23 15:13:48', 42, '', '2026-07-23 15:13:48', 42, NULL, NULL, '2026-07-23 15:13:48', NULL, '{"image_intro":"","image_intro_alt":"","float_intro":"","image_intro_caption":"","image_fulltext":"","image_fulltext_alt":"","float_fulltext":"","image_fulltext_caption":""}', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', '{"article_layout":"","show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_page_title":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 1, 1, '', '', 1, 0, '{"robots":"","author":"","rights":""}', 0, '*', ''),
+	(2, 103, 'About us', 'about-us', 'About us', '', 1, 8, '2026-07-23 15:14:09', 42, '', '2026-07-23 15:14:09', 42, NULL, NULL, '2026-07-23 15:14:09', NULL, '{"image_intro":"","image_intro_alt":"","float_intro":"","image_intro_caption":"","image_fulltext":"","image_fulltext_alt":"","float_fulltext":"","image_fulltext_caption":""}', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', '{"article_layout":"","show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_page_title":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 1, 0, '', '', 1, 1, '{"robots":"","author":"","rights":""}', 0, '*', ''),
+	(3, 109, 'First news', 'first-news', 'First news', '', 1, 9, '2026-07-23 15:54:23', 42, '', '2026-07-23 15:54:23', 42, 42, '2026-07-23 15:54:23', '2026-07-23 15:54:23', NULL, '{"image_intro":"","image_intro_alt":"","float_intro":"","image_intro_caption":"","image_fulltext":"","image_fulltext_alt":"","float_fulltext":"","image_fulltext_caption":""}', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', '{"article_layout":"","show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_page_title":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 1, 0, '', '', 1, 0, '{"robots":"","author":"","rights":""}', 0, '*', '');
 
 -- Dumping structure for table px_cons.cons_contentitem_tag_map
 CREATE TABLE IF NOT EXISTS `cons_contentitem_tag_map` (
-  `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_content_id` int unsigned NOT NULL COMMENT 'PK from the core content table',
   `content_item_id` int NOT NULL COMMENT 'PK from the content type table',
   `tag_id` int unsigned NOT NULL COMMENT 'PK from the tag table',
@@ -488,6 +567,7 @@ CREATE TABLE IF NOT EXISTS `cons_contentitem_tag_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maps items from content tables to tags';
 
 -- Dumping data for table px_cons.cons_contentitem_tag_map: ~0 rows (approximately)
+DELETE FROM `cons_contentitem_tag_map`;
 
 -- Dumping structure for table px_cons.cons_content_frontpage
 CREATE TABLE IF NOT EXISTS `cons_content_frontpage` (
@@ -499,33 +579,36 @@ CREATE TABLE IF NOT EXISTS `cons_content_frontpage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_content_frontpage: ~0 rows (approximately)
+DELETE FROM `cons_content_frontpage`;
 
 -- Dumping structure for table px_cons.cons_content_rating
 CREATE TABLE IF NOT EXISTS `cons_content_rating` (
   `content_id` int NOT NULL DEFAULT '0',
   `rating_sum` int unsigned NOT NULL DEFAULT '0',
   `rating_count` int unsigned NOT NULL DEFAULT '0',
-  `lastip` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `lastip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_content_rating: ~0 rows (approximately)
+DELETE FROM `cons_content_rating`;
 
 -- Dumping structure for table px_cons.cons_content_types
 CREATE TABLE IF NOT EXISTS `cons_content_types` (
   `type_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `table` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `rules` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `field_mappings` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `router` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `content_history_options` varchar(5120) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON string for com_contenthistory options',
+  `type_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `table` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `rules` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `field_mappings` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `router` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `content_history_options` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON string for com_contenthistory options',
   PRIMARY KEY (`type_id`),
   KEY `idx_alias` (`type_alias`(100))
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_content_types: ~14 rows (approximately)
+DELETE FROM `cons_content_types`;
 INSERT INTO `cons_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`, `content_history_options`) VALUES
 	(1, 'Article', 'com_content.article', '{"special":{"dbtable":"#__content","key":"id","type":"ArticleTable","prefix":"Joomla\\\\Component\\\\Content\\\\Administrator\\\\Table\\\\","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_user_id":"created_by","core_created_by_alias":"created_by_alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "asset_id":"asset_id", "note":"note"}, "special":{"fulltext":"fulltext"}}', 'ContentHelperRoute::getArticleRoute', '{"formFile":"administrator\\/components\\/com_content\\/forms\\/article.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits", "ordering"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"tags","targetTable":"#__tags","targetColumn":"id","displayColumn":"title"} ]}'),
 	(2, 'Contact', 'com_contact.contact', '{"special":{"dbtable":"#__contact_details","key":"id","type":"ContactTable","prefix":"Joomla\\\\Component\\\\Contact\\\\Administrator\\\\Table\\\\","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"name","core_state":"published","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"address", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"image", "core_urls":"webpage", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "asset_id":"null"}, "special":{"con_position":"con_position","suburb":"suburb","state":"state","country":"country","postcode":"postcode","telephone":"telephone","fax":"fax","misc":"misc","email_to":"email_to","default_con":"default_con","user_id":"user_id","mobile":"mobile","sortname1":"sortname1","sortname2":"sortname2","sortname3":"sortname3"}}', 'ContactHelperRoute::getContactRoute', '{"formFile":"administrator\\/components\\/com_contact\\/forms\\/contact.xml","hideFields":["default_con","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"], "displayLookup":[ {"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"tags","targetTable":"#__tags","targetColumn":"id","displayColumn":"title"} ] }'),
@@ -546,31 +629,32 @@ INSERT INTO `cons_content_types` (`type_id`, `type_title`, `type_alias`, `table`
 CREATE TABLE IF NOT EXISTS `cons_extensions` (
   `extension_id` int NOT NULL AUTO_INCREMENT,
   `package_id` int NOT NULL DEFAULT '0' COMMENT 'Parent package ID for extensions installed as a package.',
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `element` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `changelogurl` text COLLATE utf8mb4_unicode_ci,
-  `folder` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `element` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changelogurl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `folder` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `client_id` tinyint NOT NULL,
   `enabled` tinyint NOT NULL DEFAULT '0',
   `access` int unsigned NOT NULL DEFAULT '1',
   `protected` tinyint NOT NULL DEFAULT '0' COMMENT 'Flag to indicate if the extension is protected. Protected extensions cannot be disabled.',
   `locked` tinyint NOT NULL DEFAULT '0' COMMENT 'Flag to indicate if the extension is locked. Locked extensions cannot be uninstalled.',
-  `manifest_cache` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `custom_data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `manifest_cache` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custom_data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `ordering` int DEFAULT '0',
   `state` int DEFAULT '0',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`extension_id`),
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_extensions: ~251 rows (approximately)
+-- Dumping data for table px_cons.cons_extensions: ~252 rows (approximately)
+DELETE FROM `cons_extensions`;
 INSERT INTO `cons_extensions` (`extension_id`, `package_id`, `name`, `type`, `element`, `changelogurl`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `checked_out`, `checked_out_time`, `ordering`, `state`, `note`) VALUES
 	(1, 0, 'com_wrapper', 'component', 'com_wrapper', '', '', 1, 1, 1, 0, 1, '{"name":"com_wrapper","type":"component","creationDate":"2006-04","author":"Joomla! Project","copyright":"(C) 2007 Open Source Matters, Inc.\\n\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"4.0.0","description":"COM_WRAPPER_XML_DESCRIPTION","group":"","changelogurl":"","namespace":"Joomla\\\\Component\\\\Wrapper","filename":"wrapper"}', '', '', NULL, NULL, 0, 0, NULL),
 	(2, 0, 'com_admin', 'component', 'com_admin', '', '', 1, 1, 1, 1, 1, '{"name":"com_admin","type":"component","creationDate":"2006-04","author":"Joomla! Project","copyright":"(C) 2006 Open Source Matters, Inc.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"4.0.0","description":"COM_ADMIN_XML_DESCRIPTION","group":"","changelogurl":"","namespace":"Joomla\\\\Component\\\\Admin"}', '', '', NULL, NULL, 0, 0, NULL),
@@ -823,30 +907,32 @@ INSERT INTO `cons_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(249, 248, 'English (en-GB)', 'language', 'en-GB', '', '', 0, 1, 1, 1, 1, '{"name":"English (en-GB)","type":"language","creationDate":"2026-07","author":"Joomla! Project","copyright":"(C) 2006 Open Source Matters, Inc.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"6.1.2","description":"en-GB site language","group":"","changelogurl":""}', '', '', NULL, NULL, 0, 0, NULL),
 	(250, 248, 'English (en-GB)', 'language', 'en-GB', '', '', 1, 1, 1, 1, 1, '{"name":"English (en-GB)","type":"language","creationDate":"2026-07","author":"Joomla! Project","copyright":"(C) 2005 Open Source Matters, Inc.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"6.1.2","description":"en-GB administrator language","group":"","changelogurl":""}', '', '', NULL, NULL, 0, 0, NULL),
 	(251, 248, 'English (en-GB)', 'language', 'en-GB', '', '', 3, 1, 1, 1, 1, '{"name":"English (en-GB)","type":"language","creationDate":"2026-07","author":"Joomla! Project","copyright":"(C) 2020 Open Source Matters, Inc.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"6.1.2","description":"en-GB api language","group":"","changelogurl":""}', '', '', NULL, NULL, 0, 0, NULL),
-	(252, 0, 'PLG_SYSTEM_PIXEL', 'plugin', 'pixel', '', 'system', 0, 1, 1, 0, 0, '{"name":"PLG_SYSTEM_PIXEL","type":"plugin","creationDate":"May 3rd, 2024","author":"Pixel Framework","copyright":"All Rights Reserved.","authorEmail":"","authorUrl":"","version":"1.1.4","description":"PLG_SYSTEM_PIXEL_DESC","group":"","changelogurl":"","namespace":"Joomla\\\\Plugin\\\\System\\\\Pixel","filename":"pixel"}', '{}', '', NULL, NULL, 0, 0, NULL);
+	(252, 0, 'PLG_SYSTEM_PIXEL', 'plugin', 'pixel', '', 'system', 0, 1, 1, 0, 0, '{"name":"PLG_SYSTEM_PIXEL","type":"plugin","creationDate":"May 3rd, 2024","author":"Pixel Framework","copyright":"All Rights Reserved.","authorEmail":"","authorUrl":"","version":"1.1.4","description":"PLG_SYSTEM_PIXEL_DESC","group":"","changelogurl":"","namespace":"Joomla\\\\Plugin\\\\System\\\\Pixel","filename":"pixel"}', '{}', '', NULL, NULL, 0, 0, NULL),
+	(253, 0, 'px_cons', 'template', 'px_cons', '', '', 0, 1, 1, 0, 0, '{"name":"px_cons","type":"template","creationDate":"Jul 17rd, 2026","author":"Nice Theme Store","copyright":"Copyright (C) 2007 - 2026 Pixel Framework. All rights reserved.","authorEmail":"9themestore@gmail.com","authorUrl":"www.9themestore.com","version":"1.0.0","description":"\\n        \\n               <div id=\\"wrap1\\">\\n               <h1>Pixel Blank<\\/h1>\\n               <p>Pixel Blank is not just a template; it\'s the blank canvas upon which you paint your digital masterpiece. Crafted to be versatile and user-friendly, it\'s your starting point for web projects limited only by your imagination. With its clean design and robust features, Pixel Blank offers you the freedom to create unique websites that leave a lasting impression. Get ready to bring your vision to life, effortlessly and brilliantly, with Pixel Blank.<\\/p>\\n               \\n               <p class=\\"actions-wrap\\"><a class=\\"btn btn-success\\" href=\\"#\\" target=\\"_blank\\">Try the live demo<\\/a><a class=\\"btn btn-secondary\\" href=\\"#\\" target=\\"_blank\\">Documentation<\\/a><\\/p>\\n               <p><small class=\\"px-version-check\\" style=\\"display:none;\\">Checking new version...<\\/small><\\/p>\\n               \\n               <\\/div>\\n               \\n               <span class=\'tooltip-content\'>Joomla! template<\\/span>\\n\\n               <style type=\\"text\\/css\\" media=\\"all\\">\\n               <!--\\n               #wrap1 {padding:0px 0px 4px 0px; font-weight: 400; text-align: justify; color: #4d4d4d; line-height: 24px; max-width: 680px; }\\n               #wrap1 p { padding: 0; }\\n               #wrap1 h1 {clear:both; font-size: 32px;margin: 0 0 8px; padding: 0;color:#333;font-weight: 600;}\\n               #wrap1 h4 { border: none;  font-weight: 300; margin: 0 20px 40px; font-size: 20px; line-height: 32px;color: #333; text-align: left }\\n               #wrap1 sup { font-style: italic; font-size: }\\n               #wrap1 .btn { margin-bottom:50px}\\n               \\n               .actions-wrap {display: flex; align-items: center; gap: 8px; margin-top: 24px; }\\n\\n               .actions-wrap a { display: flex; gap: 8px;}\\n               span.tooltip-content { display: none; }\\n               .tip-text span.readonly { display: none; }\\n               .tip-text span.tooltip-content { display: block; }\\n               .tip-text #wrap1 { display: none; }\\n               -->\\n\\n               .control-group.field-spacer .control-label { color: var(--template-link-color); padding: 0; width: 100%; }\\n               .control-group.field-spacer .control-label .spacer { display: flex; align-items: center; gap: 6px; font-size: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }\\n               .control-group.field-spacer .control-label .before { background: #f1f5f9; width: 234px; height: 6px;}\\n               .control-group.field-spacer .control-label .after { background: #f1f5f9; flex: 1; height: 6px; }\\n               .control-group.field-spacer .controls { display: none; }\\n<\\/style>\\n          \\n    ","group":"","changelogurl":"","inheritable":true,"filename":"templateDetails"}', '{"logo_image":"","logo_text":"","logo_slogan":"","favicon_image":"","touch_image":"","show_dark_light_mode":"1","show_back_to_top":"1","body_font":"","heading_font":"","custom_font":"","template_layout":"","sublayout":"","offcanvas":"0","mobile_menu_breakpoint":"768","optimize_js":"0","js_excluded":"tinymce","optimize_css":"0","css_excluded":"tinymce"}', '{"optimize_js":"0","optimize_css":"0","js_excluded":"tinymce","css_excluded":"tinymce","custom_code_after_head":"","custom_code_before_head":"","custom_code_after_body":"","custom_code_before_body":"","presets":[{"name":"light","variables":{"--px-primary":"#0057A5","--px-secondary":"#4f84b8","--px-success":"#198754","--px-danger":"#dc3545","--px-warning":"#ffc107","--px-info":"#0dcaf0","--px-body-bg":"#ffffff","--px-body-color":"#212529","--px-emphasis-color":"#000000","--px-link-color":"#456496","--px-link-hover-color":"#3b5580","--px-border-color":"#dee2e6","--px-logo-color":"#212529","--px-mega-bg":"#ffffff"}},{"name":"dark","variables":{"--px-primary":"#f9a813","--px-secondary":"#4f84b8","--px-success":"#198754","--px-danger":"#dc3545","--px-warning":"#ffc107","--px-info":"#0dcaf0","--px-body-bg":"#111111","--px-body-color":"#a5a5a5","--px-emphasis-color":"#ffffff","--px-link-color":"#f9a813","--px-link-hover-color":"#fccb70","--px-border-color":"#373737","--px-logo-color":"#ffffff","--px-mega-bg":"#000000"}}],"cookieKey":"3385774404","megamenu":{"mod_1":{"item_101":{"extra_class":""},"item_102":{"extra_class":""},"item_106":{"extra_class":""},"item_103":{"extra_class":""},"item_104":{"extra_class":""},"item_105":{"extra_class":""}}}}', NULL, NULL, 0, 0, NULL),
+	(254, 0, 'MOD_WT_FLEX_LAYOUT', 'module', 'mod_wt_flex_layout', '', '', 0, 1, 0, 0, 0, '{"name":"MOD_WT_FLEX_LAYOUT","type":"module","creationDate":"2024-05-15","author":"WaveTheme","copyright":"(C) 2006 Open Source Matters, Inc.","authorEmail":"9themestore@gmail.com","authorUrl":"www.wavetheme.com","version":"1.0.1","description":"MOD_WT_FLEX_LAYOUT_DESCRIPTION","group":"","changelogurl":"","namespace":"Joomla\\\\Module\\\\WTFlexLayout","filename":"mod_wt_flex_layout"}', '{"mod_heading_alignment":"left","mod_bg_color":"","mod_text_color":"","mod_link_color":"","mod_link_hover_color":"","enable_container":"1","mod_spacing_top":"default","mod_spacing_bot":"default","mod_btn_type":"btn-secondary"}', '', NULL, NULL, 0, 0, NULL);
 
 -- Dumping structure for table px_cons.cons_fields
 CREATE TABLE IF NOT EXISTS `cons_fields` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0',
-  `context` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `context` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `group_id` int unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `label` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `default_value` text COLLATE utf8mb4_unicode_ci,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'text',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `default_value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'text',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `required` tinyint NOT NULL DEFAULT '0',
   `only_use_in_subform` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `ordering` int NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fieldparams` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fieldparams` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_time` datetime NOT NULL,
   `created_user_id` int unsigned NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL,
@@ -862,6 +948,7 @@ CREATE TABLE IF NOT EXISTS `cons_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_fields: ~0 rows (approximately)
+DELETE FROM `cons_fields`;
 
 -- Dumping structure for table px_cons.cons_fields_categories
 CREATE TABLE IF NOT EXISTS `cons_fields_categories` (
@@ -871,21 +958,22 @@ CREATE TABLE IF NOT EXISTS `cons_fields_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_fields_categories: ~0 rows (approximately)
+DELETE FROM `cons_fields_categories`;
 
 -- Dumping structure for table px_cons.cons_fields_groups
 CREATE TABLE IF NOT EXISTS `cons_fields_groups` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0',
-  `context` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `context` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `ordering` int NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
   `modified` datetime NOT NULL,
@@ -901,52 +989,55 @@ CREATE TABLE IF NOT EXISTS `cons_fields_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_fields_groups: ~0 rows (approximately)
+DELETE FROM `cons_fields_groups`;
 
 -- Dumping structure for table px_cons.cons_fields_values
 CREATE TABLE IF NOT EXISTS `cons_fields_values` (
   `field_id` int unsigned NOT NULL,
-  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Allow references to items which have strings as ids, eg. none db systems.',
-  `value` mediumtext COLLATE utf8mb4_unicode_ci,
+  `item_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Allow references to items which have strings as ids, eg. none db systems.',
+  `value` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   KEY `idx_field_id` (`field_id`),
   KEY `idx_item_id` (`item_id`(191))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_fields_values: ~0 rows (approximately)
+DELETE FROM `cons_fields_values`;
 
 -- Dumping structure for table px_cons.cons_finder_filters
 CREATE TABLE IF NOT EXISTS `cons_finder_filters` (
   `filter_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '1',
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `map_count` int unsigned NOT NULL DEFAULT '0',
-  `data` text COLLATE utf8mb4_unicode_ci,
-  `params` mediumtext COLLATE utf8mb4_unicode_ci,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `params` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_filters: ~0 rows (approximately)
+DELETE FROM `cons_finder_filters`;
 
 -- Dumping structure for table px_cons.cons_finder_links
 CREATE TABLE IF NOT EXISTS `cons_finder_links` (
   `link_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `route` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `route` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `indexdate` datetime NOT NULL,
-  `md5sum` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `md5sum` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `published` tinyint NOT NULL DEFAULT '1',
   `state` int NOT NULL DEFAULT '1',
   `access` int NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `publish_start_date` datetime DEFAULT NULL,
   `publish_end_date` datetime DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
@@ -963,9 +1054,19 @@ CREATE TABLE IF NOT EXISTS `cons_finder_links` (
   KEY `idx_language` (`language`),
   KEY `idx_published_list` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`list_price`),
   KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_finder_links: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_finder_links: ~7 rows (approximately)
+DELETE FROM `cons_finder_links`;
+INSERT INTO `cons_finder_links` (`link_id`, `url`, `route`, `title`, `description`, `indexdate`, `md5sum`, `published`, `state`, `access`, `language`, `publish_start_date`, `publish_end_date`, `start_date`, `end_date`, `list_price`, `sale_price`, `type_id`, `object`) VALUES
+	(1, 'index.php?option=com_content&view=category&id=8', 'index.php?option=com_content&view=category&id=8', 'Pages', ' Pages ', '2026-07-23 15:12:21', '05595d8de33988ec1d6266d7dc93506f', 1, 1, 1, '*', NULL, NULL, '2026-07-23 15:12:21', NULL, 0, 0, 1, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a373a2220506167657320223b693a333b613a31373a7b733a323a226964223b693a383b733a353a22616c696173223b733a353a227061676573223b733a393a22657874656e73696f6e223b733a31313a22636f6d5f636f6e74656e74223b733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a323a7b733a363a22617574686f72223b733a303a22223b733a363a22726f626f7473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a333a226c6674223b693a31313b733a393a22706172656e745f6964223b693a313b733a353a226c6576656c223b693a313b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a31353a2263617465676f72795f6c61796f7574223b733a303a22223b733a353a22696d616765223b733a303a22223b733a393a22696d6167655f616c74223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2273756d6d617279223b733a31323a223c703e50616765733c2f703e223b733a31303a22637265617465645f6279223b693a34323b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31323a3231223b733a31313a226d6f6469666965645f6279223b693a34323b733a343a22736c7567223b733a373a22383a7061676573223b733a363a226c61796f7574223b733a383a2263617465676f7279223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a343a226c696e6b223b693a343b733a373a226d6574616b6579223b693a353b733a383a226d65746164657363223b693a363b733a31303a226d657461617574686f72223b693a373b733a363a22617574686f72223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b4e3b693a31303b4e3b693a31313b733a34373a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d38223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31323a3231223b693a31343b693a313b693a31353b613a323a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a383a2243617465676f7279223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a333b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a353a225061676573223b693a31373b693a313b693a31383b733a34373a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d38223b7d),
+	(2, 'index.php?option=com_content&view=category&id=9', 'index.php?option=com_content&view=category&id=9', 'News', 'News', '2026-07-23 15:13:02', 'bd29f35247afda33d75aab9cc98d28bc', 1, 1, 1, '*', NULL, NULL, '2026-07-23 15:13:02', NULL, 0, 0, 1, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a343a224e657773223b693a333b613a31373a7b733a323a226964223b693a393b733a353a22616c696173223b733a343a226e657773223b733a393a22657874656e73696f6e223b733a31313a22636f6d5f636f6e74656e74223b733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a323a7b733a363a22617574686f72223b733a303a22223b733a363a22726f626f7473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a333a226c6674223b693a31333b733a393a22706172656e745f6964223b693a313b733a353a226c6576656c223b693a313b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a31353a2263617465676f72795f6c61796f7574223b733a303a22223b733a353a22696d616765223b733a303a22223b733a393a22696d6167655f616c74223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2273756d6d617279223b733a343a224e657773223b733a31303a22637265617465645f6279223b693a34323b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31333a3032223b733a31313a226d6f6469666965645f6279223b693a34323b733a343a22736c7567223b733a363a22393a6e657773223b733a363a226c61796f7574223b733a383a2263617465676f7279223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a343a226c696e6b223b693a343b733a373a226d6574616b6579223b693a353b733a383a226d65746164657363223b693a363b733a31303a226d657461617574686f72223b693a373b733a363a22617574686f72223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b4e3b693a31303b4e3b693a31313b733a34373a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d39223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31333a3032223b693a31343b693a313b693a31353b613a323a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a383a2243617465676f7279223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a333b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a343a224e657773223b693a31373b693a313b693a31383b733a34373a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d39223b7d),
+	(3, 'index.php?option=com_content&view=article&id=1', 'index.php?option=com_content&view=article&id=1:typography&catid=8', 'Typography', 'Typography', '2026-07-23 15:13:48', 'a94d0da4180ff6dca50794452a9af166', 1, 1, 1, '*', '2026-07-23 15:13:48', NULL, '2026-07-23 15:13:48', NULL, 0, 0, 3, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a31303a225479706f677261706879223b693a333b613a32353a7b733a323a226964223b693a313b733a353a22616c696173223b733a31303a227479706f677261706879223b733a373a2273756d6d617279223b733a31303a225479706f677261706879223b733a343a22626f6479223b733a303a22223b733a363a22696d61676573223b733a3137333a227b22696d6167655f696e74726f223a22222c22696d6167655f696e74726f5f616c74223a22222c22666c6f61745f696e74726f223a22222c22696d6167655f696e74726f5f63617074696f6e223a22222c22696d6167655f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f616c74223a22222c22666c6f61745f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f63617074696f6e223a22227d223b733a353a226361746964223b693a383b733a31303a22637265617465645f6279223b693a34323b733a31363a22637265617465645f62795f616c696173223b733a303a22223b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31333a3438223b733a31313a226d6f6469666965645f6279223b693a34323b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a38363a7b733a31343a2261727469636c655f6c61796f7574223b733a393a225f3a64656661756c74223b733a31303a2273686f775f7469746c65223b733a313a2231223b733a31313a226c696e6b5f7469746c6573223b733a313a2231223b733a31303a2273686f775f696e74726f223b733a313a2231223b733a31393a22696e666f5f626c6f636b5f706f736974696f6e223b733a313a2230223b733a32313a22696e666f5f626c6f636b5f73686f775f7469746c65223b733a313a2231223b733a31333a2273686f775f63617465676f7279223b733a313a2231223b733a31333a226c696e6b5f63617465676f7279223b733a313a2231223b733a32303a2273686f775f706172656e745f63617465676f7279223b733a313a2230223b733a32303a226c696e6b5f706172656e745f63617465676f7279223b733a313a2230223b733a31373a2273686f775f6173736f63696174696f6e73223b733a313a2230223b733a353a22666c616773223b733a313a2231223b733a31313a2273686f775f617574686f72223b733a313a2231223b733a31313a226c696e6b5f617574686f72223b733a313a2230223b733a31363a2273686f775f6372656174655f64617465223b733a313a2230223b733a31363a2273686f775f6d6f646966795f64617465223b733a313a2230223b733a31373a2273686f775f7075626c6973685f64617465223b733a313a2231223b733a32303a2273686f775f6974656d5f6e617669676174696f6e223b733a313a2231223b733a31333a2273686f775f726561646d6f7265223b733a313a2231223b733a31393a2273686f775f726561646d6f72655f7469746c65223b733a313a2231223b733a31343a22726561646d6f72655f6c696d6974223b693a3130303b733a393a2273686f775f74616773223b733a313a2231223b733a31313a227265636f72645f68697473223b733a313a2231223b733a393a2273686f775f68697473223b733a313a2231223b733a31313a2273686f775f6e6f61757468223b733a313a2230223b733a31333a2275726c735f706f736974696f6e223b693a303b733a373a2263617074636861223b733a303a22223b733a32333a2273686f775f7075626c697368696e675f6f7074696f6e73223b733a313a2231223b733a32303a2273686f775f61727469636c655f6f7074696f6e73223b733a313a2231223b733a32373a2273686f775f636f6e6669677572655f656469745f6f7074696f6e73223b733a313a2231223b733a31363a2273686f775f7065726d697373696f6e73223b733a313a2231223b733a32323a2273686f775f6173736f63696174696f6e735f65646974223b733a313a2231223b733a31323a22736176655f686973746f7279223b733a313a2231223b733a31333a22686973746f72795f6c696d6974223b693a31303b733a32353a2273686f775f75726c735f696d616765735f66726f6e74656e64223b733a313a2230223b733a32343a2273686f775f75726c735f696d616765735f6261636b656e64223b733a313a2231223b733a373a2274617267657461223b693a303b733a373a2274617267657462223b693a303b733a373a2274617267657463223b693a303b733a31313a22666c6f61745f696e74726f223b733a343a226c656674223b733a31343a22666c6f61745f66756c6c74657874223b733a343a226c656674223b733a31353a2263617465676f72795f6c61796f7574223b733a363a225f3a626c6f67223b733a31393a2273686f775f63617465676f72795f7469746c65223b733a313a2230223b733a31363a2273686f775f6465736372697074696f6e223b733a313a2230223b733a32323a2273686f775f6465736372697074696f6e5f696d616765223b733a313a2230223b733a383a226d61784c6576656c223b733a313a2231223b733a32313a2273686f775f656d7074795f63617465676f72696573223b733a313a2230223b733a31363a2273686f775f6e6f5f61727469636c6573223b733a313a2231223b733a33323a2273686f775f63617465676f72795f68656164696e675f7469746c655f74657874223b733a313a2231223b733a31363a2273686f775f7375626361745f64657363223b733a313a2231223b733a32313a2273686f775f6361745f6e756d5f61727469636c6573223b733a313a2230223b733a31333a2273686f775f6361745f74616773223b733a313a2231223b733a32313a2273686f775f626173655f6465736372697074696f6e223b733a313a2231223b733a31313a226d61784c6576656c636174223b733a323a222d31223b733a32353a2273686f775f656d7074795f63617465676f726965735f636174223b733a313a2230223b733a32303a2273686f775f7375626361745f646573635f636174223b733a313a2231223b733a32353a2273686f775f6361745f6e756d5f61727469636c65735f636174223b733a313a2231223b733a32303a226e756d5f6c656164696e675f61727469636c6573223b693a313b733a31383a22626c6f675f636c6173735f6c656164696e67223b733a303a22223b733a31383a226e756d5f696e74726f5f61727469636c6573223b693a343b733a31303a22626c6f675f636c617373223b733a303a22223b733a31313a226e756d5f636f6c756d6e73223b693a313b733a31383a226d756c74695f636f6c756d6e5f6f72646572223b733a313a2230223b733a393a226e756d5f6c696e6b73223b693a343b733a32343a2273686f775f73756263617465676f72795f636f6e74656e74223b733a313a2230223b733a31363a226c696e6b5f696e74726f5f696d616765223b733a313a2230223b733a32313a2273686f775f706167696e6174696f6e5f6c696d6974223b733a313a2231223b733a31323a2266696c7465725f6669656c64223b733a343a2268696465223b733a31333a2273686f775f68656164696e6773223b733a313a2231223b733a31343a226c6973745f73686f775f64617465223b733a313a2230223b733a31313a22646174655f666f726d6174223b733a303a22223b733a31343a226c6973745f73686f775f68697473223b733a313a2231223b733a31363a226c6973745f73686f775f617574686f72223b733a313a2231223b733a31313a22646973706c61795f6e756d223b733a323a223130223b733a31313a226f7264657262795f707269223b733a353a226f72646572223b733a31313a226f7264657262795f736563223b733a353a227264617465223b733a31303a226f726465725f64617465223b733a393a227075626c6973686564223b733a31353a2273686f775f706167696e6174696f6e223b733a313a2232223b733a32333a2273686f775f706167696e6174696f6e5f726573756c7473223b733a313a2231223b733a31333a2273686f775f6665617475726564223b733a343a2273686f77223b733a31343a2273686f775f666565645f6c696e6b223b733a313a2231223b733a31323a22666565645f73756d6d617279223b733a313a2230223b733a31383a22666565645f73686f775f726561646d6f7265223b733a313a2230223b733a373a227365665f696473223b693a313b733a32303a22637573746f6d5f6669656c64735f656e61626c65223b733a313a2231223b733a31363a22776f726b666c6f775f656e61626c6564223b733a313a2230223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a363a22726f626f7473223b733a303a22223b733a363a22617574686f72223b733a303a22223b733a363a22726967687473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2276657273696f6e223b693a313b733a383a226f72646572696e67223b693a303b733a383a2263617465676f7279223b733a353a225061676573223b733a393a226361745f7374617465223b693a313b733a31303a226361745f616363657373223b693a313b733a343a22736c7567223b733a31323a22313a7479706f677261706879223b733a373a22636174736c7567223b733a373a22383a7061676573223b733a363a22617574686f72223b733a31303a2253757065722055736572223b733a363a226c61796f7574223b733a373a2261727469636c65223b733a373a22636f6e74657874223b733a31393a22636f6d5f636f6e74656e742e61727469636c65223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a373a226d6574616b6579223b693a343b733a383a226d65746164657363223b693a353b733a31303a226d657461617574686f72223b693a363b733a363a22617574686f72223b693a373b733a31363a22637265617465645f62795f616c696173223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b733a31393a22323032362d30372d32332031353a31333a3438223b693a31303b4e3b693a31313b733a36353a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d313a7479706f6772617068792663617469643d38223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31333a3438223b693a31343b693a313b693a31353b613a343a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a373a2241727469636c65223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a363b7d7d733a363a22417574686f72223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a31303a2253757065722055736572223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a383b7d7d733a383a2243617465676f7279223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a353a225061676573223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a313b733a323a226964223b693a31303b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a31303a225479706f677261706879223b693a31373b693a333b693a31383b733a34363a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d31223b7d),
+	(4, 'index.php?option=com_content&view=article&id=2', 'index.php?option=com_content&view=article&id=2:about-us&catid=8', 'About us', 'About us', '2026-07-23 15:14:09', '5df0c2807c94b4785b029d484d72e5bc', 1, 1, 1, '*', '2026-07-23 15:14:09', NULL, '2026-07-23 15:14:09', NULL, 0, 0, 3, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a383a2241626f7574207573223b693a333b613a32353a7b733a323a226964223b693a323b733a353a22616c696173223b733a383a2261626f7574207573223b733a373a2273756d6d617279223b733a383a2241626f7574207573223b733a343a22626f6479223b733a303a22223b733a363a22696d61676573223b733a3137333a227b22696d6167655f696e74726f223a22222c22696d6167655f696e74726f5f616c74223a22222c22666c6f61745f696e74726f223a22222c22696d6167655f696e74726f5f63617074696f6e223a22222c22696d6167655f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f616c74223a22222c22666c6f61745f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f63617074696f6e223a22227d223b733a353a226361746964223b693a383b733a31303a22637265617465645f6279223b693a34323b733a31363a22637265617465645f62795f616c696173223b733a303a22223b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31343a3039223b733a31313a226d6f6469666965645f6279223b693a34323b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a38363a7b733a31343a2261727469636c655f6c61796f7574223b733a393a225f3a64656661756c74223b733a31303a2273686f775f7469746c65223b733a313a2231223b733a31313a226c696e6b5f7469746c6573223b733a313a2231223b733a31303a2273686f775f696e74726f223b733a313a2231223b733a31393a22696e666f5f626c6f636b5f706f736974696f6e223b733a313a2230223b733a32313a22696e666f5f626c6f636b5f73686f775f7469746c65223b733a313a2231223b733a31333a2273686f775f63617465676f7279223b733a313a2231223b733a31333a226c696e6b5f63617465676f7279223b733a313a2231223b733a32303a2273686f775f706172656e745f63617465676f7279223b733a313a2230223b733a32303a226c696e6b5f706172656e745f63617465676f7279223b733a313a2230223b733a31373a2273686f775f6173736f63696174696f6e73223b733a313a2230223b733a353a22666c616773223b733a313a2231223b733a31313a2273686f775f617574686f72223b733a313a2231223b733a31313a226c696e6b5f617574686f72223b733a313a2230223b733a31363a2273686f775f6372656174655f64617465223b733a313a2230223b733a31363a2273686f775f6d6f646966795f64617465223b733a313a2230223b733a31373a2273686f775f7075626c6973685f64617465223b733a313a2231223b733a32303a2273686f775f6974656d5f6e617669676174696f6e223b733a313a2231223b733a31333a2273686f775f726561646d6f7265223b733a313a2231223b733a31393a2273686f775f726561646d6f72655f7469746c65223b733a313a2231223b733a31343a22726561646d6f72655f6c696d6974223b693a3130303b733a393a2273686f775f74616773223b733a313a2231223b733a31313a227265636f72645f68697473223b733a313a2231223b733a393a2273686f775f68697473223b733a313a2231223b733a31313a2273686f775f6e6f61757468223b733a313a2230223b733a31333a2275726c735f706f736974696f6e223b693a303b733a373a2263617074636861223b733a303a22223b733a32333a2273686f775f7075626c697368696e675f6f7074696f6e73223b733a313a2231223b733a32303a2273686f775f61727469636c655f6f7074696f6e73223b733a313a2231223b733a32373a2273686f775f636f6e6669677572655f656469745f6f7074696f6e73223b733a313a2231223b733a31363a2273686f775f7065726d697373696f6e73223b733a313a2231223b733a32323a2273686f775f6173736f63696174696f6e735f65646974223b733a313a2231223b733a31323a22736176655f686973746f7279223b733a313a2231223b733a31333a22686973746f72795f6c696d6974223b693a31303b733a32353a2273686f775f75726c735f696d616765735f66726f6e74656e64223b733a313a2230223b733a32343a2273686f775f75726c735f696d616765735f6261636b656e64223b733a313a2231223b733a373a2274617267657461223b693a303b733a373a2274617267657462223b693a303b733a373a2274617267657463223b693a303b733a31313a22666c6f61745f696e74726f223b733a343a226c656674223b733a31343a22666c6f61745f66756c6c74657874223b733a343a226c656674223b733a31353a2263617465676f72795f6c61796f7574223b733a363a225f3a626c6f67223b733a31393a2273686f775f63617465676f72795f7469746c65223b733a313a2230223b733a31363a2273686f775f6465736372697074696f6e223b733a313a2230223b733a32323a2273686f775f6465736372697074696f6e5f696d616765223b733a313a2230223b733a383a226d61784c6576656c223b733a313a2231223b733a32313a2273686f775f656d7074795f63617465676f72696573223b733a313a2230223b733a31363a2273686f775f6e6f5f61727469636c6573223b733a313a2231223b733a33323a2273686f775f63617465676f72795f68656164696e675f7469746c655f74657874223b733a313a2231223b733a31363a2273686f775f7375626361745f64657363223b733a313a2231223b733a32313a2273686f775f6361745f6e756d5f61727469636c6573223b733a313a2230223b733a31333a2273686f775f6361745f74616773223b733a313a2231223b733a32313a2273686f775f626173655f6465736372697074696f6e223b733a313a2231223b733a31313a226d61784c6576656c636174223b733a323a222d31223b733a32353a2273686f775f656d7074795f63617465676f726965735f636174223b733a313a2230223b733a32303a2273686f775f7375626361745f646573635f636174223b733a313a2231223b733a32353a2273686f775f6361745f6e756d5f61727469636c65735f636174223b733a313a2231223b733a32303a226e756d5f6c656164696e675f61727469636c6573223b693a313b733a31383a22626c6f675f636c6173735f6c656164696e67223b733a303a22223b733a31383a226e756d5f696e74726f5f61727469636c6573223b693a343b733a31303a22626c6f675f636c617373223b733a303a22223b733a31313a226e756d5f636f6c756d6e73223b693a313b733a31383a226d756c74695f636f6c756d6e5f6f72646572223b733a313a2230223b733a393a226e756d5f6c696e6b73223b693a343b733a32343a2273686f775f73756263617465676f72795f636f6e74656e74223b733a313a2230223b733a31363a226c696e6b5f696e74726f5f696d616765223b733a313a2230223b733a32313a2273686f775f706167696e6174696f6e5f6c696d6974223b733a313a2231223b733a31323a2266696c7465725f6669656c64223b733a343a2268696465223b733a31333a2273686f775f68656164696e6773223b733a313a2231223b733a31343a226c6973745f73686f775f64617465223b733a313a2230223b733a31313a22646174655f666f726d6174223b733a303a22223b733a31343a226c6973745f73686f775f68697473223b733a313a2231223b733a31363a226c6973745f73686f775f617574686f72223b733a313a2231223b733a31313a22646973706c61795f6e756d223b733a323a223130223b733a31313a226f7264657262795f707269223b733a353a226f72646572223b733a31313a226f7264657262795f736563223b733a353a227264617465223b733a31303a226f726465725f64617465223b733a393a227075626c6973686564223b733a31353a2273686f775f706167696e6174696f6e223b733a313a2232223b733a32333a2273686f775f706167696e6174696f6e5f726573756c7473223b733a313a2231223b733a31333a2273686f775f6665617475726564223b733a343a2273686f77223b733a31343a2273686f775f666565645f6c696e6b223b733a313a2231223b733a31323a22666565645f73756d6d617279223b733a313a2230223b733a31383a22666565645f73686f775f726561646d6f7265223b733a313a2230223b733a373a227365665f696473223b693a313b733a32303a22637573746f6d5f6669656c64735f656e61626c65223b733a313a2231223b733a31363a22776f726b666c6f775f656e61626c6564223b733a313a2230223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a363a22726f626f7473223b733a303a22223b733a363a22617574686f72223b733a303a22223b733a363a22726967687473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2276657273696f6e223b693a313b733a383a226f72646572696e67223b693a303b733a383a2263617465676f7279223b733a353a225061676573223b733a393a226361745f7374617465223b693a313b733a31303a226361745f616363657373223b693a313b733a343a22736c7567223b733a31303a22323a61626f75742d7573223b733a373a22636174736c7567223b733a373a22383a7061676573223b733a363a22617574686f72223b733a31303a2253757065722055736572223b733a363a226c61796f7574223b733a373a2261727469636c65223b733a373a22636f6e74657874223b733a31393a22636f6d5f636f6e74656e742e61727469636c65223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a373a226d6574616b6579223b693a343b733a383a226d65746164657363223b693a353b733a31303a226d657461617574686f72223b693a363b733a363a22617574686f72223b693a373b733a31363a22637265617465645f62795f616c696173223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b733a31393a22323032362d30372d32332031353a31343a3039223b693a31303b4e3b693a31313b733a36333a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d323a61626f75742d75732663617469643d38223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31343a3039223b693a31343b693a313b693a31353b613a343a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a373a2241727469636c65223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a363b7d7d733a363a22417574686f72223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a31303a2253757065722055736572223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a383b7d7d733a383a2243617465676f7279223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a353a225061676573223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a313b733a323a226964223b693a31303b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a383a2241626f7574207573223b693a31373b693a333b693a31383b733a34363a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d32223b7d),
+	(5, 'index.php?option=com_content&view=category&id=10', 'index.php?option=com_content&view=category&id=10', 'Projects', 'Projects', '2026-07-23 15:15:45', '5f3be633c2eb1529d774c38f771ee977', 1, 1, 1, '*', NULL, NULL, '2026-07-23 15:15:45', NULL, 0, 0, 1, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a383a2250726f6a65637473223b693a333b613a31373a7b733a323a226964223b693a31303b733a353a22616c696173223b733a383a2270726f6a65637473223b733a393a22657874656e73696f6e223b733a31313a22636f6d5f636f6e74656e74223b733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a323a7b733a363a22617574686f72223b733a303a22223b733a363a22726f626f7473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a333a226c6674223b693a31353b733a393a22706172656e745f6964223b693a313b733a353a226c6576656c223b693a313b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a31353a2263617465676f72795f6c61796f7574223b733a303a22223b733a353a22696d616765223b733a303a22223b733a393a22696d6167655f616c74223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2273756d6d617279223b733a383a2250726f6a65637473223b733a31303a22637265617465645f6279223b693a34323b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31353a3435223b733a31313a226d6f6469666965645f6279223b693a34323b733a343a22736c7567223b733a31313a2231303a70726f6a65637473223b733a363a226c61796f7574223b733a383a2263617465676f7279223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a343a226c696e6b223b693a343b733a373a226d6574616b6579223b693a353b733a383a226d65746164657363223b693a363b733a31303a226d657461617574686f72223b693a373b733a363a22617574686f72223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b4e3b693a31303b4e3b693a31313b733a34383a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d3130223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31353a3435223b693a31343b693a313b693a31353b613a323a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a383a2243617465676f7279223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a333b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a383a2250726f6a65637473223b693a31373b693a313b693a31383b733a34383a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d3130223b7d),
+	(6, 'index.php?option=com_contact&view=contact&id=1', 'index.php?option=com_contact&view=contact&id=1:cons-contact&catid=4:uncategorised', 'Cons contact', '', '2026-07-23 15:17:41', '1be84db3e148eefefd5379b0817bd23c', 1, 1, 1, '*', NULL, NULL, '2026-07-23 15:17:41', NULL, 0, 0, 2, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a303a22223b693a333b613a33343a7b733a323a226964223b693a313b733a353a22616c696173223b733a31323a22636f6e7320636f6e74616374223b733a383a22706f736974696f6e223b733a303a22223b733a373a2261646472657373223b733a303a22223b733a31363a22637265617465645f62795f616c696173223b733a303a22223b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a31373a3431223b733a31313a226d6f6469666965645f6279223b693a34323b733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b733a32353a227b22726f626f7473223a22222c22726967687473223a22227d223b733a393a22736f72746e616d6531223b733a303a22223b733a393a22736f72746e616d6532223b733a303a22223b733a393a22736f72746e616d6533223b733a303a22223b733a343a2263697479223b733a303a22223b733a363a22726567696f6e223b733a303a22223b733a373a22636f756e747279223b733a303a22223b733a333a227a6970223b733a303a22223b733a393a2274656c6570686f6e65223b733a303a22223b733a333a22666178223b733a303a22223b733a373a2273756d6d617279223b733a303a22223b733a353a22656d61696c223b733a303a22223b733a363a226d6f62696c65223b733a303a22223b733a353a22696d616765223b733a303a22223b733a373a2277656270616765223b733a303a22223b733a383a226f72646572696e67223b693a313b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a34303a7b733a32313a2273686f775f636f6e746163745f63617465676f7279223b733a303a22223b733a31373a2273686f775f636f6e746163745f6c697374223b733a303a22223b733a393a2273686f775f74616773223b733a303a22223b733a393a2273686f775f696e666f223b733a303a22223b733a393a2273686f775f6e616d65223b733a303a22223b733a31333a2273686f775f706f736974696f6e223b733a303a22223b733a31303a2273686f775f656d61696c223b733a303a22223b733a31353a226164645f6d61696c746f5f6c696e6b223b733a303a22223b733a31393a2273686f775f7374726565745f61646472657373223b733a303a22223b733a31313a2273686f775f737562757262223b733a303a22223b733a31303a2273686f775f7374617465223b733a303a22223b733a31333a2273686f775f706f7374636f6465223b733a303a22223b733a31323a2273686f775f636f756e747279223b733a303a22223b733a31343a2273686f775f74656c6570686f6e65223b733a303a22223b733a31313a2273686f775f6d6f62696c65223b733a303a22223b733a383a2273686f775f666178223b733a303a22223b733a31323a2273686f775f77656270616765223b733a303a22223b733a31303a2273686f775f696d616765223b733a303a22223b733a393a2273686f775f6d697363223b733a303a22223b733a31313a22616c6c6f775f7663617264223b733a303a22223b733a31333a2273686f775f61727469636c6573223b733a303a22223b733a32303a2261727469636c65735f646973706c61795f6e756d223b733a303a22223b733a31323a2273686f775f70726f66696c65223b733a303a22223b733a31343a22636f6e746163745f6c61796f7574223b733a303a22223b733a31303a2273686f775f6c696e6b73223b733a303a22223b733a31303a226c696e6b615f6e616d65223b733a303a22223b733a353a226c696e6b61223b733a303a22223b733a31303a226c696e6b625f6e616d65223b733a303a22223b733a353a226c696e6b62223b733a303a22223b733a31303a226c696e6b635f6e616d65223b733a303a22223b733a353a226c696e6b63223b733a303a22223b733a31303a226c696e6b645f6e616d65223b733a303a22223b733a353a226c696e6b64223b733a303a22223b733a31303a226c696e6b655f6e616d65223b733a303a22223b733a353a226c696e6b65223b733a303a22223b733a31353a2273686f775f656d61696c5f666f726d223b733a303a22223b733a31353a2273686f775f656d61696c5f636f7079223b733a303a22223b733a31363a2276616c69646174655f73657373696f6e223b733a303a22223b733a31323a22637573746f6d5f7265706c79223b733a303a22223b733a383a227265646972656374223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a353a226361746964223b693a343b733a383a2263617465676f7279223b733a31333a22556e63617465676f7269736564223b733a393a226361745f7374617465223b693a313b733a31303a226361745f616363657373223b693a313b733a343a22736c7567223b733a31343a22313a636f6e732d636f6e74616374223b733a373a22636174736c7567223b733a31353a22343a756e63617465676f7269736564223b733a343a226e616d65223b4e3b733a363a226c61796f7574223b733a373a22636f6e74616374223b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a31353a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a383a22706f736974696f6e223b693a343b733a373a2261646472657373223b693a353b733a343a2263697479223b693a363b733a363a22726567696f6e223b693a373b733a373a22636f756e747279223b693a383b733a333a227a6970223b693a393b733a393a2274656c6570686f6e65223b693a31303b733a333a22666178223b693a31313b733a353a22656d61696c223b693a31323b733a363a226d6f62696c65223b693a31333b733a373a2277656270616765223b693a31343b733a343a2275736572223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b4e3b693a31303b4e3b693a31313b733a38313a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e7461637426766965773d636f6e746163742669643d313a636f6e732d636f6e746163742663617469643d343a756e63617465676f7269736564223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a31373a3431223b693a31343b693a313b693a31353b613a333a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a373a22436f6e74616374223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a31313b7d7d733a383a2243617465676f7279223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a31333a22556e63617465676f7269736564223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a313b733a323a226964223b693a31323b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a31323a22436f6e7320636f6e74616374223b693a31373b693a323b693a31383b733a34363a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e7461637426766965773d636f6e746163742669643d31223b7d),
+	(7, 'index.php?option=com_content&view=category&id=11', 'index.php?option=com_content&view=category&id=11', 'Services', 'Services', '2026-07-23 15:24:57', '903cf02f03bf93cae757b9216598d42a', 1, 1, 1, '*', NULL, NULL, '2026-07-23 15:24:57', NULL, 0, 0, 1, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a383a225365727669636573223b693a333b613a31373a7b733a323a226964223b693a31313b733a353a22616c696173223b733a383a227365727669636573223b733a393a22657874656e73696f6e223b733a31313a22636f6d5f636f6e74656e74223b733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a323a7b733a363a22617574686f72223b733a303a22223b733a363a22726f626f7473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a333a226c6674223b693a31373b733a393a22706172656e745f6964223b693a313b733a353a226c6576656c223b693a313b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a31353a2263617465676f72795f6c61796f7574223b733a303a22223b733a353a22696d616765223b733a303a22223b733a393a22696d6167655f616c74223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2273756d6d617279223b733a383a225365727669636573223b733a31303a22637265617465645f6279223b693a34323b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a32343a3537223b733a31313a226d6f6469666965645f6279223b693a34323b733a343a22736c7567223b733a31313a2231313a7365727669636573223b733a363a226c61796f7574223b733a383a2263617465676f7279223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a343a226c696e6b223b693a343b733a373a226d6574616b6579223b693a353b733a383a226d65746164657363223b693a363b733a31303a226d657461617574686f72223b693a373b733a363a22617574686f72223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b4e3b693a31303b4e3b693a31313b733a34383a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d3131223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a32343a3537223b693a31343b693a313b693a31353b613a323a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a383a2243617465676f7279223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a333b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a383a225365727669636573223b693a31373b693a313b693a31383b733a34383a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d63617465676f72792669643d3131223b7d),
+	(8, 'index.php?option=com_content&view=article&id=3', 'index.php?option=com_content&view=article&id=3:first-news&catid=9', 'First news', 'First news', '2026-07-23 15:54:23', '863ff53a19a1838cd040e60bb1e9de9c', 1, 1, 1, '*', '2026-07-23 15:54:23', NULL, '2026-07-23 15:54:23', NULL, 0, 0, 3, _binary 0x4f3a35323a224a6f6f6d6c615c436f6d706f6e656e745c46696e6465725c41646d696e6973747261746f725c496e64657865725c526573756c74223a31393a7b693a303b693a313b693a313b733a353a22656e2d4742223b693a323b733a31303a224669727374206e657773223b693a333b613a32353a7b733a323a226964223b693a333b733a353a22616c696173223b733a31303a226669727374206e657773223b733a373a2273756d6d617279223b733a31303a224669727374206e657773223b733a343a22626f6479223b733a303a22223b733a363a22696d61676573223b733a3137333a227b22696d6167655f696e74726f223a22222c22696d6167655f696e74726f5f616c74223a22222c22666c6f61745f696e74726f223a22222c22696d6167655f696e74726f5f63617074696f6e223a22222c22696d6167655f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f616c74223a22222c22666c6f61745f66756c6c74657874223a22222c22696d6167655f66756c6c746578745f63617074696f6e223a22227d223b733a353a226361746964223b693a393b733a31303a22637265617465645f6279223b693a34323b733a31363a22637265617465645f62795f616c696173223b733a303a22223b733a383a226d6f646966696564223b733a31393a22323032362d30372d32332031353a35343a3233223b733a31313a226d6f6469666965645f6279223b693a34323b733a363a22706172616d73223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a38363a7b733a31343a2261727469636c655f6c61796f7574223b733a393a225f3a64656661756c74223b733a31303a2273686f775f7469746c65223b733a313a2231223b733a31313a226c696e6b5f7469746c6573223b733a313a2231223b733a31303a2273686f775f696e74726f223b733a313a2231223b733a31393a22696e666f5f626c6f636b5f706f736974696f6e223b733a313a2230223b733a32313a22696e666f5f626c6f636b5f73686f775f7469746c65223b733a313a2231223b733a31333a2273686f775f63617465676f7279223b733a313a2231223b733a31333a226c696e6b5f63617465676f7279223b733a313a2231223b733a32303a2273686f775f706172656e745f63617465676f7279223b733a313a2230223b733a32303a226c696e6b5f706172656e745f63617465676f7279223b733a313a2230223b733a31373a2273686f775f6173736f63696174696f6e73223b733a313a2230223b733a353a22666c616773223b733a313a2231223b733a31313a2273686f775f617574686f72223b733a313a2231223b733a31313a226c696e6b5f617574686f72223b733a313a2230223b733a31363a2273686f775f6372656174655f64617465223b733a313a2230223b733a31363a2273686f775f6d6f646966795f64617465223b733a313a2230223b733a31373a2273686f775f7075626c6973685f64617465223b733a313a2231223b733a32303a2273686f775f6974656d5f6e617669676174696f6e223b733a313a2231223b733a31333a2273686f775f726561646d6f7265223b733a313a2231223b733a31393a2273686f775f726561646d6f72655f7469746c65223b733a313a2231223b733a31343a22726561646d6f72655f6c696d6974223b693a3130303b733a393a2273686f775f74616773223b733a313a2231223b733a31313a227265636f72645f68697473223b733a313a2231223b733a393a2273686f775f68697473223b733a313a2231223b733a31313a2273686f775f6e6f61757468223b733a313a2230223b733a31333a2275726c735f706f736974696f6e223b693a303b733a373a2263617074636861223b733a303a22223b733a32333a2273686f775f7075626c697368696e675f6f7074696f6e73223b733a313a2231223b733a32303a2273686f775f61727469636c655f6f7074696f6e73223b733a313a2231223b733a32373a2273686f775f636f6e6669677572655f656469745f6f7074696f6e73223b733a313a2231223b733a31363a2273686f775f7065726d697373696f6e73223b733a313a2231223b733a32323a2273686f775f6173736f63696174696f6e735f65646974223b733a313a2231223b733a31323a22736176655f686973746f7279223b733a313a2231223b733a31333a22686973746f72795f6c696d6974223b693a31303b733a32353a2273686f775f75726c735f696d616765735f66726f6e74656e64223b733a313a2230223b733a32343a2273686f775f75726c735f696d616765735f6261636b656e64223b733a313a2231223b733a373a2274617267657461223b693a303b733a373a2274617267657462223b693a303b733a373a2274617267657463223b693a303b733a31313a22666c6f61745f696e74726f223b733a343a226c656674223b733a31343a22666c6f61745f66756c6c74657874223b733a343a226c656674223b733a31353a2263617465676f72795f6c61796f7574223b733a363a225f3a626c6f67223b733a31393a2273686f775f63617465676f72795f7469746c65223b733a313a2230223b733a31363a2273686f775f6465736372697074696f6e223b733a313a2230223b733a32323a2273686f775f6465736372697074696f6e5f696d616765223b733a313a2230223b733a383a226d61784c6576656c223b733a313a2231223b733a32313a2273686f775f656d7074795f63617465676f72696573223b733a313a2230223b733a31363a2273686f775f6e6f5f61727469636c6573223b733a313a2231223b733a33323a2273686f775f63617465676f72795f68656164696e675f7469746c655f74657874223b733a313a2231223b733a31363a2273686f775f7375626361745f64657363223b733a313a2231223b733a32313a2273686f775f6361745f6e756d5f61727469636c6573223b733a313a2230223b733a31333a2273686f775f6361745f74616773223b733a313a2231223b733a32313a2273686f775f626173655f6465736372697074696f6e223b733a313a2231223b733a31313a226d61784c6576656c636174223b733a323a222d31223b733a32353a2273686f775f656d7074795f63617465676f726965735f636174223b733a313a2230223b733a32303a2273686f775f7375626361745f646573635f636174223b733a313a2231223b733a32353a2273686f775f6361745f6e756d5f61727469636c65735f636174223b733a313a2231223b733a32303a226e756d5f6c656164696e675f61727469636c6573223b693a313b733a31383a22626c6f675f636c6173735f6c656164696e67223b733a303a22223b733a31383a226e756d5f696e74726f5f61727469636c6573223b693a343b733a31303a22626c6f675f636c617373223b733a303a22223b733a31313a226e756d5f636f6c756d6e73223b693a313b733a31383a226d756c74695f636f6c756d6e5f6f72646572223b733a313a2230223b733a393a226e756d5f6c696e6b73223b693a343b733a32343a2273686f775f73756263617465676f72795f636f6e74656e74223b733a313a2230223b733a31363a226c696e6b5f696e74726f5f696d616765223b733a313a2230223b733a32313a2273686f775f706167696e6174696f6e5f6c696d6974223b733a313a2231223b733a31323a2266696c7465725f6669656c64223b733a343a2268696465223b733a31333a2273686f775f68656164696e6773223b733a313a2231223b733a31343a226c6973745f73686f775f64617465223b733a313a2230223b733a31313a22646174655f666f726d6174223b733a303a22223b733a31343a226c6973745f73686f775f68697473223b733a313a2231223b733a31363a226c6973745f73686f775f617574686f72223b733a313a2231223b733a31313a22646973706c61795f6e756d223b733a323a223130223b733a31313a226f7264657262795f707269223b733a353a226f72646572223b733a31313a226f7264657262795f736563223b733a353a227264617465223b733a31303a226f726465725f64617465223b733a393a227075626c6973686564223b733a31353a2273686f775f706167696e6174696f6e223b733a313a2232223b733a32333a2273686f775f706167696e6174696f6e5f726573756c7473223b733a313a2231223b733a31333a2273686f775f6665617475726564223b733a343a2273686f77223b733a31343a2273686f775f666565645f6c696e6b223b733a313a2231223b733a31323a22666565645f73756d6d617279223b733a313a2230223b733a31383a22666565645f73686f775f726561646d6f7265223b733a313a2230223b733a373a227365665f696473223b693a313b733a32303a22637573746f6d5f6669656c64735f656e61626c65223b733a313a2231223b733a31363a22776f726b666c6f775f656e61626c6564223b733a313a2230223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a226d6574616b6579223b733a303a22223b733a383a226d65746164657363223b733a303a22223b733a383a226d65746164617461223b4f3a32343a224a6f6f6d6c615c52656769737472795c5265676973747279223a333a7b733a373a22002a0064617461223b4f3a383a22737464436c617373223a333a7b733a363a22726f626f7473223b733a303a22223b733a363a22617574686f72223b733a303a22223b733a363a22726967687473223b733a303a22223b7d733a31343a22002a00696e697469616c697a6564223b623a313b733a31323a22002a00736570617261746f72223b733a313a222e223b7d733a373a2276657273696f6e223b693a313b733a383a226f72646572696e67223b693a303b733a383a2263617465676f7279223b733a343a224e657773223b733a393a226361745f7374617465223b693a313b733a31303a226361745f616363657373223b693a313b733a343a22736c7567223b733a31323a22333a66697273742d6e657773223b733a373a22636174736c7567223b733a363a22393a6e657773223b733a363a22617574686f72223b733a31303a2253757065722055736572223b733a363a226c61796f7574223b733a373a2261727469636c65223b733a373a22636f6e74657874223b733a31393a22636f6d5f636f6e74656e742e61727469636c65223b733a31303a226d657461617574686f72223b4e3b7d693a343b4e3b693a353b613a353a7b693a313b613a333a7b693a303b733a353a227469746c65223b693a313b733a383a227375627469746c65223b693a323b733a323a226964223b7d693a323b613a323a7b693a303b733a373a2273756d6d617279223b693a313b733a343a22626f6479223b7d693a333b613a383a7b693a303b733a343a226d657461223b693a313b733a31303a226c6973745f7072696365223b693a323b733a31303a2273616c655f7072696365223b693a333b733a373a226d6574616b6579223b693a343b733a383a226d65746164657363223b693a353b733a31303a226d657461617574686f72223b693a363b733a363a22617574686f72223b693a373b733a31363a22637265617465645f62795f616c696173223b7d693a343b613a323a7b693a303b733a343a2270617468223b693a313b733a353a22616c696173223b7d693a353b613a313a7b693a303b733a383a22636f6d6d656e7473223b7d7d693a363b733a313a222a223b693a373b4e3b693a383b4e3b693a393b733a31393a22323032362d30372d32332031353a35343a3233223b693a31303b4e3b693a31313b733a36353a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d333a66697273742d6e6577732663617469643d39223b693a31323b4e3b693a31333b733a31393a22323032362d30372d32332031353a35343a3233223b693a31343b693a313b693a31353b613a343a7b733a343a2254797065223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a373a2241727469636c65223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a363b7d7d733a363a22417574686f72223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a31303a2253757065722055736572223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a383b7d7d733a383a2243617465676f7279223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a343a224e657773223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a313b733a323a226964223b693a31333b7d7d733a383a224c616e6775616765223b613a313a7b693a303b4f3a383a22737464436c617373223a363a7b733a353a227469746c65223b733a313a222a223b733a353a227374617465223b693a313b733a363a22616363657373223b693a313b733a383a226c616e6775616765223b733a313a222a223b733a363a226e6573746564223b623a303b733a323a226964223b693a353b7d7d7d693a31363b733a31303a224669727374206e657773223b693a31373b693a333b693a31383b733a34363a22696e6465782e7068703f6f7074696f6e3d636f6d5f636f6e74656e7426766965773d61727469636c652669643d33223b7d);
 
 -- Dumping structure for table px_cons.cons_finder_links_terms
 CREATE TABLE IF NOT EXISTS `cons_finder_links_terms` (
@@ -977,12 +1078,39 @@ CREATE TABLE IF NOT EXISTS `cons_finder_links_terms` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_finder_links_terms: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_finder_links_terms: ~25 rows (approximately)
+DELETE FROM `cons_finder_links_terms`;
+INSERT INTO `cons_finder_links_terms` (`link_id`, `term_id`, `weight`) VALUES
+	(1, 1, 1.46652),
+	(1, 2, 0.17),
+	(2, 4, 1.17348),
+	(8, 4, 1.17348),
+	(2, 5, 0.17),
+	(3, 7, 2.93348),
+	(3, 8, 0.39996),
+	(4, 8, 0.39996),
+	(8, 8, 0.39996),
+	(3, 9, 0.32004),
+	(4, 9, 0.32004),
+	(8, 9, 0.32004),
+	(3, 10, 0.17),
+	(6, 10, 0.17),
+	(4, 14, 1.46652),
+	(4, 15, 0.58652),
+	(4, 16, 0.17),
+	(5, 17, 2.34652),
+	(5, 18, 0.34),
+	(6, 20, 0.98679),
+	(6, 21, 1.72679),
+	(7, 23, 2.34652),
+	(7, 24, 0.34),
+	(8, 26, 1.46652),
+	(8, 27, 0.17);
 
 -- Dumping structure for table px_cons.cons_finder_logging
 CREATE TABLE IF NOT EXISTS `cons_finder_logging` (
-  `searchterm` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `md5sum` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `searchterm` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `md5sum` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `query` blob NOT NULL,
   `hits` int NOT NULL DEFAULT '1',
   `results` int NOT NULL DEFAULT '0',
@@ -991,6 +1119,7 @@ CREATE TABLE IF NOT EXISTS `cons_finder_logging` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_logging: ~0 rows (approximately)
+DELETE FROM `cons_finder_logging`;
 
 -- Dumping structure for table px_cons.cons_finder_taxonomy
 CREATE TABLE IF NOT EXISTS `cons_finder_taxonomy` (
@@ -999,12 +1128,12 @@ CREATE TABLE IF NOT EXISTS `cons_finder_taxonomy` (
   `lft` int NOT NULL DEFAULT '0',
   `rgt` int NOT NULL DEFAULT '0',
   `level` int unsigned NOT NULL DEFAULT '0',
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `state` tinyint unsigned NOT NULL DEFAULT '1',
   `access` tinyint unsigned NOT NULL DEFAULT '1',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `idx_state` (`state`),
   KEY `idx_access` (`access`),
@@ -1014,11 +1143,24 @@ CREATE TABLE IF NOT EXISTS `cons_finder_taxonomy` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_language` (`language`),
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_finder_taxonomy: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_finder_taxonomy: ~13 rows (approximately)
+DELETE FROM `cons_finder_taxonomy`;
 INSERT INTO `cons_finder_taxonomy` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `state`, `access`, `language`) VALUES
-	(1, 0, 0, 1, 0, '', 'ROOT', 'root', 1, 1, '*');
+	(1, 0, 0, 25, 0, '', 'ROOT', 'root', 1, 1, '*'),
+	(2, 1, 1, 8, 1, 'type', 'Type', 'type', 1, 1, '*'),
+	(3, 2, 2, 3, 2, 'type/category', 'Category', 'category', 1, 1, '*'),
+	(4, 1, 9, 12, 1, 'language', 'Language', 'language', 1, 1, '*'),
+	(5, 4, 10, 11, 2, 'language/4086f6336014c75439f87cbda42d9c51', '*', '4086f6336014c75439f87cbda42d9c51', 1, 1, '*'),
+	(6, 2, 4, 5, 2, 'type/article', 'Article', 'article', 1, 1, '*'),
+	(7, 1, 13, 16, 1, 'author', 'Author', 'author', 1, 1, '*'),
+	(8, 7, 14, 15, 2, 'author/super-user', 'Super User', 'super-user', 1, 1, '*'),
+	(9, 1, 17, 24, 1, 'category', 'Category', 'category', 1, 1, '*'),
+	(10, 9, 18, 19, 2, 'category/pages', 'Pages', 'pages', 1, 1, '*'),
+	(11, 2, 6, 7, 2, 'type/contact', 'Contact', 'contact', 1, 1, '*'),
+	(12, 9, 20, 21, 2, 'category/uncategorised', 'Uncategorised', 'uncategorised', 1, 1, '*'),
+	(13, 9, 22, 23, 2, 'category/news', 'News', 'news', 1, 1, '*');
 
 -- Dumping structure for table px_cons.cons_finder_taxonomy_map
 CREATE TABLE IF NOT EXISTS `cons_finder_taxonomy_map` (
@@ -1029,7 +1171,32 @@ CREATE TABLE IF NOT EXISTS `cons_finder_taxonomy_map` (
   KEY `node_id` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_finder_taxonomy_map: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_finder_taxonomy_map: ~23 rows (approximately)
+DELETE FROM `cons_finder_taxonomy_map`;
+INSERT INTO `cons_finder_taxonomy_map` (`link_id`, `node_id`) VALUES
+	(1, 3),
+	(1, 5),
+	(2, 3),
+	(2, 5),
+	(3, 5),
+	(3, 6),
+	(3, 8),
+	(3, 10),
+	(4, 5),
+	(4, 6),
+	(4, 8),
+	(4, 10),
+	(5, 3),
+	(5, 5),
+	(6, 5),
+	(6, 11),
+	(6, 12),
+	(7, 3),
+	(7, 5),
+	(8, 5),
+	(8, 6),
+	(8, 8),
+	(8, 13);
 
 -- Dumping structure for table px_cons.cons_finder_terms
 CREATE TABLE IF NOT EXISTS `cons_finder_terms` (
@@ -1041,7 +1208,7 @@ CREATE TABLE IF NOT EXISTS `cons_finder_terms` (
   `weight` float unsigned NOT NULL DEFAULT '0',
   `soundex` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `links` int NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`term_id`),
   UNIQUE KEY `idx_term_language` (`term`,`language`),
   KEY `idx_stem` (`stem`),
@@ -1049,20 +1216,42 @@ CREATE TABLE IF NOT EXISTS `cons_finder_terms` (
   KEY `idx_stem_phrase` (`stem`,`phrase`),
   KEY `idx_soundex_phrase` (`soundex`,`phrase`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_finder_terms: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_finder_terms: ~11 rows (approximately)
+DELETE FROM `cons_finder_terms`;
+INSERT INTO `cons_finder_terms` (`term_id`, `term`, `stem`, `common`, `phrase`, `weight`, `soundex`, `links`, `language`) VALUES
+	(1, 'pages', 'pages', 0, 0, 0.3333, 'P200', 1, '*'),
+	(2, '8', '8', 0, 0, 0.1, '', 1, '*'),
+	(4, 'news', 'news', 0, 0, 0.2667, 'N200', 2, '*'),
+	(5, '9', '9', 0, 0, 0.1, '', 1, '*'),
+	(7, 'typography', 'typography', 0, 0, 0.6667, 'T1261', 1, '*'),
+	(8, 'super', 'super', 0, 0, 0.3333, 'S160', 3, '*'),
+	(9, 'user', 'user', 0, 0, 0.2667, 'U260', 3, '*'),
+	(10, '1', '1', 0, 0, 0.1, '', 2, '*'),
+	(14, 'about', 'about', 0, 0, 0.3333, 'A130', 1, '*'),
+	(15, 'us', 'us', 0, 0, 0.1333, 'U200', 1, '*'),
+	(16, '2', '2', 0, 0, 0.1, '', 1, '*'),
+	(17, 'projects', 'projects', 0, 0, 0.5333, 'P6232', 1, '*'),
+	(18, '10', '10', 0, 0, 0.2, '', 1, '*'),
+	(20, 'cons', 'cons', 0, 0, 0.2667, 'C520', 1, '*'),
+	(21, 'contact', 'contact', 0, 0, 0.4667, 'C5323', 1, '*'),
+	(23, 'services', 'services', 0, 0, 0.5333, 'S612', 1, '*'),
+	(24, '11', '11', 0, 0, 0.2, '', 1, '*'),
+	(26, 'first', 'first', 0, 0, 0.3333, 'F623', 1, '*'),
+	(27, '3', '3', 0, 0, 0.1, '', 1, '*');
 
 -- Dumping structure for table px_cons.cons_finder_terms_common
 CREATE TABLE IF NOT EXISTS `cons_finder_terms_common` (
   `term` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `custom` int NOT NULL DEFAULT '0',
   UNIQUE KEY `idx_term_language` (`term`,`language`),
   KEY `idx_lang` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_terms_common: ~174 rows (approximately)
+DELETE FROM `cons_finder_terms_common`;
 INSERT INTO `cons_finder_terms_common` (`term`, `language`, `custom`) VALUES
 	('a', 'en', 0),
 	('about', 'en', 0),
@@ -1247,7 +1436,7 @@ CREATE TABLE IF NOT EXISTS `cons_finder_tokens` (
   `phrase` tinyint unsigned NOT NULL DEFAULT '0',
   `weight` float unsigned NOT NULL DEFAULT '1',
   `context` tinyint unsigned NOT NULL DEFAULT '2',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   KEY `idx_word` (`term`),
   KEY `idx_stem` (`stem`),
   KEY `idx_context` (`context`),
@@ -1255,6 +1444,7 @@ CREATE TABLE IF NOT EXISTS `cons_finder_tokens` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_tokens: 0 rows
+DELETE FROM `cons_finder_tokens`;
 /*!40000 ALTER TABLE `cons_finder_tokens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cons_finder_tokens` ENABLE KEYS */;
 
@@ -1269,25 +1459,27 @@ CREATE TABLE IF NOT EXISTS `cons_finder_tokens_aggregate` (
   `context` tinyint unsigned NOT NULL DEFAULT '2',
   `context_weight` float unsigned NOT NULL DEFAULT '0',
   `total_weight` float unsigned NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   KEY `token` (`term`),
   KEY `keyword_id` (`term_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_tokens_aggregate: 0 rows
+DELETE FROM `cons_finder_tokens_aggregate`;
 /*!40000 ALTER TABLE `cons_finder_tokens_aggregate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cons_finder_tokens_aggregate` ENABLE KEYS */;
 
 -- Dumping structure for table px_cons.cons_finder_types
 CREATE TABLE IF NOT EXISTS `cons_finder_types` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mime` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mime` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_finder_types: ~5 rows (approximately)
+DELETE FROM `cons_finder_types`;
 INSERT INTO `cons_finder_types` (`id`, `title`, `mime`) VALUES
 	(1, 'Category', ''),
 	(2, 'Contact', ''),
@@ -1298,12 +1490,12 @@ INSERT INTO `cons_finder_types` (`id`, `title`, `mime`) VALUES
 -- Dumping structure for table px_cons.cons_guidedtours
 CREATE TABLE IF NOT EXISTS `cons_guidedtours` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `uid` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ordering` int NOT NULL DEFAULT '0',
-  `extensions` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extensions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `created_by` int NOT NULL DEFAULT '0',
   `modified` datetime NOT NULL,
@@ -1311,8 +1503,8 @@ CREATE TABLE IF NOT EXISTS `cons_guidedtours` (
   `checked_out_time` datetime DEFAULT NULL,
   `checked_out` int unsigned DEFAULT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
-  `language` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `access` int unsigned NOT NULL DEFAULT '0',
   `autostart` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1323,6 +1515,7 @@ CREATE TABLE IF NOT EXISTS `cons_guidedtours` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_guidedtours: ~12 rows (approximately)
+DELETE FROM `cons_guidedtours`;
 INSERT INTO `cons_guidedtours` (`id`, `title`, `uid`, `description`, `ordering`, `extensions`, `url`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`, `published`, `language`, `note`, `access`, `autostart`) VALUES
 	(1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_TITLE', 'joomla-guidedtours', 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_DESCRIPTION', 1, '["com_guidedtours"]', 'administrator/index.php?option=com_guidedtours&view=tours', '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 42, NULL, NULL, 1, '*', '', 1, 0),
 	(2, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURSTEPS_TITLE', 'joomla-guidedtoursteps', 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURSTEPS_DESCRIPTION', 2, '["com_guidedtours"]', 'administrator/index.php?option=com_guidedtours&view=tours', '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 42, NULL, NULL, 1, '*', '', 1, 0),
@@ -1341,24 +1534,24 @@ INSERT INTO `cons_guidedtours` (`id`, `title`, `uid`, `description`, `ordering`,
 CREATE TABLE IF NOT EXISTS `cons_guidedtour_steps` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tour_id` int NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ordering` int NOT NULL DEFAULT '0',
-  `position` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `target` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `target` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` int NOT NULL,
   `interactive_type` int NOT NULL DEFAULT '1',
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
   `checked_out_time` datetime DEFAULT NULL,
   `checked_out` int unsigned DEFAULT NULL,
-  `language` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci,
+  `language` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `idx_tour` (`tour_id`),
   KEY `idx_state` (`published`),
@@ -1366,6 +1559,7 @@ CREATE TABLE IF NOT EXISTS `cons_guidedtour_steps` (
 ) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_guidedtour_steps: ~117 rows (approximately)
+DELETE FROM `cons_guidedtour_steps`;
 INSERT INTO `cons_guidedtour_steps` (`id`, `tour_id`, `title`, `published`, `description`, `ordering`, `position`, `target`, `type`, `interactive_type`, `url`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`, `language`, `note`, `params`) VALUES
 	(1, 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_NEW_TITLE', 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_NEW_DESCRIPTION', 1, 'bottom', '.button-new', 2, 1, 'administrator/index.php?option=com_guidedtours&view=tours', '2026-07-23 06:25:05', 42, '2026-07-23 06:25:05', 42, NULL, NULL, '*', '', NULL),
 	(2, 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_TITLE_TITLE', 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_TITLE_DESCRIPTION', 2, 'bottom', '#jform_title', 2, 2, 'administrator/index.php?option=com_guidedtours&view=tour&layout=edit', '2026-07-23 06:25:05', 42, '2026-07-23 06:25:05', 42, NULL, NULL, '*', '', NULL),
@@ -1488,36 +1682,46 @@ INSERT INTO `cons_guidedtour_steps` (`id`, `tour_id`, `title`, `published`, `des
 -- Dumping structure for table px_cons.cons_history
 CREATE TABLE IF NOT EXISTS `cons_history` (
   `version_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `item_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `version_note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Optional version name',
+  `item_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version_note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Optional version name',
   `save_date` datetime NOT NULL,
   `editor_user_id` int unsigned NOT NULL DEFAULT '0',
   `character_count` int unsigned NOT NULL DEFAULT '0' COMMENT 'Number of characters in this version.',
-  `sha1_hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'SHA1 hash of the version_data column.',
-  `version_data` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'json-encoded string of version data',
+  `sha1_hash` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'SHA1 hash of the version_data column.',
+  `version_data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'json-encoded string of version data',
   `keep_forever` tinyint NOT NULL DEFAULT '0' COMMENT '0=auto delete; 1=keep',
   `is_current` tinyint NOT NULL DEFAULT '0',
   `is_legacy` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`version_id`),
   KEY `idx_ucm_item_id` (`item_id`),
   KEY `idx_save_date` (`save_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_history: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_history: ~5 rows (approximately)
+DELETE FROM `cons_history`;
+INSERT INTO `cons_history` (`version_id`, `item_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`, `is_current`, `is_legacy`) VALUES
+	(1, 'com_content.category.8', '', '2026-07-23 15:12:21', 42, 452, '80515bcf0bc337a9b8a99a37b1028330b992b6ae', '{"id":8,"parent_id":1,"extension":"com_content","title":"Pages","alias":"pages","note":"","description":"<p>Pages<\\/p>","published":1,"access":1,"metadesc":"","metakey":"","created_user_id":42,"created_time":"2026-07-23 15:12:21","language":"*","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","tags":{},"typeAlias":"{extension}.category","level":1,"lft":11,"rgt":12,"asset_id":100}', 0, 1, 0),
+	(2, 'com_content.category.9', '', '2026-07-23 15:13:02', 42, 441, 'ede079f1febf61ab9dcb514d1c883c0506534962', '{"id":9,"parent_id":1,"extension":"com_content","title":"News","alias":"news","note":"","description":"News","published":1,"access":1,"metadesc":"","metakey":"","created_user_id":42,"created_time":"2026-07-23 15:13:02","language":"*","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","tags":{},"typeAlias":"{extension}.category","level":1,"lft":13,"rgt":14,"asset_id":101}', 0, 1, 0),
+	(3, 'com_content.article.1', '', '2026-07-23 15:13:48', 42, 1586, 'cd330aa599064e4d6d3ea7a3792a94123f19a367', '{"id":1,"title":"Typography","alias":"typography","note":"","catid":8,"state":1,"created":"2026-07-23 15:13:48","created_by":42,"created_by_alias":"","publish_up":"2026-07-23 15:13:48","publish_down":null,"featured_up":"","featured_down":"","metakey":"","metadesc":"","access":1,"language":"*","featured":0,"schema":{"extendJed":""},"attribs":"{\\"article_layout\\":\\"\\",\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_page_title\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","images":"{\\"image_intro\\":\\"\\",\\"image_intro_alt\\":\\"\\",\\"float_intro\\":\\"\\",\\"image_intro_caption\\":\\"\\",\\"image_fulltext\\":\\"\\",\\"image_fulltext_alt\\":\\"\\",\\"float_fulltext\\":\\"\\",\\"image_fulltext_caption\\":\\"\\"}","urls":"{\\"urla\\":\\"\\",\\"urlatext\\":\\"\\",\\"targeta\\":\\"\\",\\"urlb\\":\\"\\",\\"urlbtext\\":\\"\\",\\"targetb\\":\\"\\",\\"urlc\\":\\"\\",\\"urlctext\\":\\"\\",\\"targetc\\":\\"\\"}","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\"}","transition":"","tags":{},"typeAlias":"com_content.article","asset_id":102,"introtext":"Typography","fulltext":"","ordering":0}', 0, 1, 0),
+	(4, 'com_content.article.2', '', '2026-07-23 15:14:09', 42, 1580, 'f0fd262786ec20d858235472e53c7f5c4613be70', '{"id":2,"title":"About us","alias":"about-us","note":"","catid":8,"state":1,"created":"2026-07-23 15:14:09","created_by":42,"created_by_alias":"","publish_up":"2026-07-23 15:14:09","publish_down":null,"featured_up":"","featured_down":"","metakey":"","metadesc":"","access":1,"language":"*","featured":0,"schema":{"extendJed":""},"attribs":"{\\"article_layout\\":\\"\\",\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_page_title\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","images":"{\\"image_intro\\":\\"\\",\\"image_intro_alt\\":\\"\\",\\"float_intro\\":\\"\\",\\"image_intro_caption\\":\\"\\",\\"image_fulltext\\":\\"\\",\\"image_fulltext_alt\\":\\"\\",\\"float_fulltext\\":\\"\\",\\"image_fulltext_caption\\":\\"\\"}","urls":"{\\"urla\\":\\"\\",\\"urlatext\\":\\"\\",\\"targeta\\":\\"\\",\\"urlb\\":\\"\\",\\"urlbtext\\":\\"\\",\\"targetb\\":\\"\\",\\"urlc\\":\\"\\",\\"urlctext\\":\\"\\",\\"targetc\\":\\"\\"}","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\"}","transition":"","tags":{},"typeAlias":"com_content.article","asset_id":103,"introtext":"About us","fulltext":"","ordering":0}', 0, 1, 0),
+	(5, 'com_content.category.10', '', '2026-07-23 15:15:45', 42, 454, '5abf404bd4aff6b353891f30a62e2e4d1e8bf435', '{"id":10,"parent_id":1,"extension":"com_content","title":"Projects","alias":"projects","note":"","description":"Projects","published":1,"access":1,"metadesc":"","metakey":"","created_user_id":42,"created_time":"2026-07-23 15:15:45","language":"*","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","tags":{},"typeAlias":"{extension}.category","level":1,"lft":15,"rgt":16,"asset_id":104}', 0, 1, 0),
+	(6, 'com_contact.contact.1', '', '2026-07-23 15:17:41', 42, 1485, '64b29bc87006f48373bd72154a7867703e7594f8', '{"id":1,"name":"Cons contact","alias":"cons-contact","user_id":0,"published":1,"catid":4,"access":1,"misc":"","created_by":42,"created_by_alias":"","created":"2026-07-23 15:17:41","publish_up":null,"publish_down":null,"metakey":"","metadesc":"","language":"*","featured":0,"schema":{"extendJed":""},"image":"","con_position":"","email_to":"","address":"","suburb":"","state":"","postcode":"","country":"","telephone":"","mobile":"","fax":"","webpage":"","sortname1":"","sortname2":"","sortname3":"","params":"{\\"show_contact_category\\":\\"\\",\\"show_contact_list\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_info\\":\\"\\",\\"show_name\\":\\"\\",\\"show_position\\":\\"\\",\\"show_email\\":\\"\\",\\"add_mailto_link\\":\\"\\",\\"show_street_address\\":\\"\\",\\"show_suburb\\":\\"\\",\\"show_state\\":\\"\\",\\"show_postcode\\":\\"\\",\\"show_country\\":\\"\\",\\"show_telephone\\":\\"\\",\\"show_mobile\\":\\"\\",\\"show_fax\\":\\"\\",\\"show_webpage\\":\\"\\",\\"show_image\\":\\"\\",\\"show_misc\\":\\"\\",\\"allow_vcard\\":\\"\\",\\"show_articles\\":\\"\\",\\"articles_display_num\\":\\"\\",\\"show_profile\\":\\"\\",\\"contact_layout\\":\\"\\",\\"show_links\\":\\"\\",\\"linka_name\\":\\"\\",\\"linka\\":\\"\\",\\"linkb_name\\":\\"\\",\\"linkb\\":\\"\\",\\"linkc_name\\":\\"\\",\\"linkc\\":\\"\\",\\"linkd_name\\":\\"\\",\\"linkd\\":\\"\\",\\"linke_name\\":\\"\\",\\"linke\\":\\"\\",\\"show_email_form\\":\\"\\",\\"show_email_copy\\":\\"\\",\\"validate_session\\":\\"\\",\\"custom_reply\\":\\"\\",\\"redirect\\":\\"\\"}","metadata":"{\\"robots\\":\\"\\",\\"rights\\":\\"\\"}","tags":{},"typeAlias":"com_contact.contact","default_con":0,"ordering":1}', 0, 1, 0),
+	(7, 'com_content.category.11', '', '2026-07-23 15:24:57', 42, 454, 'b2d4178e0e24950d08af711a1b5f2a0ba905c8d5', '{"id":11,"parent_id":1,"extension":"com_content","title":"Services","alias":"services","note":"","description":"Services","published":1,"access":1,"metadesc":"","metakey":"","created_user_id":42,"created_time":"2026-07-23 15:24:57","language":"*","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","tags":{},"typeAlias":"{extension}.category","level":1,"lft":17,"rgt":18,"asset_id":105}', 0, 1, 0),
+	(8, 'com_content.article.3', '', '2026-07-23 15:54:23', 42, 1586, '3cdd1b31fbb2207eae45f872e8b1d7123af89bc4', '{"id":3,"title":"First news","alias":"first-news","note":"","catid":9,"state":1,"created":"2026-07-23 15:54:23","created_by":42,"created_by_alias":"","publish_up":"2026-07-23 15:54:23","publish_down":null,"featured_up":"","featured_down":"","metakey":"","metadesc":"","access":1,"language":"*","featured":0,"schema":{"extendJed":""},"attribs":"{\\"article_layout\\":\\"\\",\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_page_title\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","images":"{\\"image_intro\\":\\"\\",\\"image_intro_alt\\":\\"\\",\\"float_intro\\":\\"\\",\\"image_intro_caption\\":\\"\\",\\"image_fulltext\\":\\"\\",\\"image_fulltext_alt\\":\\"\\",\\"float_fulltext\\":\\"\\",\\"image_fulltext_caption\\":\\"\\"}","urls":"{\\"urla\\":\\"\\",\\"urlatext\\":\\"\\",\\"targeta\\":\\"\\",\\"urlb\\":\\"\\",\\"urlbtext\\":\\"\\",\\"targetb\\":\\"\\",\\"urlc\\":\\"\\",\\"urlctext\\":\\"\\",\\"targetc\\":\\"\\"}","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\"}","transition":"","tags":{},"typeAlias":"com_content.article","asset_id":109,"introtext":"First news","fulltext":"","ordering":0}', 0, 1, 0);
 
 -- Dumping structure for table px_cons.cons_languages
 CREATE TABLE IF NOT EXISTS `cons_languages` (
   `lang_id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0',
   `lang_code` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_native` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sef` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metakey` text COLLATE utf8mb4_unicode_ci,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sitename` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_native` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sef` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sitename` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `published` int NOT NULL DEFAULT '0',
   `access` int unsigned NOT NULL DEFAULT '0',
   `ordering` int NOT NULL DEFAULT '0',
@@ -1529,23 +1733,25 @@ CREATE TABLE IF NOT EXISTS `cons_languages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_languages: ~0 rows (approximately)
+DELETE FROM `cons_languages`;
 INSERT INTO `cons_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
 	(1, 0, 'en-GB', 'English (en-GB)', 'English (United Kingdom)', 'en', 'en_gb', '', '', '', '', 1, 1, 1);
 
 -- Dumping structure for table px_cons.cons_mail_templates
 CREATE TABLE IF NOT EXISTS `cons_mail_templates` (
-  `template_id` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `extension` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `htmlbody` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attachments` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `template_id` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `htmlbody` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attachments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`template_id`,`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_mail_templates: ~33 rows (approximately)
+DELETE FROM `cons_mail_templates`;
 INSERT INTO `cons_mail_templates` (`template_id`, `extension`, `language`, `subject`, `body`, `htmlbody`, `attachments`, `params`) VALUES
 	('com_actionlogs.notification', 'com_actionlogs', '', 'COM_ACTIONLOGS_EMAIL_SUBJECT', 'COM_ACTIONLOGS_EMAIL_BODY', 'COM_ACTIONLOGS_EMAIL_HTMLBODY', '', '{"tags":["messages","message","date","extension","username","ip_address"]}'),
 	('com_config.test_mail', 'com_config', '', 'COM_CONFIG_SENDMAIL_SUBJECT', 'COM_CONFIG_SENDMAIL_BODY', '', '', '{"tags":["sitename","method"]}'),
@@ -1584,13 +1790,13 @@ INSERT INTO `cons_mail_templates` (`template_id`, `extension`, `language`, `subj
 -- Dumping structure for table px_cons.cons_menu
 CREATE TABLE IF NOT EXISTS `cons_menu` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The display title of the menu item.',
+  `menutype` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The display title of the menu item.',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'The SEF alias of the menu item.',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `path` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The computed path of the menu item based on the alias field.',
-  `link` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The actually link the menu item refers to.',
-  `type` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of link: Component, URL, Alias, Separator',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `path` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The computed path of the menu item based on the alias field.',
+  `link` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The actually link the menu item refers to.',
+  `type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of link: Component, URL, Alias, Separator',
   `published` tinyint NOT NULL DEFAULT '0' COMMENT 'The published state of the menu link.',
   `parent_id` int unsigned NOT NULL DEFAULT '1' COMMENT 'The parent menu item in the menu tree.',
   `level` int unsigned NOT NULL DEFAULT '0' COMMENT 'The relative level in the tree.',
@@ -1599,13 +1805,13 @@ CREATE TABLE IF NOT EXISTS `cons_menu` (
   `checked_out_time` datetime DEFAULT NULL COMMENT 'The time the menu item was checked out.',
   `browserNav` tinyint NOT NULL DEFAULT '0' COMMENT 'The click behaviour of the link.',
   `access` int unsigned NOT NULL DEFAULT '0' COMMENT 'The access level required to view the menu item.',
-  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image of the menu item.',
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image of the menu item.',
   `template_style_id` int unsigned NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded data for the menu item.',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded data for the menu item.',
   `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
   `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
   `home` tinyint unsigned NOT NULL DEFAULT '0' COMMENT 'Indicates if this menu item is the home or default page.',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint NOT NULL DEFAULT '0',
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
@@ -1617,40 +1823,46 @@ CREATE TABLE IF NOT EXISTS `cons_menu` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_path` (`path`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_menu: ~22 rows (approximately)
+-- Dumping data for table px_cons.cons_menu: ~27 rows (approximately)
+DELETE FROM `cons_menu`;
 INSERT INTO `cons_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`, `publish_up`, `publish_down`) VALUES
-	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, NULL, NULL, 0, 0, '', 0, '', 0, 43, 0, '*', 0, NULL, NULL),
+	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, NULL, NULL, 0, 0, '', 0, '', 0, 53, 0, '*', 0, NULL, NULL),
 	(2, 'main', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 1, 1, 1, 3, NULL, NULL, 0, 0, 'class:bookmark', 0, '', 1, 10, 0, '*', 1, NULL, NULL),
 	(3, 'main', 'com_banners', 'Banners', '', 'Banners/Banners', 'index.php?option=com_banners&view=banners', 'component', 1, 2, 2, 3, NULL, NULL, 0, 0, 'class:banners', 0, '', 2, 3, 0, '*', 1, NULL, NULL),
 	(4, 'main', 'com_banners_categories', 'Categories', '', 'Banners/Categories', 'index.php?option=com_categories&view=categories&extension=com_banners', 'component', 1, 2, 2, 5, NULL, NULL, 0, 0, 'class:banners-cat', 0, '', 4, 5, 0, '*', 1, NULL, NULL),
 	(5, 'main', 'com_banners_clients', 'Clients', '', 'Banners/Clients', 'index.php?option=com_banners&view=clients', 'component', 1, 2, 2, 3, NULL, NULL, 0, 0, 'class:banners-clients', 0, '', 6, 7, 0, '*', 1, NULL, NULL),
 	(6, 'main', 'com_banners_tracks', 'Tracks', '', 'Banners/Tracks', 'index.php?option=com_banners&view=tracks', 'component', 1, 2, 2, 3, NULL, NULL, 0, 0, 'class:banners-tracks', 0, '', 8, 9, 0, '*', 1, NULL, NULL),
-	(7, 'main', 'com_contact', 'Contacts', '', 'Contacts', 'index.php?option=com_contact', 'component', 1, 1, 1, 7, NULL, NULL, 0, 0, 'class:address-book', 0, '', 11, 20, 0, '*', 1, NULL, NULL),
-	(8, 'main', 'com_contact_contacts', 'Contacts', '', 'Contacts/Contacts', 'index.php?option=com_contact&view=contacts', 'component', 1, 7, 2, 7, NULL, NULL, 0, 0, 'class:contact', 0, '', 12, 13, 0, '*', 1, NULL, NULL),
-	(9, 'main', 'com_contact_categories', 'Categories', '', 'Contacts/Categories', 'index.php?option=com_categories&view=categories&extension=com_contact', 'component', 1, 7, 2, 5, NULL, NULL, 0, 0, 'class:contact-cat', 0, '', 14, 15, 0, '*', 1, NULL, NULL),
-	(10, 'main', 'com_newsfeeds', 'News Feeds', '', 'News Feeds', 'index.php?option=com_newsfeeds', 'component', 1, 1, 1, 16, NULL, NULL, 0, 0, 'class:rss', 0, '', 23, 28, 0, '*', 1, NULL, NULL),
-	(11, 'main', 'com_newsfeeds_feeds', 'Feeds', '', 'News Feeds/Feeds', 'index.php?option=com_newsfeeds&view=newsfeeds', 'component', 1, 10, 2, 16, NULL, NULL, 0, 0, 'class:newsfeeds', 0, '', 24, 25, 0, '*', 1, NULL, NULL),
-	(12, 'main', 'com_newsfeeds_categories', 'Categories', '', 'News Feeds/Categories', 'index.php?option=com_categories&view=categories&extension=com_newsfeeds', 'component', 1, 10, 2, 5, NULL, NULL, 0, 0, 'class:newsfeeds-cat', 0, '', 26, 27, 0, '*', 1, NULL, NULL),
-	(13, 'main', 'com_finder', 'Smart Search', '', 'Smart Search', 'index.php?option=com_finder', 'component', 1, 1, 1, 23, NULL, NULL, 0, 0, 'class:search-plus', 0, '', 29, 38, 0, '*', 1, NULL, NULL),
-	(14, 'main', 'com_tags', 'Tags', '', 'Tags', 'index.php?option=com_tags&view=tags', 'component', 1, 1, 1, 25, NULL, NULL, 0, 1, 'class:tags', 0, '', 39, 40, 0, '', 1, NULL, NULL),
-	(15, 'main', 'com_associations', 'Multilingual Associations', '', 'Multilingual Associations', 'index.php?option=com_associations&view=associations', 'component', 1, 1, 1, 30, NULL, NULL, 0, 0, 'class:language', 0, '', 21, 22, 0, '*', 1, NULL, NULL),
-	(16, 'main', 'mod_menu_fields', 'Contact Custom Fields', '', 'contact/Custom Fields', 'index.php?option=com_fields&context=com_contact.contact', 'component', 1, 7, 2, 29, NULL, NULL, 0, 0, 'class:messages-add', 0, '', 16, 17, 0, '*', 1, NULL, NULL),
-	(17, 'main', 'mod_menu_fields_group', 'Contact Custom Fields Group', '', 'contact/Custom Fields Group', 'index.php?option=com_fields&view=groups&context=com_contact.contact', 'component', 1, 7, 2, 29, NULL, NULL, 0, 0, 'class:messages-add', 0, '', 18, 19, 0, '*', 1, NULL, NULL),
-	(18, 'main', 'com_finder_index', 'Smart-Search-Index', '', 'Smart Search/Index', 'index.php?option=com_finder&view=index', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder', 0, '', 30, 31, 0, '*', 1, NULL, NULL),
-	(19, 'main', 'com_finder_maps', 'Smart-Search-Maps', '', 'Smart Search/Maps', 'index.php?option=com_finder&view=maps', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-maps', 0, '', 32, 33, 0, '*', 1, NULL, NULL),
-	(20, 'main', 'com_finder_filters', 'Smart-Search-Filters', '', 'Smart Search/Filters', 'index.php?option=com_finder&view=filters', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-filters', 0, '', 34, 35, 0, '*', 1, NULL, NULL),
-	(21, 'main', 'com_finder_searches', 'Smart-Search-Searches', '', 'Smart Search/Searches', 'index.php?option=com_finder&view=searches', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-searches', 0, '', 36, 37, 0, '*', 1, NULL, NULL),
-	(101, 'mainmenu', 'Home', 'home', '', 'home', 'index.php?option=com_content&view=featured', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, '', 0, '{"featured_categories":[""],"layout_type":"blog","blog_class_leading":"","blog_class":"","num_leading_articles":"1","num_intro_articles":"3","num_links":"0","link_intro_image":"","orderby_pri":"","orderby_sec":"front","order_date":"","show_pagination":"2","show_pagination_results":"1","show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_associations":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_vote":"","show_readmore":"","show_readmore_title":"","show_hits":"","show_tags":"","show_noauth":"","show_feed_link":"1","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"1","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 41, 42, 1, '*', 0, NULL, NULL);
+	(7, 'main', 'com_contact', 'Contacts', '', 'Contacts', 'index.php?option=com_contact', 'component', 1, 1, 1, 7, NULL, NULL, 0, 0, 'class:address-book', 0, '', 23, 32, 0, '*', 1, NULL, NULL),
+	(8, 'main', 'com_contact_contacts', 'Contacts', '', 'Contacts/Contacts', 'index.php?option=com_contact&view=contacts', 'component', 1, 7, 2, 7, NULL, NULL, 0, 0, 'class:contact', 0, '', 24, 25, 0, '*', 1, NULL, NULL),
+	(9, 'main', 'com_contact_categories', 'Categories', '', 'Contacts/Categories', 'index.php?option=com_categories&view=categories&extension=com_contact', 'component', 1, 7, 2, 5, NULL, NULL, 0, 0, 'class:contact-cat', 0, '', 26, 27, 0, '*', 1, NULL, NULL),
+	(10, 'main', 'com_newsfeeds', 'News Feeds', '', 'News Feeds', 'index.php?option=com_newsfeeds', 'component', 1, 1, 1, 16, NULL, NULL, 0, 0, 'class:rss', 0, '', 35, 40, 0, '*', 1, NULL, NULL),
+	(11, 'main', 'com_newsfeeds_feeds', 'Feeds', '', 'News Feeds/Feeds', 'index.php?option=com_newsfeeds&view=newsfeeds', 'component', 1, 10, 2, 16, NULL, NULL, 0, 0, 'class:newsfeeds', 0, '', 36, 37, 0, '*', 1, NULL, NULL),
+	(12, 'main', 'com_newsfeeds_categories', 'Categories', '', 'News Feeds/Categories', 'index.php?option=com_categories&view=categories&extension=com_newsfeeds', 'component', 1, 10, 2, 5, NULL, NULL, 0, 0, 'class:newsfeeds-cat', 0, '', 38, 39, 0, '*', 1, NULL, NULL),
+	(13, 'main', 'com_finder', 'Smart Search', '', 'Smart Search', 'index.php?option=com_finder', 'component', 1, 1, 1, 23, NULL, NULL, 0, 0, 'class:search-plus', 0, '', 41, 50, 0, '*', 1, NULL, NULL),
+	(14, 'main', 'com_tags', 'Tags', '', 'Tags', 'index.php?option=com_tags&view=tags', 'component', 1, 1, 1, 25, NULL, NULL, 0, 1, 'class:tags', 0, '', 51, 52, 0, '', 1, NULL, NULL),
+	(15, 'main', 'com_associations', 'Multilingual Associations', '', 'Multilingual Associations', 'index.php?option=com_associations&view=associations', 'component', 1, 1, 1, 30, NULL, NULL, 0, 0, 'class:language', 0, '', 33, 34, 0, '*', 1, NULL, NULL),
+	(16, 'main', 'mod_menu_fields', 'Contact Custom Fields', '', 'Contacts/Contact Custom Fields', 'index.php?option=com_fields&context=com_contact.contact', 'component', 1, 7, 2, 29, NULL, NULL, 0, 0, 'class:messages-add', 0, '', 28, 29, 0, '*', 1, NULL, NULL),
+	(17, 'main', 'mod_menu_fields_group', 'Contact Custom Fields Group', '', 'Contacts/Contact Custom Fields Group', 'index.php?option=com_fields&view=groups&context=com_contact.contact', 'component', 1, 7, 2, 29, NULL, NULL, 0, 0, 'class:messages-add', 0, '', 30, 31, 0, '*', 1, NULL, NULL),
+	(18, 'main', 'com_finder_index', 'Smart-Search-Index', '', 'Smart Search/Smart-Search-Index', 'index.php?option=com_finder&view=index', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder', 0, '', 42, 43, 0, '*', 1, NULL, NULL),
+	(19, 'main', 'com_finder_maps', 'Smart-Search-Maps', '', 'Smart Search/Smart-Search-Maps', 'index.php?option=com_finder&view=maps', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-maps', 0, '', 44, 45, 0, '*', 1, NULL, NULL),
+	(20, 'main', 'com_finder_filters', 'Smart-Search-Filters', '', 'Smart Search/Smart-Search-Filters', 'index.php?option=com_finder&view=filters', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-filters', 0, '', 46, 47, 0, '*', 1, NULL, NULL),
+	(21, 'main', 'com_finder_searches', 'Smart-Search-Searches', '', 'Smart Search/Smart-Search-Searches', 'index.php?option=com_finder&view=searches', 'component', 1, 13, 2, 23, NULL, NULL, 0, 0, 'class:finder-searches', 0, '', 48, 49, 0, '*', 1, NULL, NULL),
+	(101, 'mainmenu', 'Home', 'home', '', 'home', 'index.php?option=com_content&view=featured', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, '', 14, '{"featured_categories":[""],"layout_type":"blog","blog_class_leading":"","blog_class":"","num_leading_articles":"1","num_intro_articles":"3","num_links":"0","link_intro_image":"","orderby_pri":"","orderby_sec":"front","order_date":"","show_pagination":"2","show_pagination_results":"1","show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_associations":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_vote":"","show_readmore":"","show_readmore_title":"","show_hits":"","show_tags":"","show_noauth":"","show_feed_link":"1","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"1","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 11, 12, 1, '*', 0, NULL, NULL),
+	(102, 'mainmenu', 'About us', 'about-us', '', 'about-us', 'index.php?option=com_content&view=article&id=2', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, ' ', 0, '{"show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_hits":"","show_tags":"","show_noauth":"","urls_position":"","menu-anchor_title":"","menu-anchor_css":"","menu_icon_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 13, 14, 0, '*', 0, NULL, NULL),
+	(103, 'mainmenu', 'Projects', 'projects', '', 'projects', 'index.php?option=com_content&view=category&layout=blog&id=10', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, ' ', 0, '{"layout_type":"blog","show_category_title":"","show_description":"","show_description_image":"","maxLevel":"","show_empty_categories":"","show_no_articles":"","show_category_heading_title_text":"","show_subcat_desc":"","show_cat_num_articles":"","show_cat_tags":"","num_leading_articles":"","blog_class_leading":"","num_intro_articles":"","blog_class":"","num_columns":"","multi_column_order":"","num_links":"","show_featured":"","list_author_filtering_type":1,"link_intro_image":"","show_subcategory_content":"","orderby_pri":"","orderby_sec":"","order_date":"","show_pagination":"","show_pagination_results":"","article_layout":"_:default","show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_readmore":"","show_readmore_title":"","show_hits":"","show_tags":"","show_noauth":"","show_feed_link":"","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_icon_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 17, 18, 0, '*', 0, NULL, NULL),
+	(104, 'mainmenu', 'News', 'news', '', 'news', 'index.php?option=com_content&view=category&layout=blog&id=9', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, ' ', 0, '{"layout_type":"blog","show_category_title":"","show_description":"","show_description_image":"","maxLevel":"","show_empty_categories":"","show_no_articles":"","show_category_heading_title_text":"","show_subcat_desc":"","show_cat_num_articles":"","show_cat_tags":"","num_leading_articles":"","blog_class_leading":"","num_intro_articles":"","blog_class":"","num_columns":"","multi_column_order":"","num_links":"","show_featured":"","list_author_filtering_type":1,"link_intro_image":"","show_subcategory_content":"","orderby_pri":"","orderby_sec":"","order_date":"","show_pagination":"","show_pagination_results":"","article_layout":"_:default","show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_readmore":"","show_readmore_title":"","show_hits":"","show_tags":"","show_noauth":"","show_feed_link":"","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_icon_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 19, 20, 0, '*', 0, NULL, NULL),
+	(105, 'mainmenu', 'Contact us', 'contact-us', '', 'contact-us', 'index.php?option=com_contact&view=contact&id=1', 'component', 1, 1, 1, 7, NULL, NULL, 0, 1, ' ', 0, '{"show_contact_category":"","show_contact_list":"","show_name":"","show_tags":"","show_info":"","show_position":"","show_email":"","add_mailto_link":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_image":"","allow_vcard":"","show_misc":"","show_articles":"","articles_display_num":"","show_profile":"","show_links":"","linka_name":"","linkb_name":"","linkc_name":"","linkd_name":"","linke_name":"","show_email_form":"","show_email_copy":"","validate_session":"","custom_reply":"","redirect":"","menu-anchor_title":"","menu-anchor_css":"","menu_icon_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 21, 22, 0, '*', 0, NULL, NULL),
+	(106, 'mainmenu', 'Services', 'services', '', 'services', 'index.php?option=com_content&view=category&layout=blog&id=11', 'component', 1, 1, 1, 19, NULL, NULL, 0, 1, ' ', 0, '{"layout_type":"blog","show_category_title":"","show_description":"","show_description_image":"","maxLevel":"","show_empty_categories":"","show_no_articles":"","show_category_heading_title_text":"","show_subcat_desc":"","show_cat_num_articles":"","show_cat_tags":"","num_leading_articles":"","blog_class_leading":"","num_intro_articles":"","blog_class":"","num_columns":"","multi_column_order":"","num_links":"","show_featured":"","list_author_filtering_type":1,"link_intro_image":"","show_subcategory_content":"","orderby_pri":"","orderby_sec":"","order_date":"","show_pagination":"","show_pagination_results":"","article_layout":"_:default","show_title":"","link_titles":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_readmore":"","show_readmore_title":"","show_hits":"","show_tags":"","show_noauth":"","show_feed_link":"","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_icon_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","robots":""}', 15, 16, 0, '*', 0, NULL, NULL);
 
 -- Dumping structure for table px_cons.cons_menu_types
 CREATE TABLE IF NOT EXISTS `cons_menu_types` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0',
-  `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `menutype` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` int NOT NULL DEFAULT '0',
   `ordering` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1658,6 +1870,7 @@ CREATE TABLE IF NOT EXISTS `cons_menu_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_menu_types: ~0 rows (approximately)
+DELETE FROM `cons_menu_types`;
 INSERT INTO `cons_menu_types` (`id`, `asset_id`, `menutype`, `title`, `description`, `client_id`, `ordering`) VALUES
 	(1, 0, 'mainmenu', 'Main Menu', 'The main menu for the site', 0, 1);
 
@@ -1670,53 +1883,56 @@ CREATE TABLE IF NOT EXISTS `cons_messages` (
   `date_time` datetime NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `priority` tinyint unsigned NOT NULL DEFAULT '0',
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`message_id`),
   KEY `useridto_state` (`user_id_to`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_messages: ~0 rows (approximately)
+DELETE FROM `cons_messages`;
 
 -- Dumping structure for table px_cons.cons_messages_cfg
 CREATE TABLE IF NOT EXISTS `cons_messages_cfg` (
   `user_id` int unsigned NOT NULL DEFAULT '0',
-  `cfg_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `cfg_value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `cfg_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `cfg_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   UNIQUE KEY `idx_user_var_name` (`user_id`,`cfg_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_messages_cfg: ~0 rows (approximately)
+DELETE FROM `cons_messages_cfg`;
 
 -- Dumping structure for table px_cons.cons_modules
 CREATE TABLE IF NOT EXISTS `cons_modules` (
   `id` int NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `content` text COLLATE utf8mb4_unicode_ci,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `ordering` int NOT NULL DEFAULT '0',
-  `position` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `position` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
-  `module` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `access` int unsigned NOT NULL DEFAULT '0',
   `showtitle` tinyint unsigned NOT NULL DEFAULT '1',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `client_id` tinyint NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_modules: ~36 rows (approximately)
+DELETE FROM `cons_modules`;
 INSERT INTO `cons_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
-	(1, 39, 'Main Menu', '', '', 1, 'sidebar-right', NULL, NULL, NULL, NULL, 1, 'mod_menu', 1, 1, '{"menutype":"mainmenu","startLevel":"0","endLevel":"0","showAllChildren":"1","tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"itemid"}', 0, '*'),
+	(1, 39, 'Main Menu', '', '', 1, 'mainmenu', NULL, NULL, NULL, NULL, 1, 'mod_menu', 1, 1, '{"menutype":"mainmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0","sub_heading":"","desc":""}', 0, '*'),
 	(2, 40, 'Login', '', '', 1, 'login', NULL, NULL, NULL, NULL, 1, 'mod_login', 1, 1, '', 1, '*'),
 	(3, 41, 'Popular Articles', '', '', 6, 'cpanel', NULL, NULL, NULL, NULL, 1, 'mod_popular', 3, 1, '{"count":"5","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","cache":"0", "bootstrap_size": "12","header_tag":"h2"}', 1, '*'),
 	(4, 42, 'Recently Added Articles', '', '', 4, 'cpanel', NULL, NULL, NULL, NULL, 1, 'mod_latest', 3, 1, '{"count":"5","ordering":"c_dsc","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","cache":"0", "bootstrap_size": "12","header_tag":"h2"}', 1, '*'),
@@ -1751,7 +1967,10 @@ INSERT INTO `cons_modules` (`id`, `asset_id`, `title`, `note`, `content`, `order
 	(106, 83, 'Help Dashboard', '', '', 1, 'cpanel-help', NULL, NULL, NULL, NULL, 1, 'mod_submenu', 1, 0, '{"menutype":"*","preset":"help","layout":"_:default","moduleclass_sfx":"","style":"System-none","module_tag":"div","bootstrap_size":"12","header_tag":"h2","header_class":""}', 1, '*'),
 	(107, 84, 'Privacy Requests', '', '', 1, 'cpanel-privacy', NULL, NULL, NULL, NULL, 1, 'mod_privacy_dashboard', 1, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"static","style":"0","module_tag":"div","bootstrap_size":"12","header_tag":"h2","header_class":""}', 1, '*'),
 	(108, 85, 'Privacy Status', '', '', 1, 'cpanel-privacy', NULL, NULL, NULL, NULL, 1, 'mod_privacy_status', 1, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"static","style":"0","module_tag":"div","bootstrap_size":"12","header_tag":"h2","header_class":""}', 1, '*'),
-	(109, 96, 'Guided Tours', '', '', 1, 'status', NULL, NULL, NULL, NULL, 1, 'mod_guidedtours', 1, 1, '', 1, '*');
+	(109, 96, 'Guided Tours', '', '', 1, 'status', NULL, NULL, NULL, NULL, 1, 'mod_guidedtours', 1, 1, '', 1, '*'),
+	(110, 106, 'WT Flex Layout', '', '', 1, '', NULL, NULL, '2026-07-23 15:44:22', NULL, 1, 'mod_wt_flex_layout', 1, 1, '{"flexstyle":"","mod_sub_heading":"","mod_heading":"","mod_desc":"","mod_heading_alignment":"start","mod_bg_image":"","mod_bg_color":"","mod_text_color":"","mod_link_color":"","mod_link_hover_color":"","enable_container":"1","mod_spacing_top":"no-spacing","mod_spacing_bot":"no-spacing","mod_btn_label":"","mod_btn_url":"","mod_btn_type":"btn-secondary","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0","sub_heading":"","desc":""}', 0, '*'),
+	(111, 107, 'Footer', '', NULL, 1, 'footer', NULL, NULL, NULL, NULL, 1, 'mod_footer', 1, 0, '{"layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0","sub_heading":"","desc":""}', 0, '*'),
+	(112, 108, 'Latest News', '', NULL, 1, 'landing-5', NULL, NULL, NULL, NULL, 1, 'mod_articles', 1, 1, '{"mode":"normal","show_on_article_page":1,"count":5,"category_filtering_type":1,"catid":[9],"show_child_category_articles":0,"levels":1,"exclude_current":1,"ex_or_include_articles":0,"excluded_articles":[],"included_articles":[],"title_only":0,"articles_layout":0,"layout_columns":3,"item_title":1,"item_heading":"h4","link_titles":1,"show_author":0,"show_category":0,"show_category_link":0,"show_date":0,"show_date_field":"created","show_date_format":"Y-m-d H:i:s","show_hits":0,"info_layout":0,"show_tags":0,"trigger_events":0,"show_introtext":0,"introtext_limit":100,"image":0,"img_intro_full":"none","show_readmore":0,"show_readmore_title":1,"readmore_limit":15,"show_featured":"show","show_archived":"hide","show_unpublished":0,"author_filtering_type":1,"author_alias_filtering_type":1,"date_filtering":"off","date_field":"a.created","start_date_range":"","end_date_range":"","relative_date":30,"article_ordering":"a.title","article_ordering_direction":"ASC","article_grouping":"none","date_grouping_field":"created","month_year_format":"F Y","article_grouping_direction":"ksort","layout":"_:default","moduleclass_sfx":"","owncache":1,"cache_time":900,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0","sub_heading":"","desc":""}', 0, '*');
 
 -- Dumping structure for table px_cons.cons_modules_menu
 CREATE TABLE IF NOT EXISTS `cons_modules_menu` (
@@ -1760,7 +1979,8 @@ CREATE TABLE IF NOT EXISTS `cons_modules_menu` (
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_modules_menu: ~39 rows (approximately)
+-- Dumping data for table px_cons.cons_modules_menu: ~41 rows (approximately)
+DELETE FROM `cons_modules_menu`;
 INSERT INTO `cons_modules_menu` (`moduleid`, `menuid`) VALUES
 	(1, 0),
 	(2, 0),
@@ -1800,15 +2020,17 @@ INSERT INTO `cons_modules_menu` (`moduleid`, `menuid`) VALUES
 	(106, 0),
 	(107, 0),
 	(108, 0),
-	(109, 0);
+	(109, 0),
+	(111, 0),
+	(112, 101);
 
 -- Dumping structure for table px_cons.cons_newsfeeds
 CREATE TABLE IF NOT EXISTS `cons_newsfeeds` (
   `catid` int NOT NULL DEFAULT '0',
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `link` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `published` tinyint NOT NULL DEFAULT '0',
   `numarticles` int unsigned NOT NULL DEFAULT '1',
   `cache_time` int unsigned NOT NULL DEFAULT '3600',
@@ -1817,22 +2039,22 @@ CREATE TABLE IF NOT EXISTS `cons_newsfeeds` (
   `ordering` int NOT NULL DEFAULT '0',
   `rtl` tinyint NOT NULL DEFAULT '0',
   `access` int unsigned NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL,
   `modified_by` int unsigned NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `version` int unsigned NOT NULL DEFAULT '1',
   `hits` int unsigned NOT NULL DEFAULT '0',
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_access` (`access`),
   KEY `idx_checkout` (`checked_out`),
@@ -1843,38 +2065,41 @@ CREATE TABLE IF NOT EXISTS `cons_newsfeeds` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_newsfeeds: ~0 rows (approximately)
+DELETE FROM `cons_newsfeeds`;
 
 -- Dumping structure for table px_cons.cons_overrider
 CREATE TABLE IF NOT EXISTS `cons_overrider` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `constant` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `string` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `constant` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `string` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_overrider: ~0 rows (approximately)
+DELETE FROM `cons_overrider`;
 
 -- Dumping structure for table px_cons.cons_postinstall_messages
 CREATE TABLE IF NOT EXISTS `cons_postinstall_messages` (
   `postinstall_message_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `extension_id` bigint NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
-  `title_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for the title',
-  `description_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for description',
-  `action_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `language_extension` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'com_postinstall' COMMENT 'Extension holding lang keys',
+  `title_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for the title',
+  `description_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for description',
+  `action_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language_extension` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'com_postinstall' COMMENT 'Extension holding lang keys',
   `language_client_id` tinyint NOT NULL DEFAULT '1',
-  `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'link' COMMENT 'Message type - message, link, action',
-  `action_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'RAD URI to the PHP file containing action method',
-  `action` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'Action method name or URL',
-  `condition_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'RAD URI to file holding display condition method',
-  `condition_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Display condition method, must return boolean',
-  `version_introduced` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '3.2.0' COMMENT 'Version when this message was introduced',
+  `type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'link' COMMENT 'Message type - message, link, action',
+  `action_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'RAD URI to the PHP file containing action method',
+  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'Action method name or URL',
+  `condition_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'RAD URI to file holding display condition method',
+  `condition_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Display condition method, must return boolean',
+  `version_introduced` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '3.2.0' COMMENT 'Version when this message was introduced',
   `enabled` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`postinstall_message_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_postinstall_messages: ~5 rows (approximately)
+DELETE FROM `cons_postinstall_messages`;
 INSERT INTO `cons_postinstall_messages` (`postinstall_message_id`, `extension_id`, `title_key`, `description_key`, `action_key`, `language_extension`, `language_client_id`, `type`, `action_file`, `action`, `condition_file`, `condition_method`, `version_introduced`, `enabled`) VALUES
 	(1, 247, 'COM_CPANEL_WELCOME_BEGINNERS_TITLE', 'COM_CPANEL_WELCOME_BEGINNERS_MESSAGE', '', 'com_cpanel', 1, 'message', '', '', '', '', '3.2.0', 1),
 	(2, 247, 'COM_CPANEL_MSG_STATS_COLLECTION_TITLE', 'COM_CPANEL_MSG_STATS_COLLECTION_BODY', '', 'com_cpanel', 1, 'message', '', '', 'admin://components/com_admin/postinstall/statscollection.php', 'admin_postinstall_statscollection_condition', '3.5.0', 1),
@@ -1888,37 +2113,39 @@ CREATE TABLE IF NOT EXISTS `cons_privacy_consents` (
   `user_id` int unsigned NOT NULL DEFAULT '0',
   `state` int NOT NULL DEFAULT '1',
   `created` datetime NOT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `remind` tinyint NOT NULL DEFAULT '0',
-  `token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `idx_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_privacy_consents: ~0 rows (approximately)
+DELETE FROM `cons_privacy_consents`;
 
 -- Dumping structure for table px_cons.cons_privacy_requests
 CREATE TABLE IF NOT EXISTS `cons_privacy_requests` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `requested_at` datetime NOT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
-  `request_type` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `confirm_token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `request_type` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `confirm_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `confirm_token_created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_privacy_requests: ~0 rows (approximately)
+DELETE FROM `cons_privacy_requests`;
 
 -- Dumping structure for table px_cons.cons_redirect_links
 CREATE TABLE IF NOT EXISTS `cons_redirect_links` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `old_url` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `new_url` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `referer` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `old_url` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `new_url` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `referer` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `hits` int unsigned NOT NULL DEFAULT '0',
   `published` tinyint NOT NULL,
   `created_date` datetime NOT NULL,
@@ -1930,12 +2157,13 @@ CREATE TABLE IF NOT EXISTS `cons_redirect_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_redirect_links: ~0 rows (approximately)
+DELETE FROM `cons_redirect_links`;
 
 -- Dumping structure for table px_cons.cons_scheduler_logs
 CREATE TABLE IF NOT EXISTS `cons_scheduler_logs` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `taskname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `tasktype` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'unique identifier for job defined by plugin',
+  `taskname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tasktype` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'unique identifier for job defined by plugin',
   `duration` decimal(5,3) NOT NULL,
   `jobid` int unsigned NOT NULL,
   `taskid` int unsigned NOT NULL,
@@ -1950,15 +2178,16 @@ CREATE TABLE IF NOT EXISTS `cons_scheduler_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_scheduler_logs: ~0 rows (approximately)
+DELETE FROM `cons_scheduler_logs`;
 
 -- Dumping structure for table px_cons.cons_scheduler_tasks
 CREATE TABLE IF NOT EXISTS `cons_scheduler_tasks` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'unique identifier for job defined by plugin',
-  `execution_rules` text COLLATE utf8mb4_unicode_ci COMMENT 'Execution Rules, Unprocessed',
-  `cron_rules` text COLLATE utf8mb4_unicode_ci COMMENT 'Processed execution rules, crontab-like JSON form',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'unique identifier for job defined by plugin',
+  `execution_rules` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Execution Rules, Unprocessed',
+  `cron_rules` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Processed execution rules, crontab-like JSON form',
   `state` tinyint NOT NULL DEFAULT '0',
   `last_exit_code` int NOT NULL DEFAULT '0' COMMENT 'Exit code when job was last run',
   `last_execution` datetime DEFAULT NULL COMMENT 'Timestamp of last run',
@@ -1969,8 +2198,8 @@ CREATE TABLE IF NOT EXISTS `cons_scheduler_tasks` (
   `priority` smallint NOT NULL DEFAULT '0',
   `ordering` int NOT NULL DEFAULT '0' COMMENT 'Configurable list ordering',
   `cli_exclusive` smallint NOT NULL DEFAULT '0' COMMENT 'If 1, the task is only accessible via CLI',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `note` text COLLATE utf8mb4_unicode_ci,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `created` datetime NOT NULL,
   `created_by` int unsigned NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
@@ -1987,6 +2216,7 @@ CREATE TABLE IF NOT EXISTS `cons_scheduler_tasks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_scheduler_tasks: ~3 rows (approximately)
+DELETE FROM `cons_scheduler_tasks`;
 INSERT INTO `cons_scheduler_tasks` (`id`, `asset_id`, `title`, `type`, `execution_rules`, `cron_rules`, `state`, `last_exit_code`, `last_execution`, `next_execution`, `times_executed`, `times_failed`, `locked`, `priority`, `ordering`, `cli_exclusive`, `params`, `note`, `created`, `created_by`, `checked_out`, `checked_out_time`) VALUES
 	(1, 97, 'Rotate Logs', 'rotation.logs', '{"rule-type":"interval-days","interval-days":"30","exec-day":"23","exec-time":"06:00"}', '{"type":"interval","exp":"P30D"}', 1, 0, NULL, '2026-08-22 06:00:00', 0, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"logstokeep":1}', NULL, '2026-07-23 06:25:04', 42, NULL, NULL),
 	(2, 98, 'Session GC', 'session.gc', '{"rule-type":"interval-hours","interval-hours":"24","exec-day":"01","exec-time":"06:00"}', '{"type":"interval","exp":"PT24H"}', 1, 0, NULL, '2026-07-24 06:00:00', 0, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"enable_session_gc":1,"enable_session_metadata_gc":1}', NULL, '2026-07-23 06:25:04', 42, NULL, NULL),
@@ -1996,22 +2226,24 @@ INSERT INTO `cons_scheduler_tasks` (`id`, `asset_id`, `title`, `type`, `executio
 CREATE TABLE IF NOT EXISTS `cons_schemaorg` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `itemId` int unsigned DEFAULT NULL,
-  `context` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `schemaType` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `schema` text COLLATE utf8mb4_unicode_ci,
+  `context` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `schemaType` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `schema` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_schemaorg: ~0 rows (approximately)
+DELETE FROM `cons_schemaorg`;
 
 -- Dumping structure for table px_cons.cons_schemas
 CREATE TABLE IF NOT EXISTS `cons_schemas` (
   `extension_id` int NOT NULL,
-  `version_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_schemas: ~0 rows (approximately)
+DELETE FROM `cons_schemas`;
 INSERT INTO `cons_schemas` (`extension_id`, `version_id`) VALUES
 	(247, '6.1.0-2026-03-13');
 
@@ -2021,19 +2253,22 @@ CREATE TABLE IF NOT EXISTS `cons_session` (
   `client_id` tinyint unsigned DEFAULT NULL,
   `guest` tinyint unsigned DEFAULT '1',
   `time` int NOT NULL DEFAULT '0',
-  `data` mediumtext COLLATE utf8mb4_unicode_ci,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `userid` int DEFAULT '0',
-  `username` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`session_id`),
   KEY `userid` (`userid`),
   KEY `time` (`time`),
   KEY `client_id_guest` (`client_id`,`guest`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_session: ~2 rows (approximately)
+-- Dumping data for table px_cons.cons_session: ~4 rows (approximately)
+DELETE FROM `cons_session`;
 INSERT INTO `cons_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
 	(_binary 0x3573323866726c696e763336313462353463726c63386e32746a, 0, 1, 1784787942, 'joomla|s:700:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjE7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzg0Nzg3OTQyO3M6NDoibGFzdCI7aToxNzg0Nzg3OTQyO3M6Mzoibm93IjtpOjE3ODQ3ODc5NDI7fXM6NToidG9rZW4iO3M6MzI6IjIyODEzYmVkOGRhNmM2NGYxNzQwMTg0MTNhMmEzNzdjIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 0, ''),
-	(_binary 0x3631623734617061637137723675386a7035766138747070306a, 1, 0, 1784788072, 'joomla|s:1528:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjY6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjQxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc4NDc4Nzk0OTtzOjQ6Imxhc3QiO2k6MTc4NDc4ODA3MjtzOjM6Im5vdyI7aToxNzg0Nzg4MDcyO31zOjU6InRva2VuIjtzOjMyOiI2MTVmOTE5ZGU1ZDYxNWJmYmI0MTc1OGYyMTE5NGExNSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoyOntzOjEzOiJjb21faW5zdGFsbGVyIjtPOjg6InN0ZENsYXNzIjozOntzOjc6Im1lc3NhZ2UiO3M6MDoiIjtzOjE3OiJleHRlbnNpb25fbWVzc2FnZSI7czowOiIiO3M6MTI6InJlZGlyZWN0X3VybCI7Tjt9czoxMToiY29tX3BsdWdpbnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NzoicGx1Z2lucyI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo2OiJmaWx0ZXIiO2E6NTp7czo2OiJzZWFyY2giO3M6NToicGl4ZWwiO3M6NzoiZW5hYmxlZCI7czowOiIiO3M6NjoiZm9sZGVyIjtzOjA6IiI7czo3OiJlbGVtZW50IjtzOjA6IiI7czo2OiJhY2Nlc3MiO3M6MDoiIjt9czo0OiJsaXN0IjthOjQ6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czoxMDoiZm9sZGVyIEFTQyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo5OiJzb3J0VGFibGUiO3M6NjoiZm9sZGVyIjtzOjE0OiJkaXJlY3Rpb25UYWJsZSI7czozOiJBU0MiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6NDI7fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO31zOjg6Im92ZXJyaWRlIjtPOjg6InN0ZENsYXNzIjowOnt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 42, 'admin');
+	(_binary 0x3631623734617061637137723675386a7035766138747070306a, 1, 0, 1784788072, 'joomla|s:1528:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjY6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjQxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc4NDc4Nzk0OTtzOjQ6Imxhc3QiO2k6MTc4NDc4ODA3MjtzOjM6Im5vdyI7aToxNzg0Nzg4MDcyO31zOjU6InRva2VuIjtzOjMyOiI2MTVmOTE5ZGU1ZDYxNWJmYmI0MTc1OGYyMTE5NGExNSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoyOntzOjEzOiJjb21faW5zdGFsbGVyIjtPOjg6InN0ZENsYXNzIjozOntzOjc6Im1lc3NhZ2UiO3M6MDoiIjtzOjE3OiJleHRlbnNpb25fbWVzc2FnZSI7czowOiIiO3M6MTI6InJlZGlyZWN0X3VybCI7Tjt9czoxMToiY29tX3BsdWdpbnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NzoicGx1Z2lucyI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo2OiJmaWx0ZXIiO2E6NTp7czo2OiJzZWFyY2giO3M6NToicGl4ZWwiO3M6NzoiZW5hYmxlZCI7czowOiIiO3M6NjoiZm9sZGVyIjtzOjA6IiI7czo3OiJlbGVtZW50IjtzOjA6IiI7czo2OiJhY2Nlc3MiO3M6MDoiIjt9czo0OiJsaXN0IjthOjQ6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czoxMDoiZm9sZGVyIEFTQyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo5OiJzb3J0VGFibGUiO3M6NjoiZm9sZGVyIjtzOjE0OiJkaXJlY3Rpb25UYWJsZSI7czozOiJBU0MiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6NDI7fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO31zOjg6Im92ZXJyaWRlIjtPOjg6InN0ZENsYXNzIjowOnt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 42, 'admin'),
+	(_binary 0x6d6d7332716d6e6975326c74716d6563736f626c6b70346f3764, 0, 1, 1784822065, 'joomla|s:700:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjM0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc4NDgxNzczOTtzOjQ6Imxhc3QiO2k6MTc4NDgyMjAzNTtzOjM6Im5vdyI7aToxNzg0ODIyMDY1O31zOjU6InRva2VuIjtzOjMyOiI5ODczODY4ZGQ0MjA3YTgxYWYxNjY0YWVlZTUyMDIxMiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6MDt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 0, ''),
+	(_binary 0x75327561326135726f36326e6b6175376e6d3331333867323169, 1, 0, 1784822063, 'joomla|s:10088:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjY6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjI4MztzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE3ODQ4MTgwNTI7czo0OiJsYXN0IjtpOjE3ODQ4MjIwNjM7czozOiJub3ciO2k6MTc4NDgyMjA2Mzt9czo1OiJ0b2tlbiI7czozMjoiYzdlNjNlMjZhZmUzMDNiOGNhYTc4OTNlZDFhMjY0NGUiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6ODp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjtzOjEyOiJyZWRpcmVjdF91cmwiO047fXM6MTA6ImNvbV9jb25maWciO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJkYXRhIjthOjEwMzp7czo3OiJjYWNoaW5nIjtpOjA7czoxMzoiY2FjaGVfaGFuZGxlciI7czo0OiJmaWxlIjtzOjIwOiJjYWNoZV9wbGF0Zm9ybXByZWZpeCI7YjowO3M6OToiY2FjaGV0aW1lIjtpOjE1O3M6MTA6ImNhY2hlX3BhdGgiO3M6MDoiIjtzOjE3OiJtZW1jYWNoZWRfcGVyc2lzdCI7YjoxO3M6MTg6Im1lbWNhY2hlZF9jb21wcmVzcyI7YjowO3M6MjE6Im1lbWNhY2hlZF9zZXJ2ZXJfaG9zdCI7czo5OiJsb2NhbGhvc3QiO3M6MjE6Im1lbWNhY2hlZF9zZXJ2ZXJfcG9ydCI7aToxMTIxMTtzOjEzOiJyZWRpc19wZXJzaXN0IjtiOjE7czoxNzoicmVkaXNfc2VydmVyX2hvc3QiO3M6OToibG9jYWxob3N0IjtzOjE3OiJyZWRpc19zZXJ2ZXJfcG9ydCI7aTo2Mzc5O3M6MTc6InJlZGlzX3NlcnZlcl9hdXRoIjtzOjA6IiI7czoxNToicmVkaXNfc2VydmVyX2RiIjtpOjA7czo2OiJkYnR5cGUiO3M6NjoibXlzcWxpIjtzOjQ6Imhvc3QiO3M6OToibG9jYWxob3N0IjtzOjQ6InVzZXIiO3M6NDoicm9vdCI7czo4OiJwYXNzd29yZCI7czo0OiJyb290IjtzOjI6ImRiIjtzOjc6InB4X2NvbnMiO3M6ODoiZGJwcmVmaXgiO3M6NToiY29uc18iO3M6MTI6ImRiZW5jcnlwdGlvbiI7aTowO3M6ODoiZGJzc2xrZXkiO3M6MDoiIjtzOjk6ImRic3NsY2VydCI7czowOiIiO3M6MjE6ImRic3NsdmVyaWZ5c2VydmVyY2VydCI7YjowO3M6NzoiZGJzc2xjYSI7czowOiIiO3M6MTE6ImRic3NsY2lwaGVyIjtzOjA6IiI7czo1OiJkZWJ1ZyI7YjowO3M6MTA6ImRlYnVnX2xhbmciO2I6MDtzOjE2OiJkZWJ1Z19sYW5nX2NvbnN0IjtiOjE7czo0OiJjb3JzIjtiOjA7czoxNzoiY29yc19hbGxvd19vcmlnaW4iO3M6MToiKiI7czoxODoiY29yc19hbGxvd19oZWFkZXJzIjtzOjI3OiJDb250ZW50LVR5cGUsWC1Kb29tbGEtVG9rZW4iO3M6MTg6ImNvcnNfYWxsb3dfbWV0aG9kcyI7czowOiIiO3M6MTk6ImJlaGluZF9sb2FkYmFsYW5jZXIiO2I6MDtzOjEyOiJwcm94eV9lbmFibGUiO2I6MDtzOjEwOiJwcm94eV9ob3N0IjtzOjA6IiI7czoxMDoicHJveHlfcG9ydCI7czowOiIiO3M6MTA6InByb3h5X3VzZXIiO3M6MDoiIjtzOjY6Im9mZnNldCI7czozOiJVVEMiO3M6MTA6Im1haWxvbmxpbmUiO2I6MTtzOjExOiJtYXNzbWFpbG9mZiI7YjowO3M6ODoibWFpbGZyb20iO3M6MTg6Im5vLXJlcGx5QGdtYWlsLmNvbSI7czo4OiJmcm9tbmFtZSI7czozNDoiV2VsY29tZSB0byBQWCBDb25zdHJ1Y3Rpb24gY29tcGFueSI7czo3OiJyZXBseXRvIjtzOjA6IiI7czoxMToicmVwbHl0b25hbWUiO3M6MDoiIjtzOjY6Im1haWxlciI7czo0OiJtYWlsIjtzOjg6InNlbmRtYWlsIjtzOjE4OiIvdXNyL3NiaW4vc2VuZG1haWwiO3M6ODoic210cGhvc3QiO3M6OToibG9jYWxob3N0IjtzOjg6InNtdHBwb3J0IjtpOjI1O3M6MTA6InNtdHBzZWN1cmUiO3M6NDoibm9uZSI7czo4OiJzbXRwYXV0aCI7YjowO3M6ODoic210cHVzZXIiO3M6MDoiIjtzOjg6InNtdHBwYXNzIjtzOjA6IiI7czo4OiJNZXRhRGVzYyI7czowOiIiO3M6Njoicm9ib3RzIjtzOjA6IiI7czoxMDoiTWV0YVJpZ2h0cyI7czowOiIiO3M6MTA6Ik1ldGFBdXRob3IiO2I6MTtzOjExOiJNZXRhVmVyc2lvbiI7YjowO3M6Mzoic2VmIjtiOjE7czoxMToic2VmX3Jld3JpdGUiO2I6MDtzOjEwOiJzZWZfc3VmZml4IjtiOjA7czoxMjoidW5pY29kZXNsdWdzIjtiOjA7czoxOToic2l0ZW5hbWVfcGFnZXRpdGxlcyI7aTowO3M6ODoidG1wX3BhdGgiO3M6NDE6IkQ6XExvY2FsaG9zdFxodGRvY3NcbnRzX3dvcmtzXHB4X2NvbnMvdG1wIjtzOjQ6Imd6aXAiO2I6MDtzOjE1OiJlcnJvcl9yZXBvcnRpbmciO3M6NzoiZGVmYXVsdCI7czo5OiJmb3JjZV9zc2wiO2k6MDtzOjE1OiJzZXNzaW9uX2hhbmRsZXIiO3M6ODoiZGF0YWJhc2UiO3M6MjM6InNlc3Npb25fZmlsZXN5c3RlbV9wYXRoIjtzOjA6IiI7czoyOToic2Vzc2lvbl9tZW1jYWNoZWRfc2VydmVyX2hvc3QiO3M6OToibG9jYWxob3N0IjtzOjI5OiJzZXNzaW9uX21lbWNhY2hlZF9zZXJ2ZXJfcG9ydCI7aToxMTIxMTtzOjIxOiJzZXNzaW9uX3JlZGlzX3BlcnNpc3QiO2k6MTtzOjI1OiJzZXNzaW9uX3JlZGlzX3NlcnZlcl9ob3N0IjtzOjk6ImxvY2FsaG9zdCI7czoyNToic2Vzc2lvbl9yZWRpc19zZXJ2ZXJfcG9ydCI7aTo2Mzc5O3M6MjU6InNlc3Npb25fcmVkaXNfc2VydmVyX2F1dGgiO3M6MDoiIjtzOjIzOiJzZXNzaW9uX3JlZGlzX3NlcnZlcl9kYiI7aTowO3M6ODoibGlmZXRpbWUiO2k6MTAwMDtzOjE0OiJzaGFyZWRfc2Vzc2lvbiI7YjowO3M6MTY6InNlc3Npb25fbWV0YWRhdGEiO2I6MTtzOjI2OiJzZXNzaW9uX21ldGFkYXRhX2Zvcl9ndWVzdCI7YjoxO3M6ODoic2l0ZW5hbWUiO3M6MzQ6IldlbGNvbWUgdG8gUFggQ29uc3RydWN0aW9uIGNvbXBhbnkiO3M6Nzoib2ZmbGluZSI7YjowO3M6MjM6ImRpc3BsYXlfb2ZmbGluZV9tZXNzYWdlIjtpOjE7czoxNToib2ZmbGluZV9tZXNzYWdlIjtzOjY5OiJUaGlzIHNpdGUgaXMgZG93biBmb3IgbWFpbnRlbmFuY2UuPGJyIC8+UGxlYXNlIGNoZWNrIGJhY2sgYWdhaW4gc29vbi4iO3M6MTM6Im9mZmxpbmVfaW1hZ2UiO3M6MDoiIjtzOjEyOiJmcm9udGVkaXRpbmciO2k6MTtzOjY6ImVkaXRvciI7czoxMDoiY29kZW1pcnJvciI7czo3OiJjYXB0Y2hhIjtzOjE6IjAiO3M6NjoiYWNjZXNzIjtpOjE7czoxMDoibGlzdF9saW1pdCI7aToyMDtzOjEwOiJmZWVkX2xpbWl0IjtpOjEwO3M6MTA6ImZlZWRfZW1haWwiO3M6NDoibm9uZSI7czo4OiJsb2dfcGF0aCI7czo1NjoiRDpcTG9jYWxob3N0XGh0ZG9jc1xudHNfd29ya3NccHhfY29uc1xhZG1pbmlzdHJhdG9yL2xvZ3MiO3M6MTQ6ImxvZ19ldmVyeXRoaW5nIjtpOjA7czoxNDoibG9nX2RlcHJlY2F0ZWQiO2k6MDtzOjE0OiJsb2dfcHJpb3JpdGllcyI7YToxOntpOjA7czozOiJhbGwiO31zOjE0OiJsb2dfY2F0ZWdvcmllcyI7czowOiIiO3M6MTc6ImxvZ19jYXRlZ29yeV9tb2RlIjtpOjA7czoxMzoiY29va2llX2RvbWFpbiI7czowOiIiO3M6MTE6ImNvb2tpZV9wYXRoIjtzOjA6IiI7czo1OiJydWxlcyI7YToxMzp7czoxNToiY29yZS5sb2dpbi5zaXRlIjthOjI6e2k6NjtiOjE7aToyO2I6MTt9czoxNjoiY29yZS5sb2dpbi5hZG1pbiI7YToxOntpOjY7YjoxO31zOjE0OiJjb3JlLmxvZ2luLmFwaSI7YToxOntpOjg7YjoxO31zOjE4OiJjb3JlLmxvZ2luLm9mZmxpbmUiO2E6MTp7aTo2O2I6MTt9czoxMDoiY29yZS5hZG1pbiI7YToxOntpOjg7YjoxO31zOjEyOiJjb3JlLm9wdGlvbnMiO2E6MDp7fXM6MTE6ImNvcmUubWFuYWdlIjthOjE6e2k6NztiOjE7fXM6MTE6ImNvcmUuY3JlYXRlIjthOjI6e2k6NjtiOjE7aTozO2I6MTt9czoxMToiY29yZS5kZWxldGUiO2E6MTp7aTo2O2I6MTt9czo5OiJjb3JlLmVkaXQiO2E6Mjp7aTo2O2I6MTtpOjQ7YjoxO31zOjE1OiJjb3JlLmVkaXQuc3RhdGUiO2E6Mjp7aTo2O2I6MTtpOjU7YjoxO31zOjEzOiJjb3JlLmVkaXQub3duIjthOjI6e2k6NjtiOjE7aTozO2I6MTt9czoxNToiY29yZS5lZGl0LnZhbHVlIjthOjA6e319czo3OiJmaWx0ZXJzIjthOjk6e2k6MTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6OTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NjthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NzthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6MjthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6MzthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NDthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6ODthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjQ6Ik5PTkUiO3M6MTE6ImZpbHRlcl90YWdzIjtzOjA6IiI7czoxNzoiZmlsdGVyX2F0dHJpYnV0ZXMiO3M6MDoiIjt9fXM6ODoiYXNzZXRfaWQiO3M6MToiMSI7fX19fXM6MTM6ImNvbV90ZW1wbGF0ZXMiO086ODoic3RkQ2xhc3MiOjI6e3M6Njoic3R5bGVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjk6ImNsaWVudF9pZCI7czoxOiIwIjtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtpOjIwO3M6ODoib3JkZXJpbmciO3M6MTA6ImEudGVtcGxhdGUiO3M6NToic3RhcnQiO2Q6MDt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJzdHlsZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO319fXM6MTE6ImNvbV9tb2R1bGVzIjtPOjg6InN0ZENsYXNzIjozOntzOjc6Im1vZHVsZXMiO086ODoic3RkQ2xhc3MiOjI6e3M6MToiMCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo5OiJjbGllbnRfaWQiO2k6MDtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtpOjIwO3M6ODoib3JkZXJpbmciO3M6MTA6ImEucG9zaXRpb24iO3M6NToic3RhcnQiO2Q6MDt9fXM6OToiY2xpZW50X2lkIjtzOjE6IjAiO31zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoibW9kdWxlIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047fX1zOjM6ImFkZCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJtb2R1bGUiO086ODoic3RkQ2xhc3MiOjI6e3M6MTI6ImV4dGVuc2lvbl9pZCI7TjtzOjY6InBhcmFtcyI7Tjt9fX1zOjE0OiJjb21fY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJjb250ZW50IjtPOjg6InN0ZENsYXNzIjozOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czo5OiJleHRlbnNpb24iO3M6MTE6ImNvbV9jb250ZW50Ijt9czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7aToyMDtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fXM6NToibW9kYWwiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjk6ImV4dGVuc2lvbiI7czoxMToiY29tX2NvbnRlbnQiO31zOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtpOjIwO3M6ODoib3JkZXJpbmciO3M6NToiYS5sZnQiO3M6NToic3RhcnQiO2Q6MDt9fX19czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjg6ImNhdGVnb3J5IjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czo3OiJjb250ZW50IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImRhdGEiO047fX19fXM6MTE6ImNvbV9jb250ZW50IjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NzoiYXJ0aWNsZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJkYXRhIjtOO3M6MjoiaWQiO2E6MTp7aTowO2k6Mzt9fX1zOjg6ImFydGljbGVzIjtPOjg6InN0ZENsYXNzIjozOntzOjY6ImZpbHRlciI7YTo2OntzOjY6InNlYXJjaCI7czowOiIiO3M6ODoiZmVhdHVyZWQiO3M6MDoiIjtzOjk6InB1Ymxpc2hlZCI7czowOiIiO3M6MTE6ImNhdGVnb3J5X2lkIjthOjE6e2k6MDtzOjE6IjkiO31zOjExOiJjaGVja2VkX291dCI7czowOiIiO3M6NToibGV2ZWwiO3M6MDoiIjt9czo0OiJsaXN0IjthOjI6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czo5OiJhLmlkIERFU0MiO3M6NToibGltaXQiO3M6MjoiMjAiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX1zOjk6ImNvbV9tZW51cyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo1OiJpdGVtcyI7Tzo4OiJzdGRDbGFzcyI6NDp7czo4OiJtZW51dHlwZSI7czo4OiJtYWlubWVudSI7czo5OiJjbGllbnRfaWQiO2k6MDtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7aToyMDtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX1zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiaXRlbSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo0OiJkYXRhIjtOO3M6NDoidHlwZSI7TjtzOjQ6ImxpbmsiO047fX19czoxMToiY29tX2NvbnRhY3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJjb250YWN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImRhdGEiO047fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjQyO31zOjk6ImNvbV91c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMToibWZhX2NoZWNrZWQiO2k6MTt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX1zOjg6Im92ZXJyaWRlIjtPOjg6InN0ZENsYXNzIjowOnt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 42, 'admin');
 
 -- Dumping structure for table px_cons.cons_tags
 CREATE TABLE IF NOT EXISTS `cons_tags` (
@@ -2042,28 +2277,28 @@ CREATE TABLE IF NOT EXISTS `cons_tags` (
   `lft` int NOT NULL DEFAULT '0',
   `rgt` int NOT NULL DEFAULT '0',
   `level` int unsigned NOT NULL DEFAULT '0',
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `access` int unsigned NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta description for the page.',
-  `metakey` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The keywords for the page.',
-  `metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded metadata properties.',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta description for the page.',
+  `metakey` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The keywords for the page.',
+  `metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded metadata properties.',
   `created_user_id` int unsigned NOT NULL DEFAULT '0',
   `created_time` datetime NOT NULL,
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified_user_id` int unsigned NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL,
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urls` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `hits` int unsigned NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `version` int unsigned NOT NULL DEFAULT '1',
   `publish_up` datetime DEFAULT NULL,
   `publish_down` datetime DEFAULT NULL,
@@ -2078,17 +2313,18 @@ CREATE TABLE IF NOT EXISTS `cons_tags` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_tags: ~0 rows (approximately)
+DELETE FROM `cons_tags`;
 INSERT INTO `cons_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
 	(1, 0, 0, 1, 0, '', 'ROOT', 'root', '', '', 1, NULL, NULL, 1, '', '', '', '', 42, '2026-07-23 06:25:03', '', 42, '2026-07-23 06:25:03', '', '', 0, '*', 1, NULL, NULL);
 
 -- Dumping structure for table px_cons.cons_template_overrides
 CREATE TABLE IF NOT EXISTS `cons_template_overrides` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `template` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hash_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `template` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `hash_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `extension_id` int DEFAULT '0',
   `state` tinyint NOT NULL DEFAULT '0',
-  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint unsigned NOT NULL DEFAULT '0',
   `created_date` datetime NOT NULL,
   `modified_date` datetime DEFAULT NULL,
@@ -2098,42 +2334,47 @@ CREATE TABLE IF NOT EXISTS `cons_template_overrides` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_template_overrides: ~0 rows (approximately)
+DELETE FROM `cons_template_overrides`;
 
 -- Dumping structure for table px_cons.cons_template_styles
 CREATE TABLE IF NOT EXISTS `cons_template_styles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `template` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `template` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint unsigned NOT NULL DEFAULT '0',
-  `home` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `home` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `inheritable` tinyint NOT NULL DEFAULT '0',
-  `parent` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parent` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_template` (`template`),
   KEY `idx_client_id` (`client_id`),
   KEY `idx_client_id_home` (`client_id`,`home`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_template_styles: ~3 rows (approximately)
+-- Dumping data for table px_cons.cons_template_styles: ~4 rows (approximately)
+DELETE FROM `cons_template_styles`;
 INSERT INTO `cons_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `inheritable`, `parent`, `params`) VALUES
 	(10, 'atum', 1, '1', 'Atum - Default', 1, '', '{"hue":"hsl(214, 63%, 20%)","bg-light":"#f0f4fb","text-dark":"#495057","text-light":"#ffffff","link-color":"#2a69b8","special-color":"#001b4c","colorScheme":"os","monochrome":"0","loginLogo":"","loginLogoAlt":"","logoBrandLarge":"","logoBrandLargeAlt":"","logoBrandSmall":"","logoBrandSmallAlt":""}'),
-	(11, 'cassiopeia', 0, '1', 'Cassiopeia - Default', 1, '', '{"brand":"1","logoFile":"","siteTitle":"","siteDescription":"","useFontScheme":"0","colorName":"colors_standard","fluidContainer":"0","stickyHeader":0,"backTop":0}'),
-	(12, 'cassiopeia_extended', 0, '0', 'Cassiopeia Extended - Default', 0, 'cassiopeia', '{"brand":"1","logoFile":"","siteTitle":"","siteDescription":"","useFontScheme":"0","systemFontBody":"","systemFontHeading":"","colorName":"colors_standard","fluidContainer":"0","stickyHeader":"0","backTop":"0","colorSettings":"0","headerbg":"rgb(193, 205, 207)","headercolor":"rgb(23, 23, 23)","bodybg":"rgb(254, 254, 254)","bodycolor":"rgb(23, 23, 23)","linkcolor":"rgb(29, 121, 137)","linkcolorh":"rgb(14, 59, 67)","btnbg":"rgb(206, 60, 55)","btnbgh":"rgb(131, 35, 32)","btncolor":"rgb(254, 254, 254)","btncolorh":"rgb(254, 254, 254)","footerbg":"rgb(29, 121, 137)","footercolor":"rgb(254, 254, 254)","fontSettings":"0","bodysize":"1","h1size":"2","h2size":"1.7","h3size":"1.5"}');
+	(11, 'cassiopeia', 0, '0', 'Cassiopeia - Default', 1, '', '{"brand":"1","logoFile":"","siteTitle":"","siteDescription":"","useFontScheme":"0","colorName":"colors_standard","fluidContainer":"0","stickyHeader":0,"backTop":0}'),
+	(12, 'cassiopeia_extended', 0, '0', 'Cassiopeia Extended - Default', 0, 'cassiopeia', '{"brand":"1","logoFile":"","siteTitle":"","siteDescription":"","useFontScheme":"0","systemFontBody":"","systemFontHeading":"","colorName":"colors_standard","fluidContainer":"0","stickyHeader":"0","backTop":"0","colorSettings":"0","headerbg":"rgb(193, 205, 207)","headercolor":"rgb(23, 23, 23)","bodybg":"rgb(254, 254, 254)","bodycolor":"rgb(23, 23, 23)","linkcolor":"rgb(29, 121, 137)","linkcolorh":"rgb(14, 59, 67)","btnbg":"rgb(206, 60, 55)","btnbgh":"rgb(131, 35, 32)","btncolor":"rgb(254, 254, 254)","btncolorh":"rgb(254, 254, 254)","footerbg":"rgb(29, 121, 137)","footercolor":"rgb(254, 254, 254)","fontSettings":"0","bodysize":"1","h1size":"2","h2size":"1.7","h3size":"1.5"}'),
+	(13, 'px_cons', 0, '1', 'px_cons - Default', 1, '', '{"logo_type":"image","logo_image":"images\\/joomla_black.png#joomlaImage:\\/\\/local-images\\/joomla_black.png?width=225&height=50","logo_text":"","logo_slogan":"","favicon_image":"","touch_image":"","show_back_to_top":"1","body_font":"{\\"id\\":\\"montserrat\\",\\"selected\\":[\\"regular\\",\\"500\\",\\"600\\",\\"700\\",\\"800\\",\\"900\\"],\\"selectors\\":\\"\\",\\"variable\\":\\"--px-body-font-family\\"}","heading_font":"{\\"variable\\":\\"--px-heading-font-family\\"}","custom_font":"{\\"variable\\":\\"--px-custom-font-family\\"}","color_preset":"{\\"default\\":\\"light\\"}","template_layout":"default","sublayout":"[]","offcanvas":"0","mobile_menu_breakpoint":"768","megamenu":"{}","optimize_js":0,"js_excluded":"","optimize_css":0,"css_excluded":"","custom_code_after_head":"","custom_code_before_head":"","custom_code_after_body":"","custom_code_before_body":""}'),
+	(14, 'px_cons', 0, '0', 'px_cons - Landing', 1, '', '{"logo_type":"image","logo_image":"images\\/joomla_black.png#joomlaImage:\\/\\/local-images\\/joomla_black.png?width=225&height=50","logo_text":"","logo_slogan":"","favicon_image":"","touch_image":"","show_back_to_top":"1","body_font":"{\\"id\\":\\"montserrat\\",\\"selected\\":[\\"regular\\",\\"500\\",\\"600\\",\\"700\\",\\"800\\",\\"900\\"],\\"selectors\\":\\"\\",\\"variable\\":\\"--px-body-font-family\\"}","heading_font":"{\\"variable\\":\\"--px-heading-font-family\\"}","custom_font":"{\\"variable\\":\\"--px-custom-font-family\\"}","color_preset":"{\\"default\\":\\"light\\"}","template_layout":"home","sublayout":"[]","offcanvas":"0","mobile_menu_breakpoint":"768","megamenu":"{}","optimize_js":0,"js_excluded":"","optimize_css":0,"css_excluded":"","custom_code_after_head":"","custom_code_before_head":"","custom_code_after_body":"","custom_code_before_body":""}');
 
 -- Dumping structure for table px_cons.cons_tuf_metadata
 CREATE TABLE IF NOT EXISTS `cons_tuf_metadata` (
   `id` int NOT NULL AUTO_INCREMENT,
   `update_site_id` int DEFAULT '0',
-  `root` text COLLATE utf8mb4_unicode_ci,
-  `targets` text COLLATE utf8mb4_unicode_ci,
-  `snapshot` text COLLATE utf8mb4_unicode_ci,
-  `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `mirrors` text COLLATE utf8mb4_unicode_ci,
+  `root` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `targets` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `snapshot` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `timestamp` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `mirrors` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Secure TUF Updates';
 
 -- Dumping data for table px_cons.cons_tuf_metadata: ~0 rows (approximately)
+DELETE FROM `cons_tuf_metadata`;
 INSERT INTO `cons_tuf_metadata` (`id`, `update_site_id`, `root`, `targets`, `snapshot`, `timestamp`, `mirrors`) VALUES
 	(1, 1, '{"signed":{"_type":"root","spec_version":"1.0","version":14,"expires":"2027-08-20T08:56:59Z","keys":{"00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"250f8d293c49817a83909dead96ad82b62f7ac16844cf589f8d2f0e0b15cab21"}},"07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"9b2af2d9b9727227735253d795bd27ea8f0e294a5f3603e822dc5052b44802b9"}},"179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"159a4195cbafce2bb959f09ab2b36a2127b8967f94d389f65f1e7892fccfe8b8"}},"192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"042b66e1431a1f5c2c15b4a16ea60f23f466851b58e9ff057dbfc2a5e0d821d1"}},"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a18e5ebabc19d5d5984b601a292ece61ba3662ab2d071dc520da5bd4f8948799"}},"273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cb6702338830ef1c9e76a022fed27172d475bbaace754d8141ebc96dad8b15f"}},"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"546cdff30cc1ad6dd5f3d1e173672d94bd61a9507199af064142f70cde8de4e3"}},"2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"cb0a7a131961a20edea051d6dc2b091fb650bd399bd8514adb67b3c60db9f8f9"}},"31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"589d029a68b470deff1ca16dbf3eea6b5b3fcba0ae7bb52c468abc7fb058b2a2"}},"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6043c8bacc76ac5c9750f45454dd865c6ca1fc57d69e14cc192cfd420f6a66a9"}},"9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a4b8509488f1c29ab0b1f610e7452fbec78b4f33f1fba5a418d6ff087c567429"}},"a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ea764b0b475b3c396627ac6689cbd8f54a5f93e87b6f5e3eb44a7ccafb542ff3"}},"a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"45e416d24d13a60ace5ab028827d5cfc8ba177bb9466bf2acd8efa6e3547911a"}},"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cbfa7dcac9659e5a8a946ec999bd28f53b451e38ce5827980bed2686098cf19"}},"bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6eb44460e5914e8e0df726ddb90bd1f3771b8ce5af19b40fb01ac5a85b023a6f"}},"e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ad1950e117b29ebe7a38635a2e574123e07571e4f9a011783e053b5f15d2562a"}},"ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"5d451915bc2b93a0e4e4745bc6a8b292d58996d50e0fb66c78c7827152a65879"}}},"roles":{"root":{"keyids":["1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4"],"threshold":1},"snapshot":{"keyids":["07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4","a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803"],"threshold":1},"targets":{"keyids":["31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481"],"threshold":1},"timestamp":{"keyids":["9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc"],"threshold":1}},"consistent_snapshot":true},"signatures":[{"keyid":"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","sig":"4d6f71aaa9abcb9a04abf5e91fae73e60773e1d707db3978d039db1c21ccc95d79bcced7d959e46f860a93eccc21cc22eb2efa2fb9192b77306bd274c5605302"}]}', '{"signed":{"_type":"targets","spec_version":"1.0","version":103,"expires":"2026-10-21T13:44:44Z","targets":{"Joomla_5.1.2-Stable-Upgrade_Package.zip":{"length":28134889,"hashes":{"sha512":"d6b46cdedb9b31d01a607fe4c2f3a830a3265ed6ae5c0cb7b0f836b1b016ee7c639bd8948df00baf1b61a87f2fc71368a80b39e67ef9ec2b8842ee0ab09a620f"},"custom":{"client":"site","description":"Joomla! 5.1.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-1-2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5909-joomla-5-1-2-and-joomla-4-4-6-security-and-bug-fix-release.html","title":"Joomla! 5.1.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.1.2","php_minimum":"8.1.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.1.2"}},"Joomla_5.4.1-Stable-Update_Package.zip":{"length":30009045,"hashes":{"sha512":"aeddd1143cd574ff3f6e9bc7d7c67bf5d21dc1b404d98498a691b1fff12f5d245b48424f97155f20e2807e4ee2c1aed7313fae3ab8c0d27a08a20947c166c43e"},"custom":{"client":"site","description":"Joomla! 5.4.1 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-1/Joomla_5.4.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.1/Joomla_5.4.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.1/Joomla_5.4.1-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5941-joomla-6-0-1-and-5-4-1-bugfix-release.html","title":"Joomla! 5.4.1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.1","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.1"}},"Joomla_5.4.2-Stable-Update_Package.zip":{"length":30316442,"hashes":{"sha512":"e83add95a43103ec2d6ccada9e33a29fa6feb2d8e27b6bd16376f4a75d9b588c029b1f24c97b0772e3a6eb0e20d2b8e0e3526cf2af242d90c280ef63abeddaa9"},"custom":{"client":"site","description":"Joomla! 5.4.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-2/Joomla_5.4.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.2/Joomla_5.4.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.2/Joomla_5.4.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5942-joomla-6-0-2-and-5-4-2-security-bugfix-release.html","title":"Joomla! 5.4.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.2","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.2"}},"Joomla_5.4.3-Stable-Update_Package.zip":{"length":30403970,"hashes":{"sha512":"63901b3cca37a59fe8028e0adb01eda3bb3669dc410c21b1ab7cb040997980c75d2d52b242d053800a542f4d60cf6a15e5fdabc963014c35aef80f6b8b02857f"},"custom":{"client":"site","description":"Joomla! 5.4.3 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-3/Joomla_5.4.3-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.3/Joomla_5.4.3-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.3/Joomla_5.4.3-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5943-joomla-6-0-3-and-5-4-3-bugfix-release.html","title":"Joomla! 5.4.3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.3","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.3"}},"Joomla_5.4.4-Stable-Update_Package.zip":{"length":30488702,"hashes":{"sha512":"56497e3c1bf1b9b21e8149a15e36dd1590f6adffd13b38005af40afdf2a33761fbacc9628c5ea6b0e21eb04fb1ca20ca9bc96b2add4b626ed0b567f43994a65e"},"custom":{"client":"site","description":"Joomla! 5.4.4 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-4/Joomla_5.4.4-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.4/Joomla_5.4.4-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.4/Joomla_5.4.4-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5944-joomla-6-0-4-5-4-4-security-bugfix-release.html","title":"Joomla! 5.4.4 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.4","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.4"}},"Joomla_5.4.5-Stable-Update_Package.zip":{"length":30498375,"hashes":{"sha512":"c4ebb9a6782c6ef1a3fe58231b78dbf301e212f0f33325e2a17e8014331dab5dee99ebaf2f90eb3e795d1c24ddc55d9485dba095e3f76d0780a80d0f61204ef2"},"custom":{"client":"site","description":"Joomla! 5.4.5 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-5/Joomla_5.4.5-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.5/Joomla_5.4.5-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.5/Joomla_5.4.5-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5951-joomla-5-4-5-bugfix-release.html","title":"Joomla! 5.4.5 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.5","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.5"}},"Joomla_5.4.5-rc1-Release_Candidate-Update_Package.zip":{"length":30498394,"hashes":{"sha512":"902e15b690f8bb33de3d139bc861362bd9f073fef506ce150bdc0f29bf8bde6c10aefa0518bb4f57f39576117913cddf59a8c325c7a517c21d7b6b1aea48aee8"},"custom":{"client":"site","description":"Joomla! 5.4.5-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.5-rc1/Joomla_5.4.5-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/5.4.5-rc1","title":"Joomla! 5.4.5-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.5-rc1","php_minimum":"8.1.0","channel":"5.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.5-rc1"}},"Joomla_5.4.6-Stable-Update_Package.zip":{"length":31661279,"hashes":{"sha512":"40d8b14c59c9af7ad098247a70d195c307f31597365cc4b5133b7ffc896c236b3266b45fc6c05879624c96e7f1af26b66ef3c371482b54b130b9faa65622f2fd"},"custom":{"client":"site","description":"Joomla! 5.4.6 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-6/Joomla_5.4.6-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.6/Joomla_5.4.6-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.6/Joomla_5.4.6-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5954-joomla-6-1-1-5-4-6-security-bugfix-release.html","title":"Joomla! 5.4.6 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.6","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.6"}},"Joomla_5.4.6-rc1-Release_Candidate-Update_Package.zip":{"length":31656827,"hashes":{"sha512":"e327d1ce0979ad1b10d46d7ba30abd55bd61299d0ac627f99d00310a84f45811573cf153976b0f32d2047c2d9ad72fd59d42594617439ec7250aff7e85801c97"},"custom":{"client":"site","description":"Joomla! 5.4.6-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.6-rc1/Joomla_5.4.6-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/5.4.6-rc1","title":"Joomla! 5.4.6-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.6-rc1","php_minimum":"8.1.0","channel":"5.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.6-rc1"}},"Joomla_5.4.7-Stable-Update_Package.zip":{"length":31851429,"hashes":{"sha512":"e1abbac01fe804d4eb64b1327ace9db4356e39a8782ab547b5257be308ea9215badec27821eae936b9a2db2f120fc175357f54ac3ca5af2313ec2af52eb44223"},"custom":{"client":"site","description":"Joomla! 5.4.7 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-7/Joomla_5.4.7-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.7/Joomla_5.4.7-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.7/Joomla_5.4.7-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5955-joomla-6-1-2-5-4-7-security-bugfix-release.html","title":"Joomla! 5.4.7 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.7","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.7"}},"Joomla_5.4.7-rc1-Release_Candidate-Update_Package.zip":{"length":31847733,"hashes":{"sha512":"e70bdb5ceceb837fe99ee49ca0bbc0f7bfeade3e024dba5a90a8d84e56079c13a231a93dcb6d637b6b07b22e7d98c8f894fc6a2de614f0544f48550c3e15506b"},"custom":{"client":"site","description":"Joomla! 5.4.7-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.7-rc1/Joomla_5.4.7-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/5.4.7-rc1","title":"Joomla! 5.4.7-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.7-rc1","php_minimum":"8.1.0","channel":"5.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.7-rc1"}},"Joomla_6.0.1-Stable-Update_Package.zip":{"length":30247182,"hashes":{"sha512":"38f8dd3ff1fd48b9973193a4484591b3b9f4a7516eb7640ff1687d84c81d4dc8cd05f6f58b9f48172bae41a466442f4a5af4a23e3d63869aeb1b05f4fdd6512e"},"custom":{"client":"site","description":"Joomla! 6.0.1 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-0-1/Joomla_6.0.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.0.1/Joomla_6.0.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.0.1/Joomla_6.0.1-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5941-joomla-6-0-1-and-5-4-1-bugfix-release.html","title":"Joomla! 6.0.1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.0.1","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.0.1"}},"Joomla_6.0.2-Stable-Update_Package.zip":{"length":30555623,"hashes":{"sha512":"c0cff255fcf8e0359453c18365f4906afcce115981a5114e3388da583ad192bde320c8bdd191cd8ca4e55ad5585c9c4cd098c2e1661d8a109d37b94340e4b6a6"},"custom":{"client":"site","description":"Joomla! 6.0.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-0-2/Joomla_6.0.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.0.2/Joomla_6.0.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.0.2/Joomla_6.0.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5942-joomla-6-0-2-and-5-4-2-security-bugfix-release.html","title":"Joomla! 6.0.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.0.2","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.0.2"}},"Joomla_6.0.3-Stable-Update_Package.zip":{"length":30645479,"hashes":{"sha512":"212a681935d260925cbb15e0fa4d9c9e40978aa32ab7137ff1e0775be26eaa6634317521ec8a411aed3f76990758cbe4dcec3c86186458238dc45f8a3886e5dc"},"custom":{"client":"site","description":"Joomla! 6.0.3 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-0-3/Joomla_6.0.3-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.0.3/Joomla_6.0.3-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.0.3/Joomla_6.0.3-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5943-joomla-6-0-3-and-5-4-3-bugfix-release.html","title":"Joomla! 6.0.3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.0.3","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.0.3"}},"Joomla_6.0.4-Stable-Update_Package.zip":{"length":30730380,"hashes":{"sha512":"39de3d222482dc1d6ba3041c9cbfb259dbf17762d917af59906c1c5c43b5da5016d5fb54d788f8b866fb473e4b57e3f1780db74be115300c181897c75e38c2e5"},"custom":{"client":"site","description":"Joomla! 6.0.4 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-0-4/Joomla_6.0.4-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.0.4/Joomla_6.0.4-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.0.4/Joomla_6.0.4-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5944-joomla-6-0-4-5-4-4-security-bugfix-release.html","title":"Joomla! 6.0.4 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.0.4","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.0.4"}},"Joomla_6.1.0-Stable-Update_Package.zip":{"length":31441199,"hashes":{"sha512":"e066487307a7952450d4f37ce97a576ae185728793d081c98416db9bb2a830fa4cfea0c5f6c7828bb91523cd26d6120c0d5111fc39962fa71cd875a8983c2c1a"},"custom":{"client":"site","description":"Joomla! 6.1.0 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-1-0/Joomla_6.1.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0/Joomla_6.1.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.1.0/Joomla_6.1.0-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5950-joomla-6-1-is-here.html","title":"Joomla! 6.1.0 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0"}},"Joomla_6.1.0-alpha2-Alpha-Full_Package.zip":{"length":33107068,"hashes":{"sha512":"be9711e1bda18981f077369105399eff9e8ab9203cad43d2c5385689e32db7bc6e11f3b5e406194dd9c2d7f5892bb92c6702cf5436badf3d971150ffcfda0a72"},"custom":{"client":"site","description":"Joomla! 6.1.0-alpha2 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-alpha2/Joomla_6.1.0-alpha2-Alpha-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1015-joomla-6-1-alpha2-see-how-its-coming-together.html","title":"Joomla! 6.1.0-alpha2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-alpha2","php_minimum":"8.3.0","channel":"6.x","stability":"Alpha","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-alpha2"}},"Joomla_6.1.0-alpha2-Alpha-Update_Package.zip":{"length":30736927,"hashes":{"sha512":"388790c8b32f624e5b33531f4a41eefa85b5273e76e20a847b01c7eaa59367939317581e5f75ade6c024f25894740c9651ce2faaa330ac8a7fb863434c170879"},"custom":{"client":"site","description":"Joomla! 6.1.0-alpha2 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-alpha2/Joomla_6.1.0-alpha2-Alpha-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1015-joomla-6-1-alpha2-see-how-its-coming-together.html","title":"Joomla! 6.1.0-alpha2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-alpha2","php_minimum":"8.3.0","channel":"6.x","stability":"Alpha","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-alpha2"}},"Joomla_6.1.0-alpha3-Alpha-Full_Package.zip":{"length":33216519,"hashes":{"sha512":"16eb1fb81ef4b0c2f3ebca14538945d291623f544d77946e556fc2f17561bda55c256be4f56c0f5034609bbc10e7dcbf0995691b0cd613f5dc58658fe964333b"},"custom":{"client":"site","description":"Joomla! 6.1.0-alpha3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-alpha3/Joomla_6.1.0-alpha3-Alpha-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1018-joomla-6-1-alpha3-wrapping-up-the-alpha-phase.html","title":"Joomla! 6.1.0-alpha3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-alpha3","php_minimum":"8.3.0","channel":"6.x","stability":"Alpha","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-alpha3"}},"Joomla_6.1.0-alpha3-Alpha-Update_Package.zip":{"length":30842460,"hashes":{"sha512":"9290f78cdba43c0bbb4e9b812a1e06cd548e6a4e14b51529d50d5acab3fdb4f7ab5cc6828655596159af41962b51f5a14008a26f06e3f9c5b3781f309cb52a19"},"custom":{"client":"site","description":"Joomla! 6.1.0-alpha3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-alpha3/Joomla_6.1.0-alpha3-Alpha-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1018-joomla-6-1-alpha3-wrapping-up-the-alpha-phase.html","title":"Joomla! 6.1.0-alpha3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-alpha3","php_minimum":"8.3.0","channel":"6.x","stability":"Alpha","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-alpha3"}},"Joomla_6.1.0-beta3-Beta-Update_Package.zip":{"length":31413826,"hashes":{"sha512":"9f03df89f3112706026cd9e99f4e3e1cc46a706db8492957e093ae416aadc568b422bcebbf74d45ffc07072d011c0d64e64e9891adcc3f56326da22ccb62d449"},"custom":{"client":"site","description":"Joomla! 6.1.0-beta3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-beta3/Joomla_6.1.0-beta3-Beta-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1026-joomla-6-1-beta3-help-make-it-stable.html","title":"Joomla! 6.1.0-beta3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-beta3","php_minimum":"8.3.0","channel":"6.x","stability":"Beta","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-beta3"}},"Joomla_6.1.0-rc1-Release_Candidate-Update_Package.zip":{"length":31432633,"hashes":{"sha512":"6b06981c9e3dc2f0345fc7ef6372d14fa4d84f5f8f424465139dd0ec9c596cf297a554a61b0bcbe02d1c4b494f5e8f1abb821f715222f1f3610045ea7c5f60cc"},"custom":{"client":"site","description":"Joomla! 6.1.0-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-rc1/Joomla_6.1.0-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/news/5945-joomla-6-1-release-candidate-test-the-final-package.html","title":"Joomla! 6.1.0-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-rc1","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-rc1"}},"Joomla_6.1.0-rc2-Release_Candidate-Update_Package.zip":{"length":31433359,"hashes":{"sha512":"b9b85aa048c26face653f9fb62f4ca28c294fa2a9c643aed73b581742d07db6d9d0b3169b4f7a437d1b233fe4771e0efe6395280a22139afa0a459908ba5d9b3"},"custom":{"client":"site","description":"Joomla! 6.1.0-rc2 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-rc2/Joomla_6.1.0-rc2-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5949-joomla-6-1-release-candidate-2-test-the-final-package.html","title":"Joomla! 6.1.0-rc2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-rc2","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-rc2"}},"Joomla_6.1.0-rc3-Release_Candidate-Update_Package.zip":{"length":31441220,"hashes":{"sha512":"5e66b9407f56f0d5d948a85743872e034a1e45b2d8b0cd876cbedb16edcfe39a32f95172677e2a12514a062aae8e1eb94ca3612ea1adb757c3911865cf2e242b"},"custom":{"client":"site","description":"Joomla! 6.1.0-rc3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.0-rc3/Joomla_6.1.0-rc3-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5952-joomla-6-1-release-candidate-3-test-the-final-package.html","title":"Joomla! 6.1.0-rc3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.0-rc3","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.0-rc3"}},"Joomla_6.1.1-Stable-Update_Package.zip":{"length":32594982,"hashes":{"sha512":"17deb752b2b3cfa828d9537bc216cfd48202f60fba9cee7e40998fc69012a0089144a0f9468fef0010ccd202da63638a1d5dc130726d23f15b96defe49e65685"},"custom":{"client":"site","description":"Joomla! 6.1.1 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-1-1/Joomla_6.1.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.1/Joomla_6.1.1-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.1.1/Joomla_6.1.1-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5954-joomla-6-1-1-5-4-6-security-bugfix-release.html","title":"Joomla! 6.1.1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.1","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.1"}},"Joomla_6.1.1-rc1-Release_Candidate-Update_Package.zip":{"length":32593613,"hashes":{"sha512":"92ecff9ab0d49f82954709c781ba899899ac51d53c755b02f020d8c4b4c1947c8640519d2e1467ffdef53809ede6382f0da8255ae537ab38aea02be3dec421ca"},"custom":{"client":"site","description":"Joomla! 6.1.1-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.1-rc1/Joomla_6.1.1-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/6.1.1-rc1","title":"Joomla! 6.1.1-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.1-rc1","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.1-rc1"}},"Joomla_6.1.2-Stable-Update_Package.zip":{"length":32955671,"hashes":{"sha512":"92583e1301ddd9b8715fec76b1157ca8d7f2201d6e7e53127d307c430c1e78a0a32d8db552540fb15bb899fc5fb2ca0e91c18537b6034c408742e0148973576b"},"custom":{"client":"site","description":"Joomla! 6.1.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-1-2/Joomla_6.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.2/Joomla_6.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.1.2/Joomla_6.1.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5955-joomla-6-1-2-5-4-7-security-bugfix-release.html","title":"Joomla! 6.1.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.2","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.2"}},"Joomla_6.1.2-rc1-Release_Candidate-Update_Package.zip":{"length":32944838,"hashes":{"sha512":"d006b3e855dfbed2dde9e4cdaccbac53a3fdee1c5ad6912a8a77fc29579dcb3119d1845d712c2272e51a95414619684baa76dbc83690ed716d6b0b261abfcc2a"},"custom":{"client":"site","description":"Joomla! 6.1.2-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.2-rc1/Joomla_6.1.2-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/6.1.2-rc1","title":"Joomla! 6.1.2-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.2-rc1","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.2-rc1"}},"Joomla_6.1.2-rc2-Release_Candidate-Update_Package.zip":{"length":32947291,"hashes":{"sha512":"e55782640120cabe47188b443a57f9a178b15fc140a6aef65226298ed2b0e16d88d82ccae2f9be9fd70a00a6582f429a16e5e39fe9b95a4858f48b2a39b36455"},"custom":{"client":"site","description":"Joomla! 6.1.2-rc2 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.2-rc2/Joomla_6.1.2-rc2-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/6.1.2-rc2","title":"Joomla! 6.1.2-rc2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.2-rc2","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.2-rc2"}},"Joomla_6.1.2-rc3-Release_Candidate-Update_Package.zip":{"length":32951517,"hashes":{"sha512":"b846e7b89c3dde8fe81e59b4a6664dea72197d1a6ca2e10a6318417ab8439268c57e17c0ff89361e4afbdfc1510321874a711cdd9684fcf9ce842ece1638789e"},"custom":{"client":"site","description":"Joomla! 6.1.2-rc3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.1.2-rc3/Joomla_6.1.2-rc3-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/edit/6.1.2-rc3","title":"Joomla! 6.1.2-rc3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.1.2-rc3","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.1.2-rc3"}},"Joomla_6.2.0-alpha3-Alpha-Update_Package.zip":{"length":32173625,"hashes":{"sha512":"b966f0cd9b89ebd29066f333333cd98e27f889f5bb03248bc13c4aae4df34916b03b7f3779b2e0b2c325ba46c3a479cec163d5c141ebf2df94db86611dfc7d16"},"custom":{"client":"site","description":"Joomla! 6.2.0-alpha3 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.2.0-alpha3/Joomla_6.2.0-alpha3-Alpha-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://developer.joomla.org/news/1067-joomla-6-2-alpha3-one-step-closer-to-beta.html","title":"Joomla! 6.2.0-alpha3 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.2.0-alpha3","php_minimum":"8.3.0","channel":"6.x","stability":"Alpha","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.2.0-alpha3"}}}},"signatures":[{"keyid":"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","sig":"a3bcc158d80f437c695e986e8b66dab6fd5f10c85635d1de65518ef45d8fcab9be2f973d00f17d2a71d524c0ce84ce8c88ffef575ed60c457729f28d23af4003"},{"keyid":"a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","sig":"c935be15e7cbd457d7068f874ae7675a2f6bb2a0e0e744dcd01bfed9f4bc95e6a5d1877679c88fd6379c38cb50f23368f3297749e63dbba0285e042428ac0309"}]}', '{"signed":{"_type":"snapshot","spec_version":"1.0","version":116,"expires":"2027-02-16T15:38:43Z","meta":{"targets.json":{"length":33969,"hashes":{"sha512":"aea90ba150aaf3b655bd4caf6e7cc1d39ead7c2264e13990474f9dd39c9dce38a1ae6da1cdc9dadd591688879f548ecd91fee9a1799bede3128447ce934f6bf5"},"version":103}}},"signatures":[{"keyid":"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803","sig":"b6dfa4e181db8b902becfcebce20752f5a99da6fc93adbfb79accfa59b951cadf95852c17581be1cdfade958585428fea3d414bdd011e1e962ad181c8212fc04"}]}', '{"signed":{"_type":"timestamp","spec_version":"1.0","version":1161,"expires":"2026-07-25T01:22:29Z","meta":{"snapshot.json":{"length":534,"hashes":{"sha512":"29efeb645c32f9b0f6daf1a8e64a42ce4b9e862519a9a73bbde8d150f175d3d04d3c6269fcbe91888a41816735ded8cfe81fa9ae49d084b44e087bbc1703bf9d"},"version":116}}},"signatures":[{"keyid":"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc","sig":"4ed0cbf78e02bc9b24fd1cf27ecd93bb1ed5acc23f6b16efe3e3391828d4736166feee2692f2dc4553ce6a315de3c85cc78e42e0039f91709f00c0743c1d9d05"}]}', NULL);
 
@@ -2150,38 +2391,39 @@ CREATE TABLE IF NOT EXISTS `cons_ucm_base` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_ucm_base: ~0 rows (approximately)
+DELETE FROM `cons_ucm_base`;
 
 -- Dumping structure for table px_cons.cons_ucm_content
 CREATE TABLE IF NOT EXISTS `cons_ucm_content` (
   `core_content_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `core_type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
-  `core_title` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_type_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
+  `core_title` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `core_body` mediumtext COLLATE utf8mb4_unicode_ci,
+  `core_body` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `core_state` tinyint NOT NULL DEFAULT '0',
   `core_checked_out_time` datetime DEFAULT NULL,
   `core_checked_out_user_id` int unsigned DEFAULT NULL,
   `core_access` int unsigned NOT NULL DEFAULT '0',
-  `core_params` text COLLATE utf8mb4_unicode_ci,
+  `core_params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `core_featured` tinyint unsigned NOT NULL DEFAULT '0',
-  `core_metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
+  `core_metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
   `core_created_user_id` int unsigned NOT NULL DEFAULT '0',
-  `core_created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_created_time` datetime NOT NULL,
   `core_modified_user_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'Most recent user that modified',
   `core_modified_time` datetime NOT NULL,
-  `core_language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_publish_up` datetime DEFAULT NULL,
   `core_publish_down` datetime DEFAULT NULL,
   `core_content_item_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'ID from the individual type table',
   `asset_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `core_images` text COLLATE utf8mb4_unicode_ci,
-  `core_urls` text COLLATE utf8mb4_unicode_ci,
+  `core_images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `core_urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `core_hits` int unsigned NOT NULL DEFAULT '0',
   `core_version` int unsigned NOT NULL DEFAULT '1',
   `core_ordering` int NOT NULL DEFAULT '0',
-  `core_metakey` text COLLATE utf8mb4_unicode_ci,
-  `core_metadesc` text COLLATE utf8mb4_unicode_ci,
+  `core_metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `core_metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `core_catid` int unsigned NOT NULL DEFAULT '0',
   `core_type_id` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`core_content_id`),
@@ -2200,101 +2442,104 @@ CREATE TABLE IF NOT EXISTS `cons_ucm_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Contains core content data in name spaced fields';
 
 -- Dumping data for table px_cons.cons_ucm_content: ~0 rows (approximately)
+DELETE FROM `cons_ucm_content`;
 
 -- Dumping structure for table px_cons.cons_updates
 CREATE TABLE IF NOT EXISTS `cons_updates` (
   `update_id` int NOT NULL AUTO_INCREMENT,
   `update_site_id` int DEFAULT '0',
   `extension_id` int DEFAULT '0',
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `element` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `folder` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `element` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `folder` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
   `client_id` tinyint DEFAULT '0',
-  `version` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detailsurl` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `infourl` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `changelogurl` text COLLATE utf8mb4_unicode_ci,
-  `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `version` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detailsurl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `infourl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changelogurl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `extra_query` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`update_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
 
 -- Dumping data for table px_cons.cons_updates: ~51 rows (approximately)
+DELETE FROM `cons_updates`;
 INSERT INTO `cons_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `changelogurl`, `extra_query`) VALUES
-	(1, 2, 0, 'Afrikaans', '', 'pkg_af-ZA', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/af-ZA_details.xml', '', '', ''),
-	(2, 2, 0, 'Belarusian', '', 'pkg_be-BY', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/be-BY_details.xml', '', '', ''),
-	(3, 2, 0, 'Bulgarian', '', 'pkg_bg-BG', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/bg-BG_details.xml', '', '', ''),
-	(4, 2, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ca-ES_details.xml', '', '', ''),
-	(5, 2, 0, 'Chinese, Simplified', '', 'pkg_zh-CN', 'package', '', 0, '6.0.1.4', '', 'https://update.joomla.org/language/details6/zh-CN_details.xml', '', '', ''),
-	(6, 2, 0, 'Chinese, Traditional', '', 'pkg_zh-TW', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/zh-TW_details.xml', '', '', ''),
-	(7, 2, 0, 'Croatian', '', 'pkg_hr-HR', 'package', '', 0, '6.0.3.2', '', 'https://update.joomla.org/language/details6/hr-HR_details.xml', '', '', ''),
-	(8, 2, 0, 'Czech', '', 'pkg_cs-CZ', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/cs-CZ_details.xml', '', '', ''),
-	(9, 2, 0, 'Danish', '', 'pkg_da-DK', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/da-DK_details.xml', '', '', ''),
-	(10, 2, 0, 'Dutch', '', 'pkg_nl-NL', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nl-NL_details.xml', '', '', ''),
-	(11, 2, 0, 'English, Australia', '', 'pkg_en-AU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-AU_details.xml', '', '', ''),
-	(12, 2, 0, 'English, Canada', '', 'pkg_en-CA', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-CA_details.xml', '', '', ''),
-	(13, 2, 0, 'English, New Zealand', '', 'pkg_en-NZ', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-NZ_details.xml', '', '', ''),
-	(14, 2, 0, 'English, USA', '', 'pkg_en-US', 'package', '', 0, '6.1.1.2', '', 'https://update.joomla.org/language/details6/en-US_details.xml', '', '', ''),
-	(15, 2, 0, 'Estonian', '', 'pkg_et-EE', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/et-EE_details.xml', '', '', ''),
-	(16, 2, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fi-FI_details.xml', '', '', ''),
-	(17, 2, 0, 'Flemish', '', 'pkg_nl-BE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nl-BE_details.xml', '', '', ''),
-	(18, 2, 0, 'French', '', 'pkg_fr-FR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fr-FR_details.xml', '', '', ''),
-	(19, 2, 0, 'French, Canada', '', 'pkg_fr-CA', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/fr-CA_details.xml', '', '', ''),
-	(20, 2, 0, 'Georgian', '', 'pkg_ka-GE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ka-GE_details.xml', '', '', ''),
-	(21, 2, 0, 'German', '', 'pkg_de-DE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-DE_details.xml', '', '', ''),
-	(22, 2, 0, 'German, Austria', '', 'pkg_de-AT', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-AT_details.xml', '', '', ''),
-	(23, 2, 0, 'German, Liechtenstein', '', 'pkg_de-LI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-LI_details.xml', '', '', ''),
-	(24, 2, 0, 'German, Luxembourg', '', 'pkg_de-LU', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-LU_details.xml', '', '', ''),
-	(25, 2, 0, 'German, Switzerland', '', 'pkg_de-CH', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-CH_details.xml', '', '', ''),
-	(26, 2, 0, 'Greek', '', 'pkg_el-GR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/el-GR_details.xml', '', '', ''),
-	(27, 2, 0, 'Hungarian', '', 'pkg_hu-HU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/hu-HU_details.xml', '', '', ''),
-	(28, 2, 0, 'Italian', '', 'pkg_it-IT', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/it-IT_details.xml', '', '', ''),
-	(29, 2, 0, 'Japanese', '', 'pkg_ja-JP', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ja-JP_details.xml', '', '', ''),
-	(30, 2, 0, 'Laotian', '', 'pkg_lo-LA', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/lo-LA_details.xml', '', '', ''),
-	(31, 2, 0, 'Latvian', '', 'pkg_lv-LV', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/lv-LV_details.xml', '', '', ''),
-	(32, 2, 0, 'Lithuanian', '', 'pkg_lt-LT', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/lt-LT_details.xml', '', '', ''),
-	(33, 2, 0, 'Malay', '', 'pkg_ms-MY', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ms-MY_details.xml', '', '', ''),
-	(34, 2, 0, 'Norwegian Bokmål', '', 'pkg_nb-NO', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nb-NO_details.xml', '', '', ''),
-	(35, 2, 0, 'Persian Farsi', '', 'pkg_fa-IR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fa-IR_details.xml', '', '', ''),
-	(36, 2, 0, 'Polish', '', 'pkg_pl-PL', 'package', '', 0, '6.0.0.1', '', 'https://update.joomla.org/language/details6/pl-PL_details.xml', '', '', ''),
-	(37, 2, 0, 'Portuguese, Brazil', '', 'pkg_pt-BR', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/pt-BR_details.xml', '', '', ''),
-	(38, 2, 0, 'Portuguese, Portugal', '', 'pkg_pt-PT', 'package', '', 0, '6.1.0.1', '', 'https://update.joomla.org/language/details6/pt-PT_details.xml', '', '', ''),
-	(39, 2, 0, 'Romanian', '', 'pkg_ro-RO', 'package', '', 0, '6.0.0.1', '', 'https://update.joomla.org/language/details6/ro-RO_details.xml', '', '', ''),
-	(40, 2, 0, 'Russian', '', 'pkg_ru-RU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/ru-RU_details.xml', '', '', ''),
-	(41, 2, 0, 'Serbian, Cyrillic', '', 'pkg_sr-RS', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/sr-RS_details.xml', '', '', ''),
-	(42, 2, 0, 'Serbian, Latin', '', 'pkg_sr-YU', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/sr-YU_details.xml', '', '', ''),
-	(43, 2, 0, 'Slovak', '', 'pkg_sk-SK', 'package', '', 0, '6.1.0.1', '', 'https://update.joomla.org/language/details6/sk-SK_details.xml', '', '', ''),
-	(44, 2, 0, 'Slovenian', '', 'pkg_sl-SI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/sl-SI_details.xml', '', '', ''),
-	(45, 2, 0, 'Spanish', '', 'pkg_es-ES', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/es-ES_details.xml', '', '', ''),
-	(46, 2, 0, 'Swedish', '', 'pkg_sv-SE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/sv-SE_details.xml', '', '', ''),
-	(47, 2, 0, 'Tamil, India', '', 'pkg_ta-IN', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ta-IN_details.xml', '', '', ''),
-	(48, 2, 0, 'Thai', '', 'pkg_th-TH', 'package', '', 0, '6.0.0.2', '', 'https://update.joomla.org/language/details6/th-TH_details.xml', '', '', ''),
-	(49, 2, 0, 'Turkish', '', 'pkg_tr-TR', 'package', '', 0, '6.1.2.3', '', 'https://update.joomla.org/language/details6/tr-TR_details.xml', '', '', ''),
-	(50, 2, 0, 'Ukrainian', '', 'pkg_uk-UA', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/uk-UA_details.xml', '', '', ''),
-	(51, 2, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/cy-GB_details.xml', '', '', '');
+	(52, 2, 0, 'Afrikaans', '', 'pkg_af-ZA', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/af-ZA_details.xml', '', '', ''),
+	(53, 2, 0, 'Belarusian', '', 'pkg_be-BY', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/be-BY_details.xml', '', '', ''),
+	(54, 2, 0, 'Bulgarian', '', 'pkg_bg-BG', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/bg-BG_details.xml', '', '', ''),
+	(55, 2, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ca-ES_details.xml', '', '', ''),
+	(56, 2, 0, 'Chinese, Simplified', '', 'pkg_zh-CN', 'package', '', 0, '6.0.1.4', '', 'https://update.joomla.org/language/details6/zh-CN_details.xml', '', '', ''),
+	(57, 2, 0, 'Chinese, Traditional', '', 'pkg_zh-TW', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/zh-TW_details.xml', '', '', ''),
+	(58, 2, 0, 'Croatian', '', 'pkg_hr-HR', 'package', '', 0, '6.0.3.2', '', 'https://update.joomla.org/language/details6/hr-HR_details.xml', '', '', ''),
+	(59, 2, 0, 'Czech', '', 'pkg_cs-CZ', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/cs-CZ_details.xml', '', '', ''),
+	(60, 2, 0, 'Danish', '', 'pkg_da-DK', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/da-DK_details.xml', '', '', ''),
+	(61, 2, 0, 'Dutch', '', 'pkg_nl-NL', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nl-NL_details.xml', '', '', ''),
+	(62, 2, 0, 'English, Australia', '', 'pkg_en-AU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-AU_details.xml', '', '', ''),
+	(63, 2, 0, 'English, Canada', '', 'pkg_en-CA', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-CA_details.xml', '', '', ''),
+	(64, 2, 0, 'English, New Zealand', '', 'pkg_en-NZ', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/en-NZ_details.xml', '', '', ''),
+	(65, 2, 0, 'English, USA', '', 'pkg_en-US', 'package', '', 0, '6.1.1.2', '', 'https://update.joomla.org/language/details6/en-US_details.xml', '', '', ''),
+	(66, 2, 0, 'Estonian', '', 'pkg_et-EE', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/et-EE_details.xml', '', '', ''),
+	(67, 2, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fi-FI_details.xml', '', '', ''),
+	(68, 2, 0, 'Flemish', '', 'pkg_nl-BE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nl-BE_details.xml', '', '', ''),
+	(69, 2, 0, 'French', '', 'pkg_fr-FR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fr-FR_details.xml', '', '', ''),
+	(70, 2, 0, 'French, Canada', '', 'pkg_fr-CA', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/fr-CA_details.xml', '', '', ''),
+	(71, 2, 0, 'Georgian', '', 'pkg_ka-GE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ka-GE_details.xml', '', '', ''),
+	(72, 2, 0, 'German', '', 'pkg_de-DE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-DE_details.xml', '', '', ''),
+	(73, 2, 0, 'German, Austria', '', 'pkg_de-AT', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-AT_details.xml', '', '', ''),
+	(74, 2, 0, 'German, Liechtenstein', '', 'pkg_de-LI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-LI_details.xml', '', '', ''),
+	(75, 2, 0, 'German, Luxembourg', '', 'pkg_de-LU', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-LU_details.xml', '', '', ''),
+	(76, 2, 0, 'German, Switzerland', '', 'pkg_de-CH', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/de-CH_details.xml', '', '', ''),
+	(77, 2, 0, 'Greek', '', 'pkg_el-GR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/el-GR_details.xml', '', '', ''),
+	(78, 2, 0, 'Hungarian', '', 'pkg_hu-HU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/hu-HU_details.xml', '', '', ''),
+	(79, 2, 0, 'Italian', '', 'pkg_it-IT', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/it-IT_details.xml', '', '', ''),
+	(80, 2, 0, 'Japanese', '', 'pkg_ja-JP', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ja-JP_details.xml', '', '', ''),
+	(81, 2, 0, 'Laotian', '', 'pkg_lo-LA', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/lo-LA_details.xml', '', '', ''),
+	(82, 2, 0, 'Latvian', '', 'pkg_lv-LV', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/lv-LV_details.xml', '', '', ''),
+	(83, 2, 0, 'Lithuanian', '', 'pkg_lt-LT', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/lt-LT_details.xml', '', '', ''),
+	(84, 2, 0, 'Malay', '', 'pkg_ms-MY', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ms-MY_details.xml', '', '', ''),
+	(85, 2, 0, 'Norwegian Bokmål', '', 'pkg_nb-NO', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/nb-NO_details.xml', '', '', ''),
+	(86, 2, 0, 'Persian Farsi', '', 'pkg_fa-IR', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/fa-IR_details.xml', '', '', ''),
+	(87, 2, 0, 'Polish', '', 'pkg_pl-PL', 'package', '', 0, '6.0.0.1', '', 'https://update.joomla.org/language/details6/pl-PL_details.xml', '', '', ''),
+	(88, 2, 0, 'Portuguese, Brazil', '', 'pkg_pt-BR', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/pt-BR_details.xml', '', '', ''),
+	(89, 2, 0, 'Portuguese, Portugal', '', 'pkg_pt-PT', 'package', '', 0, '6.1.0.1', '', 'https://update.joomla.org/language/details6/pt-PT_details.xml', '', '', ''),
+	(90, 2, 0, 'Romanian', '', 'pkg_ro-RO', 'package', '', 0, '6.0.0.1', '', 'https://update.joomla.org/language/details6/ro-RO_details.xml', '', '', ''),
+	(91, 2, 0, 'Russian', '', 'pkg_ru-RU', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/ru-RU_details.xml', '', '', ''),
+	(92, 2, 0, 'Serbian, Cyrillic', '', 'pkg_sr-RS', 'package', '', 0, '6.1.1.1', '', 'https://update.joomla.org/language/details6/sr-RS_details.xml', '', '', ''),
+	(93, 2, 0, 'Serbian, Latin', '', 'pkg_sr-YU', 'package', '', 0, '6.0.4.1', '', 'https://update.joomla.org/language/details6/sr-YU_details.xml', '', '', ''),
+	(94, 2, 0, 'Slovak', '', 'pkg_sk-SK', 'package', '', 0, '6.1.0.1', '', 'https://update.joomla.org/language/details6/sk-SK_details.xml', '', '', ''),
+	(95, 2, 0, 'Slovenian', '', 'pkg_sl-SI', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/sl-SI_details.xml', '', '', ''),
+	(96, 2, 0, 'Spanish', '', 'pkg_es-ES', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/es-ES_details.xml', '', '', ''),
+	(97, 2, 0, 'Swedish', '', 'pkg_sv-SE', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/sv-SE_details.xml', '', '', ''),
+	(98, 2, 0, 'Tamil, India', '', 'pkg_ta-IN', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/ta-IN_details.xml', '', '', ''),
+	(99, 2, 0, 'Thai', '', 'pkg_th-TH', 'package', '', 0, '6.0.0.2', '', 'https://update.joomla.org/language/details6/th-TH_details.xml', '', '', ''),
+	(100, 2, 0, 'Turkish', '', 'pkg_tr-TR', 'package', '', 0, '6.1.2.3', '', 'https://update.joomla.org/language/details6/tr-TR_details.xml', '', '', ''),
+	(101, 2, 0, 'Ukrainian', '', 'pkg_uk-UA', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/uk-UA_details.xml', '', '', ''),
+	(102, 2, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '6.1.2.1', '', 'https://update.joomla.org/language/details6/cy-GB_details.xml', '', '', '');
 
 -- Dumping structure for table px_cons.cons_update_sites
 CREATE TABLE IF NOT EXISTS `cons_update_sites` (
   `update_site_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `location` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `location` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `enabled` int DEFAULT '0',
   `last_check_timestamp` bigint DEFAULT '0',
-  `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `extra_query` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   PRIMARY KEY (`update_site_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
--- Dumping data for table px_cons.cons_update_sites: ~3 rows (approximately)
+-- Dumping data for table px_cons.cons_update_sites: ~4 rows (approximately)
+DELETE FROM `cons_update_sites`;
 INSERT INTO `cons_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`, `checked_out`, `checked_out_time`) VALUES
-	(1, 'Joomla! Core', 'tuf', 'https://update.joomla.org/cms/', 1, 1784787965, '', NULL, NULL),
-	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_6.xml', 1, 1784787909, '', NULL, NULL),
-	(3, 'Joomla! Update Component', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1784787965, '', NULL, NULL),
-	(4, '', 'extension', '', 1, 0, '', NULL, NULL);
+	(1, 'Joomla! Core', 'tuf', 'https://update.joomla.org/cms/', 1, 1784818056, '', NULL, NULL),
+	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_6.xml', 1, 1784818057, '', NULL, NULL),
+	(3, 'Joomla! Update Component', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1784818058, '', NULL, NULL),
+	(4, '', 'extension', '', 1, 1784818058, '', NULL, NULL);
 
 -- Dumping structure for table px_cons.cons_update_sites_extensions
 CREATE TABLE IF NOT EXISTS `cons_update_sites_extensions` (
@@ -2303,7 +2548,8 @@ CREATE TABLE IF NOT EXISTS `cons_update_sites_extensions` (
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
--- Dumping data for table px_cons.cons_update_sites_extensions: ~3 rows (approximately)
+-- Dumping data for table px_cons.cons_update_sites_extensions: ~4 rows (approximately)
+DELETE FROM `cons_update_sites_extensions`;
 INSERT INTO `cons_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
 	(1, 247),
 	(2, 248),
@@ -2316,7 +2562,7 @@ CREATE TABLE IF NOT EXISTS `cons_usergroups` (
   `parent_id` int unsigned NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
   `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
   `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_usergroup_parent_title_lookup` (`parent_id`,`title`),
   KEY `idx_usergroup_title_lookup` (`title`),
@@ -2325,6 +2571,7 @@ CREATE TABLE IF NOT EXISTS `cons_usergroups` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_usergroups: ~9 rows (approximately)
+DELETE FROM `cons_usergroups`;
 INSERT INTO `cons_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 	(1, 0, 1, 18, 'Public'),
 	(2, 1, 8, 15, 'Registered'),
@@ -2339,22 +2586,22 @@ INSERT INTO `cons_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 -- Dumping structure for table px_cons.cons_users
 CREATE TABLE IF NOT EXISTS `cons_users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `username` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `block` tinyint NOT NULL DEFAULT '0',
   `sendEmail` tinyint DEFAULT '0',
   `registerDate` datetime NOT NULL,
   `lastvisitDate` datetime DEFAULT NULL,
-  `activation` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activation` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastResetTime` datetime DEFAULT NULL COMMENT 'Date of last password reset',
   `resetCount` int NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
-  `otpKey` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Two factor authentication encrypted keys',
-  `otep` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Backup Codes',
+  `otpKey` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Two factor authentication encrypted keys',
+  `otep` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Backup Codes',
   `requireReset` tinyint NOT NULL DEFAULT '0' COMMENT 'Require user to reset password on next login',
-  `authProvider` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Name of used authentication plugin',
+  `authProvider` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Name of used authentication plugin',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_username` (`username`),
   KEY `idx_name` (`name`(100)),
@@ -2363,32 +2610,34 @@ CREATE TABLE IF NOT EXISTS `cons_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_users: ~0 rows (approximately)
+DELETE FROM `cons_users`;
 INSERT INTO `cons_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`, `authProvider`) VALUES
-	(42, 'Super User', 'admin', 'no-reply@gmail.com', '$2y$10$iR50OaVFoLSNClVlw36eheF0Y49xiKfyPcNmB8rVc/jMqEuvHFUNq', 0, 1, '2026-07-23 06:25:06', '2026-07-23 06:25:53', '0', '', NULL, 0, '', '', 0, '');
+	(42, 'Super User', 'admin', 'no-reply@gmail.com', '$2y$10$iR50OaVFoLSNClVlw36eheF0Y49xiKfyPcNmB8rVc/jMqEuvHFUNq', 0, 1, '2026-07-23 06:25:06', '2026-07-23 14:47:34', '0', '', NULL, 0, '', '', 0, '');
 
 -- Dumping structure for table px_cons.cons_user_keys
 CREATE TABLE IF NOT EXISTS `cons_user_keys` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `series` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `uastring` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `series` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uastring` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `series` (`series`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_user_keys: ~0 rows (approximately)
+DELETE FROM `cons_user_keys`;
 
 -- Dumping structure for table px_cons.cons_user_mfa
 CREATE TABLE IF NOT EXISTS `cons_user_mfa` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `method` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `default` tinyint NOT NULL DEFAULT '0',
-  `options` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_on` datetime NOT NULL,
   `last_used` datetime DEFAULT NULL,
   `tries` int NOT NULL DEFAULT '0',
@@ -2398,14 +2647,15 @@ CREATE TABLE IF NOT EXISTS `cons_user_mfa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Multi-factor Authentication settings';
 
 -- Dumping data for table px_cons.cons_user_mfa: ~0 rows (approximately)
+DELETE FROM `cons_user_mfa`;
 
 -- Dumping structure for table px_cons.cons_user_notes
 CREATE TABLE IF NOT EXISTS `cons_user_notes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL DEFAULT '0',
   `catid` int unsigned NOT NULL DEFAULT '0',
-  `subject` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint NOT NULL DEFAULT '0',
   `checked_out` int unsigned DEFAULT NULL,
   `checked_out_time` datetime DEFAULT NULL,
@@ -2422,17 +2672,19 @@ CREATE TABLE IF NOT EXISTS `cons_user_notes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_user_notes: ~0 rows (approximately)
+DELETE FROM `cons_user_notes`;
 
 -- Dumping structure for table px_cons.cons_user_profiles
 CREATE TABLE IF NOT EXISTS `cons_user_profiles` (
   `user_id` int NOT NULL,
-  `profile_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile_value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ordering` int NOT NULL DEFAULT '0',
   UNIQUE KEY `idx_user_id_profile_key` (`user_id`,`profile_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Simple user profile storage table';
 
 -- Dumping data for table px_cons.cons_user_profiles: ~0 rows (approximately)
+DELETE FROM `cons_user_profiles`;
 INSERT INTO `cons_user_profiles` (`user_id`, `profile_key`, `profile_value`, `ordering`) VALUES
 	(42, 'guidedtour.id.12', '{"state":"skipped"}', 0);
 
@@ -2444,20 +2696,22 @@ CREATE TABLE IF NOT EXISTS `cons_user_usergroup_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_user_usergroup_map: ~0 rows (approximately)
+DELETE FROM `cons_user_usergroup_map`;
 INSERT INTO `cons_user_usergroup_map` (`user_id`, `group_id`) VALUES
 	(42, 8);
 
 -- Dumping structure for table px_cons.cons_viewlevels
 CREATE TABLE IF NOT EXISTS `cons_viewlevels` (
   `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `ordering` int NOT NULL DEFAULT '0',
-  `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
+  `rules` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_viewlevels: ~5 rows (approximately)
+DELETE FROM `cons_viewlevels`;
 INSERT INTO `cons_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 	(1, 'Public', 0, '[1]'),
 	(2, 'Registered', 2, '[6,2,8]'),
@@ -2467,24 +2721,25 @@ INSERT INTO `cons_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 
 -- Dumping structure for table px_cons.cons_webauthn_credentials
 CREATE TABLE IF NOT EXISTS `cons_webauthn_credentials` (
-  `id` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Credential ID',
-  `user_id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'User handle',
-  `label` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Human readable label',
-  `credential` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Credential source data, JSON format',
+  `id` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Credential ID',
+  `user_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'User handle',
+  `label` varchar(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Human readable label',
+  `credential` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Credential source data, JSON format',
   PRIMARY KEY (`id`(100)),
   KEY `user_id` (`user_id`(100))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_webauthn_credentials: ~0 rows (approximately)
+DELETE FROM `cons_webauthn_credentials`;
 
 -- Dumping structure for table px_cons.cons_workflows
 CREATE TABLE IF NOT EXISTS `cons_workflows` (
   `id` int NOT NULL AUTO_INCREMENT,
   `asset_id` int DEFAULT '0',
   `published` tinyint NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `default` tinyint NOT NULL DEFAULT '0',
   `ordering` int NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
@@ -2506,6 +2761,7 @@ CREATE TABLE IF NOT EXISTS `cons_workflows` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_workflows: ~0 rows (approximately)
+DELETE FROM `cons_workflows`;
 INSERT INTO `cons_workflows` (`id`, `asset_id`, `published`, `title`, `description`, `extension`, `default`, `ordering`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`) VALUES
 	(1, 56, 1, 'COM_WORKFLOW_BASIC_WORKFLOW', '', 'com_content.article', 1, 1, '2026-07-23 06:25:04', 42, '2026-07-23 06:25:04', 42, NULL, NULL);
 
@@ -2513,7 +2769,7 @@ INSERT INTO `cons_workflows` (`id`, `asset_id`, `published`, `title`, `descripti
 CREATE TABLE IF NOT EXISTS `cons_workflow_associations` (
   `item_id` int NOT NULL DEFAULT '0' COMMENT 'Extension table id value',
   `stage_id` int NOT NULL COMMENT 'Foreign Key to #__workflow_stages.id',
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`item_id`,`extension`),
   KEY `idx_item_stage_extension` (`item_id`,`stage_id`,`extension`),
   KEY `idx_item_id` (`item_id`),
@@ -2521,7 +2777,12 @@ CREATE TABLE IF NOT EXISTS `cons_workflow_associations` (
   KEY `idx_extension` (`extension`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table px_cons.cons_workflow_associations: ~0 rows (approximately)
+-- Dumping data for table px_cons.cons_workflow_associations: ~2 rows (approximately)
+DELETE FROM `cons_workflow_associations`;
+INSERT INTO `cons_workflow_associations` (`item_id`, `stage_id`, `extension`) VALUES
+	(1, 1, 'com_content.article'),
+	(2, 1, 'com_content.article'),
+	(3, 1, 'com_content.article');
 
 -- Dumping structure for table px_cons.cons_workflow_stages
 CREATE TABLE IF NOT EXISTS `cons_workflow_stages` (
@@ -2530,10 +2791,10 @@ CREATE TABLE IF NOT EXISTS `cons_workflow_stages` (
   `ordering` int NOT NULL DEFAULT '0',
   `workflow_id` int NOT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `default` tinyint NOT NULL DEFAULT '0',
-  `position` text COLLATE utf8mb4_unicode_ci,
+  `position` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `checked_out_time` datetime DEFAULT NULL,
   `checked_out` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2545,6 +2806,7 @@ CREATE TABLE IF NOT EXISTS `cons_workflow_stages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_workflow_stages: ~0 rows (approximately)
+DELETE FROM `cons_workflow_stages`;
 INSERT INTO `cons_workflow_stages` (`id`, `asset_id`, `ordering`, `workflow_id`, `published`, `title`, `description`, `default`, `position`, `checked_out_time`, `checked_out`) VALUES
 	(1, 57, 1, 1, 1, 'COM_WORKFLOW_BASIC_STAGE', '', 1, NULL, NULL, NULL);
 
@@ -2555,11 +2817,11 @@ CREATE TABLE IF NOT EXISTS `cons_workflow_transitions` (
   `ordering` int NOT NULL DEFAULT '0',
   `workflow_id` int NOT NULL,
   `published` tinyint NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `from_stage_id` int NOT NULL,
   `to_stage_id` int NOT NULL,
-  `options` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `checked_out_time` datetime DEFAULT NULL,
   `checked_out` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2572,6 +2834,7 @@ CREATE TABLE IF NOT EXISTS `cons_workflow_transitions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table px_cons.cons_workflow_transitions: ~7 rows (approximately)
+DELETE FROM `cons_workflow_transitions`;
 INSERT INTO `cons_workflow_transitions` (`id`, `asset_id`, `ordering`, `workflow_id`, `published`, `title`, `description`, `from_stage_id`, `to_stage_id`, `options`, `checked_out_time`, `checked_out`) VALUES
 	(1, 58, 1, 1, 1, 'UNPUBLISH', '', -1, 1, '{"publishing":"0"}', NULL, NULL),
 	(2, 59, 2, 1, 1, 'PUBLISH', '', -1, 1, '{"publishing":"1"}', NULL, NULL),
