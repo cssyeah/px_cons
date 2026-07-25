@@ -1,24 +1,5 @@
-:root {
-  --px-base-light: #f1f5f9;
-  --px-white: #fff;
-
-  // Foot navigation
-  --px-footnav-bg: var(--px-gray-900);
-  --px-footnav-color: var(--px-gray-500);
-
-  // Footer
-  --px-footer-bg: var(--px-gray-900);
-  --px-footer-color: var(--px-gray-500);
-}
-
-[data-px-theme="dark"] {
-  --px-body-bg: #212529;
-  --px-base-light: #212529;
-  --px-gray-100: var(--px-gray-900);
-}
-
 .row,
-.row>* {
+.row > * {
   @include media-breakpoint-up(sm) {
     --px-gutter-x: 2rem;
     --px-gutter-y: 2rem;
@@ -103,6 +84,11 @@ figure.pull-right {
   }
 }
 
+.container {
+  --px-gutter-x: 2rem;
+  --px-gutter-y: 2rem;
+}
+
 body {
   background: #f9f9f9;
 }
@@ -117,19 +103,21 @@ body {
 // TOP BAR
 // -----------------------------
 #px-topbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0.5rem 0;
 }
 
 
 // HEADER
 // -----------------------------
 #px-header {
-  border-bottom: 0;
-  padding: $spacer 0;
+  padding: var(--px-gutter-y) 0;
 
-  @include media-breakpoint-up(lg) {
-    padding: 0;
+  .header-inner {
+    background: rgba(0,0,0,0.1);
+    border-radius: var(--px-br-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--px-gutter-y) / 2) calc(var(--px-gutter-x) / 2);
   }
 
   .px-logo {
@@ -149,25 +137,24 @@ body {
 
     }
   }
+}
 
-  // Main navigation
-  .navbar {
-    // --px-navbar-color: var(--px-gray-800);
-    --px-navbar-hover-color: var(--px-primary);
-    --px-navbar-active-color: var(--px-primary);
-  }
 
-  .px-nav>.px-menu-item {
-    >a {
-      font-weight: 500;
-
-      @include media-breakpoint-up(md) {
-        padding: 1.5rem 0;
+// MAIN NAVIGATION
+// -----------------------------
+.px-menu-wrapper {
+  ul.px-nav {
+    > .px-menu-item {
+      > a {
+        font-weight: var(--px-fw-semibold);
+        text-transform: uppercase;
       }
-    }
 
-    &.active>a {
-      font-weight: 600;
+      &.active {
+        > a {
+
+        }
+      }
     }
   }
 }
@@ -582,11 +569,12 @@ body {
 // FOOTER
 // -----------------------------
 #px-footer {
-  --px-link-color: var(--px-gray-400);
-
   background: var(--px-primary);
   color: var(--px-footer-color);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  .px-footer-inner {
+    font-size: var(--px-fs-sm);
+  }
 
   a {
     border-bottom: 1px dotted var(--px-link-color);

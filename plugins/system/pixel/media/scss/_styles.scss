@@ -84,7 +84,6 @@ img {
 #px-topbar {
 	padding-top: $spacer;
 	padding-bottom: $spacer;
-	border-bottom: $border-width $border-style var(--px-border-color);
 
 	p:last-child {
 		margin-bottom: 0;
@@ -246,11 +245,6 @@ img {
 // Header
 // ------------
 #px-header {
-	background: var(--px-body-bg);
-	padding-top: $spacer*1.5;
-	padding-bottom: $spacer*1.5;
-	border-bottom: $border-width $border-style var(--px-border-color);
-
 	#px-navbar {
 		display: flex;
 		gap: var(--px-gutter-x);

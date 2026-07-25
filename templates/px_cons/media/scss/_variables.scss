@@ -1,2 +1,45 @@
+:root {
+  --px-base-light: #f1f5f9;
+  --px-white: #fff;
+
+  // Border Radius
+  --px-br-xs: 4px;
+  --px-br-sm: 6px;
+  --px-br-md: 8px;
+  --px-br-lg: 12px;
+  --px-br-xl: 16px;
+  --px-br-full: 100%;
+
+  // Font sizes
+  --px-fs-xxs:  10px;
+  --px-fs-xs:   12px;
+  --px-fs-sm:   14px;
+  --px-fs-md:   16px;
+  --px-fs-lg:   18px;
+  --px-fs-xl:   24px;
+  --px-fs-xxl:  32px;
+
+  // Font weights
+  --px-fw-thin:     300;
+  --px-fw-normal:   400;
+  --px-fw-semibold: 500;
+  --px-fw-bold:     600;
+  --px-fw-black:    700;
+
+  // Foot navigation
+  --px-footnav-bg: var(--px-gray-900);
+  --px-footnav-color: var(--px-gray-500);
+
+  // Footer
+  --px-footer-bg: var(--white);
+  --px-footer-color: #000;
+
+  // LAYOUTS VARIABLES
+  // ------------------------------------
+  // Gutters
+  --px-gutter-x: 2rem;
+  --px-gutter-y: 2rem;
+}
+
 // scss-docs-start nav-variables
 $nav-link-active:              var(--#{$prefix}link-hover-color); 
