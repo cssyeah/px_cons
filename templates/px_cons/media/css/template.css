@@ -16575,10 +16575,10 @@ body {
 }
 
 #px-header {
-  padding: var(--px-gutter-y) 0;
+  padding: var(--px-gutter-y) 0 0 0;
 }
 #px-header .header-inner {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: var(--px-br-md);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16639,9 +16639,8 @@ body {
 }
 
 #px-hero {
-  background: url(../images/decor.svg) no-repeat 5% 50% var(--px-primary);
   color: var(--px-white);
-  padding: 6rem 0;
+  margin-top: -102px;
 }
 #px-hero .hero {
   display: -webkit-box;
@@ -17463,3 +17462,59 @@ body {
   margin-bottom: -1px;
   padding: 0 0 0.6666666667rem;
 }
+
+.slideshow-wrapper .slide-item {
+  height: 800px;
+}
+@media (min-width: 992px) {
+  .slideshow-wrapper .slide-item {
+    padding: 260px 0 10rem;
+  }
+}
+.slideshow-wrapper .slide-item .slide-sub-heading {
+  font-size: var(--px-fs-sm);
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.slideshow-wrapper .slide-item .slide-heading {
+  font-size: 3.5rem;
+}
+.slideshow-wrapper .slide-item .slide-ct > * {
+  transform: translateY(45%) scale(0.95);
+  -webkit-transform: translateY(45%) scale(0.95);
+  opacity: 0;
+  -webkit-transition: 1500ms all;
+  transition: 1500ms all;
+}
+.slideshow-wrapper .slide-item .slide-ct > *:nth-child(1) {
+  -webkit-transition-delay: 100ms !important;
+          transition-delay: 100ms !important;
+}
+.slideshow-wrapper .slide-item .slide-ct > *:nth-child(2) {
+  -webkit-transition-delay: 300ms !important;
+          transition-delay: 300ms !important;
+}
+.slideshow-wrapper .slide-item .slide-ct > *:nth-child(3) {
+  -webkit-transition-delay: 600ms !important;
+          transition-delay: 600ms !important;
+}
+.slideshow-wrapper .slide-item .slide-ct > *:nth-child(4) {
+  -webkit-transition-delay: 900ms !important;
+          transition-delay: 900ms !important;
+}
+.slideshow-wrapper .slide-item .slide-ct > *:nth-child(5) {
+  -webkit-transition-delay: 1200ms !important;
+          transition-delay: 1200ms !important;
+}
+.slideshow-wrapper .active .slide-ct > * {
+  transform: translateY(0) scale(1);
+  -webkit-transform: translateY(0) scale(1);
+  opacity: 1;
+  -webkit-transition: 1000ms all;
+  transition: 1000ms all;
+}
+.slideshow-wrapper .active .slide-ct .description {
+  opacity: 0.7 !important;
+}
+/*# sourceMappingURL=template.css.map */

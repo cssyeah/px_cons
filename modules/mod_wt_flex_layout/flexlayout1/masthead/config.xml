@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Masthead</title>
+  <categories>
+    <value>Masthead</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+
+      <field name="masthead_heading" type="list" default="" label="Masthead Heading Text" description="">
+        <option value="0">[Menu] Title</option>
+        <option value="1">Module Title</option>
+        <option value="2">[Menu] Browser Page Title</option>
+        <option value="3">[Menu] Page Heading</option>
+      </field>
+
+      <field name="masthead_heading_desc" type="list" default="0" label="Masthead Desc Text" description="">
+        <option value="0">[Menu] Meta Description</option>
+        <option value="1">[Module] Section Description</option>
+      </field>
+
+      <field name="show_option" type="list" label="Show Masthead Desc" description="" default="1">
+        <option value="1">Show</option>
+        <option value="0">Hide</option>
+      </field>
+
+      <field name="masthead_text_alignment" type="list" default="align-items-start" label="Content Position" description="">
+        <option value="align-items-start">Left</option>
+        <option value="align-items-center">Center</option>
+      </field>
+
+    </fieldset>
+
+  </fields>
+</form>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>Slideshow 01</title>
+  <categories>
+    <value>Slideshow</value>
+  </categories>
+  <assets>
+    <scripts>
+      <path>assets/js/owl.carousel.min.js</path>
+    </scripts>
+    <stylesheets>
+      <path>assets/css/style.css</path>
+      <path>assets/css/owl.carousel.min.css</path>
+      <path>assets/css/owl.theme.default.min.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+      <field name="enable_container" type="list" default="0" label="Enable Container" description="">
+        <option value="1">Contained</option>
+        <option value="0">Full Width</option>
+      </field>
+      <field name="show_dots_navigation" type="radio" default="false" label="Show Dots Navigation" description="" class="btn-group btn-group-yesno">
+          <option value="false">Disable</option>
+          <option value="true">Enable</option>
+      </field>
+      <field name="show_next_prev" type="radio" default="true" label="Show Next Prev" description="" class="btn-group btn-group-yesno">
+          <option value="false">Disable</option>
+          <option value="true">Enable</option>
+      </field>
+      <field name="auto_play" type="radio" default="true" label="Auto Play" description="" class="btn-group btn-group-yesno">
+          <option value="false">Disable</option>
+          <option value="true">Enable</option>
+      </field>
+      <field name="slideshow_ct_width" type="list" default="50%" label="Content Width" description="">
+        <option value="25%">25%</option>
+        <option value="50%">50%</option>
+        <option value="60%">60%</option>
+        <option value="75%">75%</option>
+        <option value="100%">100%</option>
+      </field>
+      <field name="slideshow_ct_alignment" type="list" default="50%" label="Content Width" description="">
+        <option value="text-start">Left</option>
+        <option value="text-center">Center</option>
+        <option value="text-end">right</option>
+      </field>
+
+      <field name="item_mask_opacity" type="list" default=".5" label="Item Mask Opacity" description="">
+        <option value="0">0%</option>
+        <option value=".1">10%</option>
+        <option value=".2">20%</option>
+        <option value=".3">30%</option>
+        <option value=".4">40%</option>
+        <option value=".5">50%</option>
+        <option value=".6">60%</option>
+        <option value=".7">70%</option>
+        <option value=".8">80%</option>
+        <option value=".9">90%</option>
+        <option value="1">100%</option>
+      </field>      
+    </fieldset>
+
+    <fieldset name="slide_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="MOD_FLEX_LAYOUT_ITEM_SETTINGS" />
+      <field name="slide_items" type="subform" label="Feature Item" description="" multiple="true" min="1" max="10">
+        <form>
+          <field name="slide_image" type="media" label="Slide Image" description="" />
+          <field name="slide_sub_heading" type="text" label="Title" description="" />
+          <field name="slide_heading" type="text" label="Title" description="" />
+          <field name="slide_desc" type="textarea" label="Description" description="" cols="40" rows="6" filter="safehtml" />
+          <field name="slide_link_label" type="text" label="Link Title" description="" />
+          <field name="slide_link_url" type="text" default="#" label="Link Url" description="" />
+        </form>
+      </field>
+    </fieldset>
+
+  </fields>
+</form>
