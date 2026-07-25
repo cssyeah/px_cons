@@ -98,9 +98,6 @@
 
 .slideshow.layout-01 .slide-action .btn {
   border: 0;
-  font-size: 18px;
-  padding: .75rem 1.25rem;
-  text-transform: capitalize;
 }
 
 .slideshow.layout-01 .owl-nav {
@@ -124,7 +121,7 @@
 .slideshow.layout-01 .owl-nav button {
   background-color: rgba(255,255,255,.15) !important;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;

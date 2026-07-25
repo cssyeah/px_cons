@@ -9,15 +9,44 @@
 // FORM ELEMENTS
 // -----------------------------
 .btn {
+  border: 0;
+  border-radius: var(--px-br-xs);
   display: inline-flex;
+  font-family: var(--px-heading-font-family);
+  font-size: var(--px-fs-sm);
+  font-weight: var(--px-fw-bold);
   align-items: center;
   gap: .5rem;
+  padding: 1rem 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 
   &:hover, &:active, &:focus {
     opacity: .85;
     background: var(--px-btn-bg);
     color: var(--px-btn-color);
+
+    &::after {
+      opacity: 1;
+      width: 19px;
+    }
   }
+
+  &::after {
+    content: "\f178";
+    display: inline-flex;
+    font-family: "Font Awesome 6 Free";
+    font-size: var(--px-fs-lg);
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.btn-sm {
+  padding: var(--px-btn-sm-padding-y) var(--px-btn-sm-padding-x);
+  font-size: var(--px-fs-xs);
 }
 
 
@@ -127,8 +156,11 @@ body {
 
     &.text {
       span {
-        font-weight: 700;
+        color: var(--px-white);
+        font-weight: var(--px-fw-black);
         font-size: 1.25rem;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
       }
 
       small {
@@ -146,7 +178,11 @@ body {
   ul.px-nav {
     > .px-menu-item {
       > a {
-        font-weight: var(--px-fw-semibold);
+        color: var(--px-white);
+        font-family: var(--px-heading-font-family);
+        font-size: var(--px-fs-sm);
+        font-weight: var(--px-fw-bold);
+        letter-spacing: 1px;
         text-transform: uppercase;
       }
 
