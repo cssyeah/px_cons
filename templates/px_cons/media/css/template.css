@@ -17615,6 +17615,23 @@ body {
   padding: 0 0 0.6666666667rem;
 }
 
+.section.container-full .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+.articles-slide-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.articles-slides {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .slideshow-wrapper .slide-item {
   height: 800px;
 }

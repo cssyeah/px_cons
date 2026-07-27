@@ -1,0 +1,131 @@
+.testimonial-heading-wrapper {
+}
+
+.testimonials.layout-02 .mod-sub-heading {
+}
+
+.testimonials.layout-02 .mod-heading {
+}
+
+.testimonials.layout-02 .mod-lead {
+}
+
+/* Global style */
+.testimonials.layout-02 .testimonial-wrapper {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .testimonials.layout-02 .testimonial-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 476px) {
+  .testimonials.layout-02 .testimonial-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.testimonials.layout-02 .testimonial-item {
+  border-radius: .5rem;
+}
+
+.testimonials.layout-02 .testimonial-item-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  height: 100%;
+  transition: all 0.25s ease-in-out;
+}
+
+.testimonials.layout-02 .testimonial-item-inner:hover {
+  border-color: var(--gk-primary) !important;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.testimonials.layout-02 .customer-testimonial {
+  font-size: 1.25rem;
+  line-height: 1.375;
+  margin-bottom: 4rem;
+  position: relative;
+  text-indent: 24px;
+}
+
+.testimonials.layout-02 .customer-testimonial::before {
+  content: "\f10d";
+  font-family: "Font Awesome 6 Free";
+  display: inline-block;
+  font-weight: 600;
+  font-size: 26px;
+  position: absolute;
+  top: -6px;
+  left: -28px;
+  opacity: .2;
+}
+
+.testimonials.layout-02 .customer-image {
+  overflow: hidden;
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.testimonials.layout-02 .customer-info-wrapper {
+  background: #f1f5f9;
+  border-radius: .75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding: .25rem 1rem .25rem .25rem;
+}
+
+.testimonials.layout-02 .customer-image {
+  border-radius: .5rem;
+  max-width: 4.5rem;
+  overflow: hidden;
+  margin: 0;
+}
+
+.testimonials.layout-02 h4 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.testimonials.layout-02 .customer-position {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9375rem;
+  opacity: .8;
+  margin-top: .25rem;
+}
+
+.testimonials.layout-02 .customer-position i {
+  font-size: .75rem;
+}
+
+.testimonials.layout-02 .customer-rating {
+  position: relative;
+  line-height: 1;
+}
+
+.testimonials.layout-02 .customer-rating i {
+  color: #e5e7eb;
+  font-size: 11px;
+}
+
+.testimonials.layout-02 .customer-rating .star-rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.testimonials.layout-02 .customer-rating .star-rating i {
+  color: #f59e0b;
+}
