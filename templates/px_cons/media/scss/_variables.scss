@@ -1,6 +1,6 @@
 :root {
   --px-base-light: #f1f5f9;
-  --px-white: #fff;
+  --color-white: #fff;
 
   // Border Radius
   --px-br-xs: 4px;
@@ -33,12 +33,12 @@
   --px-btn-padding-y: 1rem;
 
   // Foot navigation
-  --px-footnav-bg: var(--px-gray-900);
-  --px-footnav-color: var(--px-gray-500);
+  --px-footnav-color: var(--color-white);
 
   // Footer
-  --px-footer-bg: var(--white);
-  --px-footer-color: #000;
+  --px-footer-color: var(--color-white);
+  --px-footer-fs: var(--px-fs-xs);
+  --px-footer-link-color: var(--color-white);
 
   // LAYOUTS VARIABLES
   // ------------------------------------
