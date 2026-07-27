@@ -1,0 +1,48 @@
+.cta.layout-01 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.cta.layout-01 .mod-heading-wrapper {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  .cta.layout-01 .mod-heading-wrapper {
+    max-width: 50%;
+  }
+}
+
+.cta.layout-01 .mod-sub-heading {
+}
+
+@media (min-width: 768px) {
+  .cta.layout-01 .mod-heading {
+  }
+}
+
+@media (min-width: 992px) {
+  .cta.layout-01 .mod-heading {
+  }
+}
+
+@media (min-width: 768px) {
+  .cta.layout-01 .mod-lead {
+  }
+}
+
+/* Global style */
+.cta.layout-01 .mod-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta.layout-01 .mod-action.text-center {
+  justify-content: center;
+}
+
+.cta.layout-01 .mod-action.text-end {
+  justify-content: end;
+}

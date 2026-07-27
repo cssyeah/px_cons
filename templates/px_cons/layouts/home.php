@@ -118,6 +118,10 @@ PixelColorPresetHelper::loadPreset();
       <jdoc:include type="modules" name="landing-9" style="px_section" />
     <?php endif; ?>
 
+    <?php if($doc->countModules('landing-10') && !PIXEL_LAYOUT_EDIT && !PIXEL_COM_CONFIG) : ?>
+      <jdoc:include type="modules" name="landing-10" style="px_section" />
+    <?php endif; ?>
+
     <!-- Footer -->
     <?php echo PixelTemplate::renderBlock('footer') ?>
   </div>

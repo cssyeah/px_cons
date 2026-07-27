@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <title>CTA 01</title>
+  <categories>
+    <value>CTA</value>
+  </categories>
+  <assets>
+    <scripts>
+    </scripts>
+    <stylesheets>
+      <path>/assets/css/style.css</path>
+    </stylesheets>
+  </assets>
+  <fields>
+    <fieldset name="global_configurations" label="" description="">
+      <field type="spacer" name="fl-spacer-1" class="fl-sep" label="MOD_FLEX_LAYOUT_GLOBAL_SETTINGS" />
+      <field name="cta_btn_size" type="list" default="btn-sm" label="CTA Button Size" description="">
+        <option value="btn-sm">Small Size</option>
+        <option value="btn-md">Medium Size</option>
+        <option value="btn-lg">Lager Size</option>
+      </field>
+
+      <field name="cta_btn_rounded" type="list" default="btn-sm" label="CTA Button Rounded" description="">
+        <option value="rounded-0">Square</option>
+        <option value="rounded">Rounded</option>
+        <option value="rounded-pill">Rounded Full</option>
+      </field>
+
+      <field type="spacer" name="fl-spacer-2" class="fl-sep" label="Button 1" />
+      <field name="cta_btn_1_label" type="text" default="" label="Button 1 Label" description="" />
+      <field name="cta_btn_1_url" type="text" default="#" label="Button 1 Url" description="" />
+      <field name="cta_btn_1_type" type="list" default="btn-secondary" label="Button 1 Type" description="">
+        <option value="btn-secondary">Secondary</option>
+        <option value="btn-primary">Primary</option>
+        <option value="btn-success">Success</option>
+        <option value="btn-info">Info</option>
+        <option value="btn-warning">Warning</option>
+        <option value="btn-danger">Danger</option>
+        <option value="btn-outline-secondary">Outline Secondary</option>
+        <option value="btn-outline-primary">Outline Primary</option>
+        <option value="btn-outline-success">Outline Success</option>
+        <option value="btn-outline-info">Outline Info</option>
+        <option value="btn-outline-warning">Outline Warning</option>
+        <option value="btn-outline-danger">Outline Danger</option>
+        <option value="btn-link">Link</option>
+      </field>
+
+      <field type="spacer" name="fl-spacer-3" class="fl-sep" label="Button 2" />
+      <field name="cta_btn_2_label" type="text" default="" label="Button 2 Label" description="" />
+      <field name="cta_btn_2_url" type="text" default="#" label="Button 2 Url" description="" />
+      <field name="cta_btn_2_type" type="list" default="btn-secondary" label="Button 2 Type" description="">
+        <option value="btn-secondary">Secondary</option>
+        <option value="btn-primary">Primary</option>
+        <option value="btn-success">Success</option>
+        <option value="btn-info">Info</option>
+        <option value="btn-warning">Warning</option>
+        <option value="btn-danger">Danger</option>
+        <option value="btn-outline-secondary">Outline Secondary</option>
+        <option value="btn-outline-primary">Outline Primary</option>
+        <option value="btn-outline-success">Outline Success</option>
+        <option value="btn-outline-info">Outline Info</option>
+        <option value="btn-outline-warning">Outline Warning</option>
+        <option value="btn-outline-danger">Outline Danger</option>
+        <option value="btn-link">Link</option>
+      </field>
+    </fieldset>
+
+
+
+  </fields>
+</form>

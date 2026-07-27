@@ -17669,4 +17669,56 @@ body {
 .slideshow-wrapper .active .slide-ct .description {
   opacity: 0.7 !important;
 }
+
+.section.cta-full {
+  padding: 0;
+}
+.section.cta-full .section-inner > .container {
+  max-width: 100%;
+  padding: 0;
+}
+.section.cta-full .cta.layout-01 {
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+  position: relative;
+}
+.section.cta-full .cta.layout-01::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(50%, rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 50%);
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+.section.cta-full .cta.layout-01::after {
+  background: rgba(0, 0, 0, 0.4);
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.section.cta-full .cta.layout-01 .mod-heading-wrapper,
+.section.cta-full .cta.layout-01 .mod-action {
+  position: relative;
+  z-index: 10;
+}
+.section.cta-full .cta.layout-01 div.mod-heading-wrapper .mod-heading {
+  color: var(--color-white);
+  font-size: 4rem;
+  font-weight: var(--px-fw-bold);
+}
+.section.cta-full .cta.layout-01 div.mod-heading-wrapper .mod-lead {
+  color: var(--color-white);
+  font-size: var(--px-fs-lg);
+}
+.section.cta-full .cta.layout-01 div.mod-action .btn.rounded, .section.cta-full .cta.layout-01 div.mod-action .com-contact__links > ul a.rounded, .com-contact__links > ul .section.cta-full .cta.layout-01 div.mod-action a.rounded {
+  border-radius: 4px !important;
+}
 /*# sourceMappingURL=template.css.map */
