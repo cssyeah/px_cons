@@ -365,9 +365,6 @@ img {
 // Footer
 // -------------
 #px-breadcrumb {
-	border-bottom: $border-width $border-style var(--px-border-color);
-	border-top: $border-width $border-style var(--px-border-color);
-	background: rgba(var(--px-emphasis-color-rgb), 0.03);
 }
 
 #px-footer-nav {
@@ -375,9 +372,9 @@ img {
 	--px-navbar-hover-color: rgba(var(--px-emphasis-color-rgb), 0.8);
 	--px-navbar-disabled-color: rgba(var(--px-emphasis-color-rgb), 0.3);
 	--px-navbar-active-color: rgba(var(--px-emphasis-color-rgb), 1);
+
 	padding-top: $spacer*5;
 	padding-bottom: $spacer*5;
-  border-color: rgba(255, 255, 255, 0.1);
 	background: rgba(var(--px-emphasis-color-rgb), 0.03);
 
   @include media-breakpoint-down(md) {

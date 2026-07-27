@@ -593,8 +593,25 @@ body {
 
   .mod-menu {
     .nav-item {
-      >a {
+      > a {
+        color: var(--px-white) !important;
         display: inline-block;
+      }
+    }
+  }
+
+  .brand-text {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 140px;
+    font-weight: var(--px-fw-bold);
+    font-family: var(--px-heading-font-family);
+    margin-bottom: 2rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.3);
+      
+      &:hover, &:focus, &:active {
+        text-decoration: none;
       }
     }
   }

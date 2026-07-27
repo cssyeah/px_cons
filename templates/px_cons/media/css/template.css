@@ -16287,12 +16287,6 @@ img {
   margin-bottom: 1rem;
 }
 
-#px-breadcrumb {
-  border-bottom: 1px solid var(--px-border-color);
-  border-top: 1px solid var(--px-border-color);
-  background: rgba(var(--px-emphasis-color-rgb), 0.03);
-}
-
 #px-footer-nav {
   --px-navbar-color: rgba(var(--px-emphasis-color-rgb), 0.65);
   --px-navbar-hover-color: rgba(var(--px-emphasis-color-rgb), 0.8);
@@ -16300,7 +16294,6 @@ img {
   --px-navbar-active-color: rgba(var(--px-emphasis-color-rgb), 1);
   padding-top: 5rem;
   padding-bottom: 5rem;
-  border-color: rgba(255, 255, 255, 0.1);
   background: rgba(var(--px-emphasis-color-rgb), 0.03);
 }
 @media (max-width: 767.98px) {
@@ -17025,7 +17018,21 @@ body {
   font-size: 1.125rem;
 }
 #px-footer-nav .mod-menu .nav-item > a {
+  color: var(--px-white) !important;
   display: inline-block;
+}
+#px-footer-nav .brand-text {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 140px;
+  font-weight: var(--px-fw-bold);
+  font-family: var(--px-heading-font-family);
+  margin-bottom: 2rem;
+}
+#px-footer-nav .brand-text a {
+  color: rgba(255, 255, 255, 0.3);
+}
+#px-footer-nav .brand-text a:hover, #px-footer-nav .brand-text a:focus, #px-footer-nav .brand-text a:active {
+  text-decoration: none;
 }
 
 #px-footer {
@@ -17558,3 +17565,4 @@ body {
 .slideshow-wrapper .active .slide-ct .description {
   opacity: 0.7 !important;
 }
+/*# sourceMappingURL=template.css.map */
