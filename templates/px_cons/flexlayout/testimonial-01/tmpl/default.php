@@ -53,7 +53,7 @@ $totalItems           = count((array)$items);
   }
 </style>
 
-<div class="wt-flex-layout testimonials testimonials-<?php echo $module->id; ?> layout-02 <?php echo $modSpacingTop . ' ' . $modSpacingBottom; ?>" style="<?php echo $modStyle; ?>">
+<div class="wt-flex-layout testimonials testimonials-<?php echo $module->id; ?> layout-01 <?php echo $modSpacingTop . ' ' . $modSpacingBottom; ?>" style="<?php echo $modStyle; ?>">
 
   <!-- Wrapping content -->
   <?php if($enableContainer) echo '<div class="container">'; ?>
@@ -72,53 +72,55 @@ $totalItems           = count((array)$items);
     <?php endif; ?>
   </div>
 
-  <div class="testimonial-wrapper" style="grid-template-columns: repeat(<?php echo ($totalItems <= $testimonialPerRow)?$totalItems:$testimonialPerRow; ?>, 1fr);">
-  <?php foreach ($items as $item) { ?>
-    <div class="testimonial-item">
-      <div class="testimonial-item-inner" style="background-color: <?php echo $testimonialBgColor; ?>; border: <?php echo $testimonialBorderWidth; ?>px solid <?php echo $testimonialBorderColor; ?>; border-radius: <?php echo $testimonialBorderRadius; ?>px; color: <?php echo $testimonialTextColor; ?>; padding: <?php echo $testimonialPadding; ?>px;">
+  <div id="testimonial-wrapper-<?php echo $module->id; ?>" class="testimonial-wrapper" style="grid-template-columns: repeat(<?php echo ($totalItems <= $testimonialPerRow)?$totalItems:$testimonialPerRow; ?>, 1fr);">
+    <div class=" owl-carousel owl-theme">
+    <?php foreach ($items as $item) { ?>
+      <div class="testimonial-item slide slide-item">
+        <div class="testimonial-item-inner">
 
-        <?php if($item->customer_testimonial) : ?>
-          <div class="customer-testimonial"><?php echo $item->customer_testimonial; ?></div>
-        <?php endif; ?>
-
-        <div class="customer-info-wrapper">
-          <?php if($item->customer_image) : ?>
-            <div class="customer-image"><img src="<?php echo $item->customer_image; ?>" alt="" /></div>
+          <?php if($item->customer_testimonial) : ?>
+            <div class="customer-testimonial"><?php echo $item->customer_testimonial; ?></div>
           <?php endif; ?>
 
-          <div class="customer-info">
-            <?php if($item->customer_name) : ?>
-              <h4><?php echo $item->customer_name; ?></h4>
+          <div class="customer-info-wrapper">
+            <?php if($item->customer_image) : ?>
+              <div class="customer-image"><img src="<?php echo $item->customer_image; ?>" alt="" /></div>
             <?php endif; ?>
 
-            <div class="customer-position">
-            <?php if($item->customer_position) : ?>
-              <?php echo $item->customer_position; ?>
-              <?php if($item->customer_website_name) : ?>
-                <a href="<?php echo $item->customer_website_url; ?>" title="" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <div class="customer-info">
+              <?php if($item->customer_name) : ?>
+                <h4><?php echo $item->customer_name; ?></h4>
               <?php endif; ?>
-              <?php endif; ?>
-            </div>
 
-            <div class="customer-rating">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <span class="star-rating">
-              <?php for ($i = 1; $i <= ($item->customer_rating); $i++) { ?>
+              <div class="customer-position">
+              <?php if($item->customer_position) : ?>
+                <?php echo $item->customer_position; ?>
+                <?php if($item->customer_website_name) : ?>
+                  <a href="<?php echo $item->customer_website_url; ?>" title="" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <?php endif; ?>
+                <?php endif; ?>
+              </div>
+
+              <div class="customer-rating">
                 <i class="fa-solid fa-star"></i>
-              <?php } ?>
-              </span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="star-rating">
+                <?php for ($i = 1; $i <= ($item->customer_rating); $i++) { ?>
+                  <i class="fa-solid fa-star"></i>
+                <?php } ?>
+                </span>
+              </div>
+
             </div>
-
           </div>
-        </div>
 
+        </div>
       </div>
+    <?php } ?>
     </div>
-  <?php } ?>
   </div>
 
   <?php if($modBtnLabel) : ?>
@@ -130,3 +132,44 @@ $totalItems           = count((array)$items);
   <!-- Wrapping content -->
   <?php if($enableContainer) { echo '</div>';} ?>
 </div>
+
+<script>
+  (function($) {
+    jQuery(document).ready(function($) {
+      var owlTestimoniallide<?php echo $module->id; ?> = $("#testimonial-wrapper-<?php echo $module->id; ?> .owl-carousel");
+      owlTestimoniallide<?php echo $module->id; ?>.owlCarousel({
+        addClassActive: true,
+        margin: 0,
+        stagePadding: 240,
+        items: 3,
+        loop: true,
+        nav: 0,
+        dotsSpeed: 400,
+        slideTransition: 'linear',
+        autoplaySpeed: 6000,
+        dots: 1,
+        autoplay: 0,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
+        autoplayTimeout: 5000,
+        smartSpeed: 1200,
+        mouseDrag: false,
+        navText: [
+          '<i class="fa-solid fa-chevron-left"></i>', // HTML for the previous button
+          '<i class="fa-solid fa-chevron-right"></i>' // HTML for the next button
+        ]
+      });
+
+      // Go to the next item
+      $('.fl-owl-next').click(function() {
+        owlTestimoniallide<?php echo $module->id; ?>.trigger('next.owl.carousel');
+      })
+
+      // Go to the previous item
+      $('.fl-owl-prev').click(function() {
+        owlTestimoniallide<?php echo $module->id; ?>.trigger('prev.owl.carousel');
+      })
+    });
+
+  })(jQuery);
+</script>
