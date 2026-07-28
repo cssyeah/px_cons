@@ -17154,7 +17154,9 @@ body {
   letter-spacing: 1.5px;
 }
 #px-footer-nav .brand-text p span {
-  background: var(--px-primary);
+  border: 1px solid var(--px-primary);
+  color: var(--px-primary);
+  border-radius: 4px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
