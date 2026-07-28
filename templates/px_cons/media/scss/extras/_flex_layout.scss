@@ -143,6 +143,10 @@
       &:hover {
         border: 1px solid var(--px-primary);
         box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+
+        .customer-testimonial {
+          opacity: 1;
+        }
       }
     }
 
@@ -150,6 +154,8 @@
       font-size: var(--px-fs-lg);
       font-style: italic;
       min-height: 14rem;
+      opacity: .7;
+      transition: all 0.25s ease-in-out;
     }
 
     .customer-info-wrapper {
