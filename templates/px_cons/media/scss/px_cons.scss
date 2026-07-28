@@ -698,7 +698,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: -1rem;
-    margin-bottom: calc(var(--px-gutter-y) * 2);
+    margin-bottom: calc(var(--px-gutter-y) * 1.5);
 
     a {
       --px-link-color: var(--px-footer-link);

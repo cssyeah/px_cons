@@ -41,7 +41,7 @@
     display: flex;
     font-size: var(--px-fs-sm);
     align-items: center;
-    gap: calc(var(--px-gutter-x) / 2);
+    gap: .5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -49,6 +49,27 @@
 
     .article-info-term {
       display: none;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
+      &::before {
+        background: $gray-500;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: 4px;
+        width: 4px;
+      }
+
+      &:nth-child(2) {
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 }
