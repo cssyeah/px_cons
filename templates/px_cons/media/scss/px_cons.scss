@@ -146,7 +146,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: calc(var(--px-gutter-y) / 2) calc(var(--px-gutter-x) / 2);
+    padding: 0 calc(var(--px-gutter-x) / 2);
   }
 
   .px-logo {
@@ -184,11 +184,35 @@ body {
         font-weight: var(--px-fw-bold);
         letter-spacing: 1px;
         text-transform: uppercase;
+        height: 64px;
       }
 
       &.active {
         > a {
 
+        }
+      }
+
+      .px-menu-sub {
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+        border-radius: var(--px-br-md);
+        padding: calc(var(--px-gutter-x) / 2);
+        backdrop-filter: blur(8px);
+        
+        .px-menu-item {
+          a {
+            border-radius: var(--px-br-sm);
+            display: block;
+            font-weight: var(--px-fw-semibold);
+            padding: calc(var(--px-gutter-y) / 2.5) calc(var(--px-gutter-x) / 2);
+            transition: all 0.25s ease-in-out;
+            width: 100%;
+
+            &:hover, &:focus, &:active {
+              background: rgba(255, 255, 255, 0.3);
+            }
+          }
         }
       }
     }
@@ -580,12 +604,12 @@ body {
 // FOOTER NAVIGATION
 // -----------------------------
 #px-footer-nav {
-  --px-navbar-color: var(--px-gray-600);
-  --px-navbar-hover-color: var(--px-white);
-  --px-navbar-active-color: var(--px-primary);
+  --px-navbar-color: var(--px-footer-link);
+  --px-navbar-hover-color: var(--px-footer-link-hover);
+  --px-navbar-active-color: var(--px-footer-link-hover);
 
-  background: var(--px-primary);
-  color: var(--px-footnav-color);
+  background: var(--px-footer-bg);
+  color: var(--px-footer-text);
 
   .px-module {
     .mod-ct {
@@ -597,14 +621,32 @@ body {
         li.nav-item {
           > a {
             font-size: 15px;
-            color: var(--color-white);
             display: inline-block;
             opacity: .8;
             transition: all 0.25s ease-in-out;
             padding: 0;
+            position: relative;
 
             &:hover, &:focus, &:active {
               opacity: 1;
+
+              &::after {
+                transform: scaleX(1);
+                transform-origin: left;
+              }
+            }
+
+            &::after {
+              transform-origin: right;
+              transform: scaleX(0);
+              transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+              background-color: currentColor;
+              bottom: -0.0625em;
+              content: "";
+              height: 0.0625em;
+              left: 0;
+              position: absolute;
+              width: 100%;
             }
           }
         }
@@ -659,12 +701,16 @@ body {
     margin-bottom: calc(var(--px-gutter-y) * 2);
 
     a {
+      --px-link-color: var(--px-footer-link);
+      --px-link-hover-color: var(--px-footer-link-hover);
+
       display: block;
       color: var(--color-white);
       font-weight: var(--px-fw-bold);
       font-family: var(--px-heading-font-family);
       font-size: 140px;
       line-height: 1;
+      margin-left: -10px;
       
       &:hover, &:focus, &:active {
         text-decoration: none;
@@ -676,6 +722,12 @@ body {
       font-size: var(--px-fs-sm);
       font-weight: 500;
       letter-spacing: 1.5px;
+
+      span {
+        background: var(--px-primary);
+        display: inline-flex;
+        padding: 4px 8px;
+      }
     }
   }
 }
@@ -684,9 +736,9 @@ body {
 // FOOTER
 // -----------------------------
 #px-footer {
-  background: var(--px-primary);
+  background: var(--px-footer-bg);
   border: 0;  
-  color: var(--px-footer-color);
+  color: var(--px-footer-text);
   padding: 0;
 
   .container {
@@ -717,7 +769,9 @@ body {
   }
 
   a {
-    color: var(--px-footer-link-color);
+    --px-link-color: var(--px-footer-link);
+    --px-link-hover-color: var(--px-footer-link-hover);
+
     border-bottom: 1px dotted var(--px-footer-link-color);
     opacity: .8;
     text-decoration: none;
@@ -726,7 +780,7 @@ body {
     &:hover,
     &:focus,
     &:active {
-      border-bottom: 1px solid var(--px-footer-link-color);
+      border-bottom: 1px solid var(--px-footer-link-hover);
       opacity: 1;
     }
   }

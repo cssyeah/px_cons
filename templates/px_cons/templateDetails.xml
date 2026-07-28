@@ -142,6 +142,12 @@
                         <variable name="--px-border-color" group="TPL_PX_PAGE_COLORS">#dee2e6</variable>
                         <variable name="--px-logo-color" group="TPL_PX_PAGE_COLORS">#212529</variable>
                         <variable name="--px-mega-bg" group="TPL_PX_PAGE_COLORS">#ffffff</variable>
+
+                        <variable name="--px-footer-bg" group="TPL_PX_FOOTER_COLORS">#1D1D1D</variable>
+                        <variable name="--px-footer-text" group="TPL_PX_FOOTER_COLORS">#FFFFFF</variable>
+                        <variable name="--px-footer-link" group="TPL_PX_FOOTER_COLORS">#FFFFFF</variable>
+                        <variable name="--px-footer-link-hover" group="TPL_PX_FOOTER_COLORS">#FFD206</variable>
+
                     </preset>
                     <preset name="dark">
                         <variable name="--px-primary" group="TPL_PX_BRAND_COLORS">#f9a813</variable>

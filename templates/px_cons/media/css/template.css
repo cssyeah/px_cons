@@ -16616,7 +16616,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: calc(var(--px-gutter-y) / 2) calc(var(--px-gutter-x) / 2);
+  padding: 0 calc(var(--px-gutter-x) / 2);
 }
 #px-header .px-logo img {
   max-height: 2rem;
@@ -16639,7 +16639,29 @@ body {
   font-weight: var(--px-fw-bold);
   letter-spacing: 1px;
   text-transform: uppercase;
+  height: 64px;
 }
+.px-menu-wrapper ul.px-nav > .px-menu-item .px-menu-sub {
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: var(--px-br-md);
+  padding: calc(var(--px-gutter-x) / 2);
+  backdrop-filter: blur(8px);
+}
+.px-menu-wrapper ul.px-nav > .px-menu-item .px-menu-sub .px-menu-item a {
+  border-radius: var(--px-br-sm);
+  display: block;
+  font-weight: var(--px-fw-semibold);
+  padding: calc(var(--px-gutter-y) / 2.5) calc(var(--px-gutter-x) / 2);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+}
+.px-menu-wrapper ul.px-nav > .px-menu-item .px-menu-sub .px-menu-item a:hover, .px-menu-wrapper ul.px-nav > .px-menu-item .px-menu-sub .px-menu-item a:focus, .px-menu-wrapper ul.px-nav > .px-menu-item .px-menu-sub .px-menu-item a:active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .px-feature-menu .card, .px-feature-menu .com-users-login,
 .px-feature-menu .com-users-registration,
 .px-feature-menu .com-users-reset,
@@ -17008,11 +17030,11 @@ body {
 }
 
 #px-footer-nav {
-  --px-navbar-color: var(--px-gray-600);
-  --px-navbar-hover-color: var(--px-white);
-  --px-navbar-active-color: var(--px-primary);
-  background: var(--px-primary);
-  color: var(--px-footnav-color);
+  --px-navbar-color: var(--px-footer-link);
+  --px-navbar-hover-color: var(--px-footer-link-hover);
+  --px-navbar-active-color: var(--px-footer-link-hover);
+  background: var(--px-footer-bg);
+  color: var(--px-footer-text);
 }
 #px-footer-nav .px-module .mod-ct .nav, #px-footer-nav .px-module .mod-ct .com-contact__links > ul {
   display: -webkit-box;
@@ -17026,15 +17048,38 @@ body {
 }
 #px-footer-nav .px-module .mod-ct .nav li.nav-item > a, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a {
   font-size: 15px;
-  color: var(--color-white);
   display: inline-block;
   opacity: 0.8;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   padding: 0;
+  position: relative;
 }
 #px-footer-nav .px-module .mod-ct .nav li.nav-item > a:hover, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:hover, #px-footer-nav .px-module .mod-ct .nav li.nav-item > a:focus, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:focus, #px-footer-nav .px-module .mod-ct .nav li.nav-item > a:active, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:active {
   opacity: 1;
+}
+#px-footer-nav .px-module .mod-ct .nav li.nav-item > a:hover::after, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:hover::after, #px-footer-nav .px-module .mod-ct .nav li.nav-item > a:focus::after, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:focus::after, #px-footer-nav .px-module .mod-ct .nav li.nav-item > a:active::after, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a:active::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+#px-footer-nav .px-module .mod-ct .nav li.nav-item > a::after, #px-footer-nav .px-module .mod-ct .com-contact__links > ul li.nav-item > a::after {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: currentColor;
+  bottom: -0.0625em;
+  content: "";
+  height: 0.0625em;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 #px-footer-nav .px-module + .px-module {
   margin-top: 3rem;
@@ -17089,12 +17134,15 @@ body {
   margin-bottom: calc(var(--px-gutter-y) * 2);
 }
 #px-footer-nav .brand-text a {
+  --px-link-color: var(--px-footer-link);
+  --px-link-hover-color: var(--px-footer-link-hover);
   display: block;
   color: var(--color-white);
   font-weight: var(--px-fw-bold);
   font-family: var(--px-heading-font-family);
   font-size: 140px;
   line-height: 1;
+  margin-left: -10px;
 }
 #px-footer-nav .brand-text a:hover, #px-footer-nav .brand-text a:focus, #px-footer-nav .brand-text a:active {
   text-decoration: none;
@@ -17105,11 +17153,18 @@ body {
   font-weight: 500;
   letter-spacing: 1.5px;
 }
+#px-footer-nav .brand-text p span {
+  background: var(--px-primary);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 4px 8px;
+}
 
 #px-footer {
-  background: var(--px-primary);
+  background: var(--px-footer-bg);
   border: 0;
-  color: var(--px-footer-color);
+  color: var(--px-footer-text);
   padding: 0;
 }
 #px-footer .container {
@@ -17142,7 +17197,8 @@ body {
   gap: calc(var(--px-gutter-x) / 1.5);
 }
 #px-footer a {
-  color: var(--px-footer-link-color);
+  --px-link-color: var(--px-footer-link);
+  --px-link-hover-color: var(--px-footer-link-hover);
   border-bottom: 1px dotted var(--px-footer-link-color);
   opacity: 0.8;
   text-decoration: none;
@@ -17150,7 +17206,7 @@ body {
   transition: all 0.25s ease-in-out;
 }
 #px-footer a:hover, #px-footer a:focus, #px-footer a:active {
-  border-bottom: 1px solid var(--px-footer-link-color);
+  border-bottom: 1px solid var(--px-footer-link-hover);
   opacity: 1;
 }
 
