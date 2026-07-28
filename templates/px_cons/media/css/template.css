@@ -16471,8 +16471,8 @@ body.contentpane .media-container {
 @media (min-width: 576px) {
   .row,
   .row > * {
-    --px-gutter-x: 2rem;
-    --px-gutter-y: 2rem;
+    --px-gutter-x: 3rem;
+    --px-gutter-y: 3rem;
   }
 }
 

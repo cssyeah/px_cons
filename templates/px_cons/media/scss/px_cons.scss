@@ -1,8 +1,8 @@
 .row,
 .row > * {
   @include media-breakpoint-up(sm) {
-    --px-gutter-x: 2rem;
-    --px-gutter-y: 2rem;
+    --px-gutter-x: 3rem;
+    --px-gutter-y: 3rem;
   }
 }
 
