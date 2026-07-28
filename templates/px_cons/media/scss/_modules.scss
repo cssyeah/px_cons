@@ -7,6 +7,52 @@
   }
 }
 
+.articles-slide {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .article-item {
+    border: 1px solid transparent;
+    border-radius: var(--px-br-md);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--px-gutter-y) / 4);
+    padding: calc(var(--px-gutter-y) / 1.5) calc(var(--px-gutter-x) / 1.5);
+
+    &:hover {
+      background: $gray-100;
+      border: 1px solid $border-color;
+    }
+  }
+
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  h4.item-title {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .item-meta {
+    display: flex;
+    font-size: var(--px-fs-sm);
+    align-items: center;
+    gap: calc(var(--px-gutter-x) / 2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: .7;
+
+    .article-info-term {
+      display: none;
+    }
+  }
+}
+
 .articles-slide-wrapper {
   ul {
     list-style: none;
