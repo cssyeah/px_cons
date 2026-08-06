@@ -1,17 +1,125 @@
-.mod-sub-heading {
-  font-size: var(--h4-font-size);
-}
-
-.mod-heading {
-  font-size: var(--h1-font-size);
-}
-
-.mod-lead {
-  font-size: var(--font-size-lg);
-}
 
 // FEATURED LAYOUTS
 // --------------------------------------
+// Featured layout 01
+.features.layout-01 {
+  .mod-heading-wrapper {
+    margin-bottom: 4rem;
+
+    @include media-breakpoint-up(xl) {
+      max-width: 50%;
+    }
+  }
+
+  // Feature
+  .features-wrapper {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    .feature-item-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 100%;
+    }
+
+    .feature-media {
+      display: inline-flex;
+
+      i {
+        font-size: 2rem;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .text-center .feature-media {
+      justify-content: center;
+    }
+
+    .text-right .feature-media {
+      justify-content: end;
+    }
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .feature-desc {
+    opacity: .8;
+  }
+
+  .feature-action {
+    margin-top: auto;
+
+    a.btn-link {
+      border-radius: 0;
+      padding: 0 0 .25rem;
+      position: relative;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Global style */
+.features.layout-01 .feature-action a.btn-link::before {
+  background: rgba(0,0,0,0.15);
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
+}
+
+.features.layout-01 .feature-action a.btn-link::after {
+  background: currentColor;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+}
+
+.features.layout-01 .feature-action a.btn-link:hover,
+.features.layout-01 .feature-action a.btn-link:focus,
+.features.layout-01 .feature-action a.btn-link:active {
+}
+
+.features.layout-01 .feature-action a.btn-link:hover::before,
+.features.layout-01 .feature-action a.btn-link:focus::before,
+.features.layout-01 .feature-action a.btn-link:active::before {
+  opacity: 1;
+}
+
+.features.layout-01 .feature-action a.btn-link:hover::after,
+.features.layout-01 .feature-action a.btn-link:focus::after,
+.features.layout-01 .feature-action a.btn-link:active::after {
+  left: 0;
+  width: 100%;
+}
+
 // Featured layout 04
 .features.layout-04 {
   .mod-heading-wrapper {

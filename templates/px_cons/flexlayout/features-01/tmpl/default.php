@@ -90,25 +90,34 @@ $totalItems           = count((array)$items);
   <?php foreach ($items as $item) { ?>
     <div class="feature-item">
       <div class="feature-item-inner<?php echo $featureTextAlignment?' text-'.$featureTextAlignment.'':''; ?>" style="<?php echo $featureStyle; ?>">
-        <?php if($item->feature_icon) : ?>
-          <span class="feature-media">
-            <?php echo $item->feature_icon; ?>
-          </span>
-        <?php endif; ?>
-
-        <?php if($item->feature_title) : ?>
-          <h4 class="feature-title"><?php echo $item->feature_title; ?></h4>
-        <?php endif; ?>
-
-        <?php if($item->feature_title) : ?>
-          <div class="feature-desc"><?php echo $item->feature_desc; ?></div>
-        <?php endif; ?>
-
-        <?php if($item->feature_link_label) : ?>
-          <div class="feature-action">
-            <a href="<?php echo $item->feature_link_url; ?>" class="btn <?php echo $featureBtnType; ?>"><?php echo $item->feature_link_label; ?></a>
+        <?php if($item->feature_image) : ?>
+          <div class="feature-image">
+            <img src="<?php echo $item->feature_image; ?>" alt="" />
           </div>
-        <?php endif ?>
+        <?php endif; ?>
+        
+        <div class="feature-item-ct">
+          <?php if($item->feature_icon) : ?>
+            <span class="feature-media">
+              <?php echo $item->feature_icon; ?>
+            </span>
+          <?php endif; ?>
+
+          <?php if($item->feature_title) : ?>
+            <h4 class="feature-title"><?php echo $item->feature_title; ?></h4>
+          <?php endif; ?>
+
+          <?php if($item->feature_title) : ?>
+            <div class="feature-desc"><?php echo $item->feature_desc; ?></div>
+          <?php endif; ?>
+
+          <?php if($item->feature_link_label) : ?>
+            <div class="feature-action">
+              <a href="<?php echo $item->feature_link_url; ?>" class="btn <?php echo $featureBtnType; ?>"><?php echo $item->feature_link_label; ?></a>
+            </div>
+          <?php endif ?>
+        </div>
+
       </div>
     </div>
   <?php } ?>

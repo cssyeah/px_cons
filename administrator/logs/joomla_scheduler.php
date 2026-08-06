@@ -31,3 +31,6 @@
 2026-08-05	15:53:00	INFO	Successfully finished task#02 in 0.01 (net 0.01) seconds.
 2026-08-05	22:55:41	INFO	Running task#03 'Update Notification'.
 2026-08-05	22:55:44	INFO	Successfully finished task#03 in 2.57 (net 2.57) seconds.
+2026-08-06	16:02:47	INFO	Running task#02 'Session GC'.
+2026-08-06	16:02:47	INFO	Task> SessionGC end
+2026-08-06	16:02:48	INFO	Successfully finished task#02 in 0.01 (net 0.01) seconds.
