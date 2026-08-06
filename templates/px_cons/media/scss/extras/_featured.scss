@@ -1,3 +1,15 @@
+.mod-sub-heading {
+  font-size: var(--h4-font-size);
+}
+
+.mod-heading {
+  font-size: var(--h1-font-size);
+}
+
+.mod-lead {
+  font-size: var(--font-size-lg);
+}
+
 // FEATURED LAYOUTS
 // --------------------------------------
 // Featured layout 04
@@ -10,15 +22,7 @@
     }
   }
 
-  .mod-sub-heading {
-    @include media-breakpoint-up(lg) {
-      font-size: 1.5rem;
-    }
-  }
-
   .features-media {
-    padding-right: 4rem;
-
     img {
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
       border-radius: 1rem;
@@ -32,7 +36,6 @@
       padding-left: 4rem;
     }
   }
-
 
   .features-wrapper {
     display: grid;
@@ -50,13 +53,13 @@
 
     .feature-item-inner {
       display: flex;
-      gap: 1.5rem;
+      align-items: start;
+      gap: var(--space-x-xl);
       height: 100%;
     }
 
     .feature-media {
       display: inline-flex;
-      margin-bottom: .5rem;
 
       img {
         max-width: 100%;
@@ -81,7 +84,7 @@
     }
 
     .feature-title {
-      font-size: 1.125rem;
+      font-size: var(--h4-font-size);
       font-weight: 600;
       margin: 0;
     }

@@ -1,0 +1,102 @@
+:root {
+  // Heading font size
+  --h1-font-size: 48px;
+  --h2-font-sizs: 36px;
+  --h3-font-size: 32px;
+  --h4-font-size: 16px;
+  --h5-font-size: 14px;
+  --h6-font-size: 12px;
+
+  // Fonts
+  --font-size-xs:   12px;
+  --font-size-sm:   14px;
+  --font-size-md:   16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   24px;
+  --font-size-2xl:  32px;
+  --font-size-3xl:  48px;
+  --font-size-4xl:  64px;
+  --font-size-5xl:  96px;
+
+  // Spacing
+  --space-2xs:  4px;
+  --space-xs:   8px;
+  --space-sm:   12px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  48px;
+  --space-3xl:  64px;
+  --space-4xl:  96px;
+  --space-5xl:  128px;
+
+  --space-x-sm: 8px;
+  --space-x-md: 16px;
+  --space-x-lg: 24px;
+  --space-x-xl: 32px;
+
+  /* Layout spacing */
+  --space-grid: 40px;
+  --space-block: 48px;
+  --space-section-sm: 72px;
+  --space-section: 96px;
+  --space-section-lg: 128px;
+
+
+  // Color variables
+  --primary:      var(--px-primary);
+  --on-primary:   var(--px-on-primary);
+  --secondary:    var(--px-secondary);
+  --on-secondary: var(--px-on-secondary);
+  --accent:       var(--px-accent);
+  --on-accent:    var(--px-on-accent);
+
+  --color-white: #fff;
+  --color-black: #000;
+
+  --base-100: #f0f0f0;
+  --base-200: #dddd;
+  --base-300: #ccc;
+
+  --link-color:         var(--px-link-color);
+  --link-hover-color:   var(--px-link-hover-color);
+  --link-active-color:  var(--px-link-hover-color);
+
+  --page-bg: #f9f9f9;
+  --text-heading: #222;
+  --text-body: #222;
+  --text-muted: #333;
+  --text-disabled: #ddd;
+
+  --border: #ddd;
+  --border-on-light: rgba(0,0,0,0.2);
+  --border-on-dark: rgba(255, 255, 255, 0.2);
+
+  // Border radius
+  --border-radius-xs:   4px;
+  --border-radius-sm:   6px;
+  --border-radius-md:   8px;
+  --border-radius-lg:   12px;
+  --border-radius-xl:   16px;
+  --border-radius-2xl:  24px;
+  --border-radius-full: 100%;
+
+}
+
+// On Tablet
+@media (min-width: 768px) {
+  :root {
+  }
+}
+
+// On Desktop
+@media (min-width: 992px) {
+  :root {
+    --h1-font-size: 40px;
+    --h2-font-size: 32px;
+    --h3-font-size: 20px;
+    --h4-font-size: 18px;
+    --h5-font-size: 16px;
+    --h6-font-size: 14px;
+  }
+}

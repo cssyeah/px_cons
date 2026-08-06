@@ -11,11 +11,12 @@
 @import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/variables";
 @import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/variables-dark";
 @import "../../../../plugins/system/pixel/media/scss/variables";
-@import "variables";
+@import "base/variables";
+@import "cons/variables";
 @import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/maps";
 @import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/mixins";
 @import "../../../../plugins/system/pixel/media/scss/mixins";
-@import "mixins"; 
+@import "base/mixins"; 
 @import "../../../../plugins/system/pixel/media/vendor/bootstrap/scss/utilities";
 
 // Layout & components
@@ -71,7 +72,7 @@
 
 // Template
 @import "px_cons";
-@import "modules";
+@import "base/modules";
 @import "extras/flex_layout";
 
 @import "extras/hero";

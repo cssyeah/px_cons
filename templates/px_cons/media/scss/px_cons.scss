@@ -130,11 +130,11 @@ figure.pull-right {
 }
 
 body {
-  background: #f9f9f9;
+  background: var(--page-bg);
 }
 
 .px-page-wrapper {
-  background: var(--px-white);
+  background: var(--color-white);
   max-width: 1920px;
   margin: 0 auto;
 }
@@ -315,6 +315,20 @@ body {
   }
 }
 
+
+.mod-heading-wrapper {
+  .mod-sub-heading {
+    font-size: var(--h3-font-size);
+  }
+
+  .mod-heading {
+    font-size: var(--h1-font-size);
+  }
+
+  .mod-desc {
+    font-size: var(--font-size-lg);
+  }
+}
 
 // SECTION 1
 // -----------------------------

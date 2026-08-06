@@ -46,6 +46,83 @@
   --px-gutter-y: 2rem;
 }
 
+:root {
+  --h1-font-size: 48px;
+  --h2-font-sizs: 36px;
+  --h3-font-size: 32px;
+  --h4-font-size: 16px;
+  --h5-font-size: 14px;
+  --h6-font-size: 12px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 48px;
+  --font-size-4xl: 64px;
+  --font-size-5xl: 96px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+  --space-x-sm: 8px;
+  --space-x-md: 16px;
+  --space-x-lg: 24px;
+  --space-x-xl: 32px;
+  /* Layout spacing */
+  --space-grid: 40px;
+  --space-block: 48px;
+  --space-section-sm: 72px;
+  --space-section: 96px;
+  --space-section-lg: 128px;
+  --primary: var(--px-primary);
+  --on-primary: var(--px-on-primary);
+  --secondary: var(--px-secondary);
+  --on-secondary: var(--px-on-secondary);
+  --accent: var(--px-accent);
+  --on-accent: var(--px-on-accent);
+  --color-white: #fff;
+  --color-black: #000;
+  --base-100: #f0f0f0;
+  --base-200: #dddd;
+  --base-300: #ccc;
+  --link-color: var(--px-link-color);
+  --link-hover-color: var(--px-link-hover-color);
+  --link-active-color: var(--px-link-hover-color);
+  --page-bg: #f9f9f9;
+  --text-heading: #222;
+  --text-body: #222;
+  --text-muted: #333;
+  --text-disabled: #ddd;
+  --border: #ddd;
+  --border-on-light: rgba(0,0,0,0.2);
+  --border-on-dark: rgba(255, 255, 255, 0.2);
+  --border-radius-xs: 4px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+  --border-radius-full: 100%;
+}
+
+@media (min-width: 992px) {
+  :root {
+    --h1-font-size: 40px;
+    --h2-font-size: 32px;
+    --h3-font-size: 20px;
+    --h4-font-size: 18px;
+    --h5-font-size: 16px;
+    --h6-font-size: 14px;
+  }
+}
 /**
  * @package     Pixel Framework
  *
@@ -16595,11 +16672,11 @@ figure.pull-right {
 }
 
 body {
-  background: #f9f9f9;
+  background: var(--page-bg);
 }
 
 .px-page-wrapper {
-  background: var(--px-white);
+  background: var(--color-white);
   max-width: 1920px;
   margin: 0 auto;
 }
@@ -16743,6 +16820,16 @@ body {
 #px-hero .hero-actions .btn:hover, #px-hero .hero-actions .com-contact__links > ul a:hover, .com-contact__links > ul #px-hero .hero-actions a:hover, #px-hero .hero-actions .btn:focus, #px-hero .hero-actions .com-contact__links > ul a:focus, .com-contact__links > ul #px-hero .hero-actions a:focus, #px-hero .hero-actions .btn:active, #px-hero .hero-actions .com-contact__links > ul a:active, .com-contact__links > ul #px-hero .hero-actions a:active {
   background-color: var(--px-gray-900);
   color: var(--px-white);
+}
+
+.mod-heading-wrapper .mod-sub-heading {
+  font-size: var(--h3-font-size);
+}
+.mod-heading-wrapper .mod-heading {
+  font-size: var(--h1-font-size);
+}
+.mod-heading-wrapper .mod-desc {
+  font-size: var(--font-size-lg);
 }
 
 .feature-item {
@@ -17950,6 +18037,18 @@ ul.articles-slides {
   opacity: 0.7 !important;
 }
 
+.mod-sub-heading {
+  font-size: var(--h4-font-size);
+}
+
+.mod-heading {
+  font-size: var(--h1-font-size);
+}
+
+.mod-lead {
+  font-size: var(--font-size-lg);
+}
+
 .features.layout-04 .mod-heading-wrapper {
   margin-bottom: 4rem;
 }
@@ -17957,14 +18056,6 @@ ul.articles-slides {
   .features.layout-04 .mod-heading-wrapper {
     max-width: 100%;
   }
-}
-@media (min-width: 992px) {
-  .features.layout-04 .mod-sub-heading {
-    font-size: 1.5rem;
-  }
-}
-.features.layout-04 .features-media {
-  padding-right: 4rem;
 }
 .features.layout-04 .features-media img {
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -17999,14 +18090,16 @@ ul.articles-slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1.5rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: var(--space-x-xl);
   height: 100%;
 }
 .features.layout-04 .features-wrapper .feature-media {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin-bottom: 0.5rem;
 }
 .features.layout-04 .features-wrapper .feature-media img {
   max-width: 100%;
@@ -18031,7 +18124,7 @@ ul.articles-slides {
           justify-content: end;
 }
 .features.layout-04 .features-wrapper .feature-title {
-  font-size: 1.125rem;
+  font-size: var(--h4-font-size);
   font-weight: 600;
   margin: 0;
 }
