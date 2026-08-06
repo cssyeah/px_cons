@@ -108,18 +108,19 @@ $totalItems           = count((array)$items);
                   <?php } ?>
                 </span>
               <?php endif; ?>
+              <div class="feature-ct">
+                <?php if($item->feature_title) : ?>
+                  <h4 class="feature-title"><?php echo $item->feature_title; ?></h4>
+                <?php endif; ?>
 
-              <?php if($item->feature_title) : ?>
-                <h4 class="feature-title"><?php echo $item->feature_title; ?></h4>
-              <?php endif; ?>
+                <?php if($item->feature_title) : ?>
+                  <div class="feature-desc"><?php echo $item->feature_desc; ?></div>
+                <?php endif; ?>
 
-              <?php if($item->feature_title) : ?>
-                <div class="feature-desc"><?php echo $item->feature_desc; ?></div>
-              <?php endif; ?>
-
-              <?php if($item->feature_link_url) : ?>
-                <a href="<?php echo $item->feature_link_url; ?>" class="link-mask">&nbsp;</a>
-              <?php endif ?>
+                <?php if($item->feature_link_url) : ?>
+                  <a href="<?php echo $item->feature_link_url; ?>" class="link-mask">&nbsp;</a>
+                <?php endif ?>
+              </div>
             </div>
           </div>
         <?php } ?>
