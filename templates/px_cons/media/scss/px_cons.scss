@@ -1115,126 +1115,6 @@ body {
 }
 
 
-// Blog
-// -----------------------------
-.blog,
-.blog-featured {
-  .blog-items {
-    [class*=" masonry-"] {
-      column-gap: 2rem;
-
-      @include media-breakpoint-between(sm, lg) {
-        column-count: 2;
-      }
-    }
-
-    &:not([class*=" masonry-"]) {
-      gap: var(--px-gutter-x);
-
-      .blog-item {
-        @include media-breakpoint-up(md) {
-          align-items: center;
-          display: flex;
-          gap: 2rem;
-        }
-      }
-
-      .item-image {
-        @include media-breakpoint-up(md) {
-          flex-basis: 30%;
-          margin: 0;
-          height: 100%;
-        }
-
-        a {
-          display: inline-block;
-        }
-
-        img {
-          height: 100%;
-        }
-      }
-
-      .item-content {
-        @include media-breakpoint-up(md) {
-          flex-basis: 70%;
-        }
-      }
-    }
-  }
-
-  .item-image {
-    --ratio-percent: unset;
-    display: block;
-    position: unset;
-
-    >a {
-      position: unset;
-    }
-  }
-
-  .items-leading {
-    .page-header {
-      h2 {
-        @include media-breakpoint-up(lg) {
-          font-size: 2rem;
-        }
-      }
-    }
-
-    .blog-item {
-      border-radius: var(--px-border-radius);
-      background: var(--px-gray-100);
-      margin: 0;
-      padding: $spacer;
-
-      @include media-breakpoint-up(lg) {
-        align-items: center;
-        display: flex;
-        gap: var(--px-gutter-x);
-        padding: $spacer*2;
-      }
-    }
-
-    .item-image {
-      @include media-breakpoint-up(lg) {
-        flex-basis: 40%;
-        margin: 0;
-      }
-    }
-
-    .item-content {
-      @include media-breakpoint-up(lg) {
-        flex-basis: 60%;
-      }
-    }
-  }
-}
-
-.item-content {
-  h2 {
-    font-size: 1.5rem;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-  }
-}
-
-// Blog
-// -----------------------------
-.readmore {
-  .btn {
-    display: inline-block;
-    text-align: left;
-  }
-
-  .icon-chevron-right {
-    margin-right: calc($spacer/4);
-  }
-}
-
 // Article
 // -----------------------------
 .com-content-article {
@@ -1331,18 +1211,17 @@ body {
 .px-sidebar {
   .px-module {
     .mod-title {
-      border-bottom: 1px solid var(--px-border-color);
       display: block;
+      font-family: var(--px-heading-font-family);
+      font-weight: var(--px-fw-semibold);
       font-size: 1rem;
       margin: 0 0 1rem 0;
       padding: 0;
       text-transform: uppercase;
 
       span {
-        border-bottom: 1px solid var(--px-primary);
         display: inline-block;
-        margin-bottom: -1px;
-        padding: 0 0 0.6666666667rem;
+        padding: 0;
       }
     }
   }
