@@ -400,8 +400,7 @@ p {
 }
 
 abbr[title] {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   cursor: help;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
@@ -17937,8 +17936,31 @@ ul.articles-slides {
   border-radius: 4px !important;
 }
 
+.testimonials.layout-01.testimonials {
+  overflow: hidden;
+}
+.testimonials.layout-01 .testimonial-wrapper {
+  position: relative;
+}
+.testimonials.layout-01 .testimonial-wrapper::before, .testimonials.layout-01 .testimonial-wrapper::after {
+  background: -webkit-gradient(linear, left top, right top, color-stop(20%, rgb(255, 255, 255)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to right, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 20;
+}
+.testimonials.layout-01 .testimonial-wrapper::after {
+  background: -webkit-gradient(linear, right top, left top, color-stop(20%, rgb(255, 255, 255)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to left, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 100%);
+  left: auto;
+  right: 0;
+}
 .testimonials.layout-01 .testimonial-item {
-  padding: 0 calc(var(--px-gutter-x) / 2) var(--px-gutter-x);
+  padding: 0;
 }
 .testimonials.layout-01 .testimonial-item .testimonial-item-inner {
   border-radius: var(--px-br-md);

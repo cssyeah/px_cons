@@ -72,7 +72,7 @@ $totalItems           = count((array)$items);
     <?php endif; ?>
   </div>
 
-  <div id="testimonial-wrapper-<?php echo $module->id; ?>" class="testimonial-wrapper" style="grid-template-columns: repeat(<?php echo ($totalItems <= $testimonialPerRow)?$totalItems:$testimonialPerRow; ?>, 1fr);">
+  <div id="testimonial-wrapper-<?php echo $module->id; ?>" class="testimonial-wrapper">
     <div class=" owl-carousel owl-theme">
     <?php foreach ($items as $item) { ?>
       <div class="testimonial-item slide slide-item">
@@ -136,10 +136,10 @@ $totalItems           = count((array)$items);
 <script>
   (function($) {
     jQuery(document).ready(function($) {
-      var owlTestimoniallide<?php echo $module->id; ?> = $("#testimonial-wrapper-<?php echo $module->id; ?> .owl-carousel");
-      owlTestimoniallide<?php echo $module->id; ?>.owlCarousel({
+      var owlTestimonialSlide<?php echo $module->id; ?> = $("#testimonial-wrapper-<?php echo $module->id; ?> .owl-carousel");
+      owlTestimonialSlide<?php echo $module->id; ?>.owlCarousel({
         addClassActive: true,
-        margin: 0,
+        margin: 32,
         stagePadding: 240,
         items: 3,
         loop: true,
@@ -147,7 +147,7 @@ $totalItems           = count((array)$items);
         dotsSpeed: 400,
         slideTransition: 'linear',
         autoplaySpeed: 6000,
-        dots: 1,
+        dots: 0,
         autoplay: 0,
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
@@ -162,12 +162,12 @@ $totalItems           = count((array)$items);
 
       // Go to the next item
       $('.fl-owl-next').click(function() {
-        owlTestimoniallide<?php echo $module->id; ?>.trigger('next.owl.carousel');
+        owlTestimonialSlide<?php echo $module->id; ?>.trigger('next.owl.carousel');
       })
 
       // Go to the previous item
       $('.fl-owl-prev').click(function() {
-        owlTestimoniallide<?php echo $module->id; ?>.trigger('prev.owl.carousel');
+        owlTestimonialSlide<?php echo $module->id; ?>.trigger('prev.owl.carousel');
       })
     });
 

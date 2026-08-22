@@ -72,8 +72,34 @@
 // TESTIMONIALS
 // --------------------------------------
 .testimonials.layout-01 {
+  &.testimonials {
+    overflow: hidden;
+  }
+
+  .testimonial-wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+      background: linear-gradient(to right, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 160px;
+      z-index: 20;
+    }
+
+    &::after {
+      background: linear-gradient(to left, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
+      left: auto;
+      right: 0;
+    }
+  }
+
   .testimonial-item {
-    padding: 0 calc(var(--px-gutter-x) / 2) var(--px-gutter-x);
+    padding: 0;
 
     .testimonial-item-inner {
       border-radius: var(--px-br-md);

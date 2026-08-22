@@ -74,7 +74,7 @@ $items = $styleconfig->get('client_items');
     <?php endif; ?>
   </div>
 
-  <div id="clients-wrapper-<?php echo $module->id; ?>" style="grid-template-columns: repeat(<?php echo $clientsPerRow; ?>, 1fr);">
+  <div id="clients-wrapper-<?php echo $module->id; ?>">
     <div class=" owl-carousel owl-theme">
       <?php foreach ($items as $item) { ?>
         <div class="client-item item slide slide-item">
@@ -105,15 +105,14 @@ $items = $styleconfig->get('client_items');
       var owlClientsSlide<?php echo $module->id; ?> = $("#clients-wrapper-<?php echo $module->id; ?> .owl-carousel");
       owlClientsSlide<?php echo $module->id; ?>.owlCarousel({
         addClassActive: true,
-        margin: 0,
-        stagePadding: 240,
-        items: 3,
-        loop: true,
+        margin: 32,
+        items: <?php echo $clientsPerRow; ?>,
+        loop: 1,
         nav: 0,
         dotsSpeed: 400,
         slideTransition: 'linear',
         autoplaySpeed: 6000,
-        dots: 1,
+        dots: 0,
         autoplay: 0,
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
@@ -121,8 +120,8 @@ $items = $styleconfig->get('client_items');
         smartSpeed: 1200,
         mouseDrag: false,
         navText: [
-          '<i class="fa-solid fa-chevron-left"></i>', // HTML for the previous button
-          '<i class="fa-solid fa-chevron-right"></i>' // HTML for the next button
+          '<i class="fa-solid fa-chevron-left"></i>',
+          '<i class="fa-solid fa-chevron-right"></i>'
         ]
       });
 
