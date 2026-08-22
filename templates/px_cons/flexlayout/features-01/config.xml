@@ -81,6 +81,7 @@
       <field type="spacer" name="fl-spacer-2" class="fl-sep" label="MOD_FLEX_LAYOUT_ITEM_SETTINGS" />
       <field name="feature_items" type="subform" label="Feature Item" description="" multiple="true" min="1" max="10">
         <form>
+          <field name="feature_image" type="media" label="Feature Image" description="" />
           <field name="feature_icon" type="textarea" label="Icon Class / SVG" description="" cols="40" rows="6" filter="safehtml" />
           <field name="feature_title" type="text" label="Title" description="" />
           <field name="feature_desc" type="textarea" label="Description" description="" cols="40" rows="6" filter="safehtml" />
