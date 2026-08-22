@@ -150,3 +150,36 @@
     }
   }
 }
+
+
+// CLIENTS
+// --------------------------------------
+.clients.layout-01 {
+  .slide-wrapper {
+    .slider {
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+  }
+  .client-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      filter: grayscale(100%);
+      opacity: .8;
+      max-width: 100%;
+      width: auto;
+      transition: all 0.25s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+    }
+  }
+}
